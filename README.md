@@ -1,11 +1,12 @@
 # MentorJ
 
-Features
-  Facebook Profiles and Group Pages
-    Make Posts, comments, video, images.
-  Daily videos and articles
-    Based on user preferences a User will get articles
-  https://www.reddit.com/r/MentorJ/
+Features:
+
+Facebook Profiles and Group Pages
+Make Posts, comments, video, images.
+Daily videos and articles
+Based on user preferences a User will get articles
+https://www.reddit.com/r/MentorJ/
   
 Tutorials:
 
