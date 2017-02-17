@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtusername"
+        android:hint="USER NAME or EMAIL"
+        android:gravity="center"
+        android:layout_marginTop="100dip" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtpwd"
+        android:hint="PASSWORD"
+        android:password="true"
+        android:gravity="center" />
+    <Button
+        android:text="LOGIN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnlogin" />
+<!--  ONE YOU REGISTER THE CODE PLEASE COPY AND PASTE REGISTER BUTTON THEN BUTTON WILL BE INVISIBLED-->
+<!--      android:visibility="invisible"-->
+    <Button
+        android:text="REGISTER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnregister" />
+</LinearLayout>
