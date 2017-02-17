@@ -1,7 +1,6 @@
 # MentorJ
 
 Features:
-
 Facebook Profiles and Group Pages
   Make Posts, comments, video, images.
 Daily videos and articles
