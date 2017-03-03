@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MentorJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MentorJ.dbo.tblComments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblComments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+      <PropertyRef Name="ParentID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Likes" />
+      <PropertyRef Name="Created" />
+      <PropertyRef Name="Modified" />
+    </Key>
+    <Property Name="CommentID" Type="bigint" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="PhotoID" Type="bigint" />
+    <Property Name="VideoID" Type="bigint" />
+    <Property Name="Likes" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForum">
+    <Key>
+      <PropertyRef Name="ForumID" />
+    </Key>
+    <Property Name="ForumID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WebForumLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Forum Description" Type="nvarchar(max)" />
+    <Property Name="LargePicture" Type="image" />
+    <Property Name="MediumPicture" Type="image" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFriend">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FriendID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="FriendID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="WebGroupLink" />
+      <PropertyRef Name="Created" />
+    </Key>
+    <Property Name="GroupID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="WebGroupLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LargePicture" Type="image" />
+    <Property Name="MediumPicture" Type="image" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblGroupMembers">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="GroupID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPhoto">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Name="PhotoID" Type="bigint" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Data" Type="image" Nullable="false" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPhotoAlbum">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="AlbumID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CoverPhotoID" Type="bigint" Nullable="false" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPost">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="bigint" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUserInfo">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="First Name" Type="char" MaxLength="25" />
+    <Property Name="Middle Name" Type="char" MaxLength="25" />
+    <Property Name="Last Name" Type="char" MaxLength="25" />
+    <Property Name="Sex" Type="char" MaxLength="10" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Street Address" Type="nchar" MaxLength="50" />
+    <Property Name="City" Type="nchar" MaxLength="50" />
+    <Property Name="State" Type="nchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nchar" MaxLength="50" />
+    <Property Name="Country" Type="nchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="isPremium" Type="bit" />
+    <Property Name="isMentor" Type="bit" />
+    <Property Name="isAdmin" Type="bit" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastActiveDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="AccountCreationDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedLoginAttempts" Type="bigint" />
+    <Property Name="LastFailedLoginDate" Type="datetime" />
+    <Property Name="AccountLocked" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblUserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="About" Type="nvarchar(max)" />
+    <Property Name="WebProfileLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WebPicturesOfLink" Type="nvarchar(max)" />
+    <Property Name="PictureURL" Type="nvarchar(max)" />
+    <Property Name="BigPictureURL" Type="nvarchar(max)" />
+    <Property Name="SmallPictureURL" Type="nvarchar(max)" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUserSettings">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="Notifications" Type="nchar" MaxLength="10" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblVideo">
+    <Key>
+      <PropertyRef Name="VideoID" />
+    </Key>
+    <Property Name="VideoID" Type="bigint" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Created" Type="date" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MentorJModelStoreContainer">
+    <EntitySet Name="tblForum" EntityType="Self.tblForum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFriend" EntityType="Self.tblFriend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMembers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPhoto" EntityType="Self.tblPhoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPhotoAlbum" EntityType="Self.tblPhotoAlbum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPost" EntityType="Self.tblPost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserInfo" EntityType="Self.tblUserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserProfile" EntityType="Self.tblUserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserSettings" EntityType="Self.tblUserSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVideo" EntityType="Self.tblVideo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblComments" EntityType="Self.tblComments" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblComments].[CommentID] AS [CommentID], 
+    [tblComments].[ParentID] AS [ParentID], 
+    [tblComments].[UserID] AS [UserID], 
+    [tblComments].[PhotoID] AS [PhotoID], 
+    [tblComments].[VideoID] AS [VideoID], 
+    [tblComments].[Likes] AS [Likes], 
+    [tblComments].[Description] AS [Description], 
+    [tblComments].[Created] AS [Created], 
+    [tblComments].[Modified] AS [Modified]
+    FROM [dbo].[tblComments] AS [tblComments]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblGroup" EntityType="Self.tblGroup" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblGroup].[GroupID] AS [GroupID], 
+    [tblGroup].[Name] AS [Name], 
+    [tblGroup].[Creator] AS [Creator], 
+    [tblGroup].[Description] AS [Description], 
+    [tblGroup].[WebGroupLink] AS [WebGroupLink], 
+    [tblGroup].[LargePicture] AS [LargePicture], 
+    [tblGroup].[MediumPicture] AS [MediumPicture], 
+    [tblGroup].[Created] AS [Created], 
+    [tblGroup].[Modified] AS [Modified]
+    FROM [dbo].[tblGroup] AS [tblGroup]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

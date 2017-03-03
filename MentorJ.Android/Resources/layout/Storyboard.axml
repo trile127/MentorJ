@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <LinearLayout
+      android:id="@+id/mLlayoutBottomButtons"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:orientation="vertical">
+    <TextView
+        android:text="Designed By ninetails127@gmail.com"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dip"
+        android:id="@+id/lblDashboard"
+        android:gravity="center"
+        android:textStyle="bold" />
+    <Button
+        android:text="LOG ME OUT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_reg_logout"
+        android:height="50dip"
+        android:background="#8B0000"
+        android:textSize="20dip"
+        android:textStyle="bold" />
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorJWcfService", "MentorJWcfService\MentorJWcfService.csproj", "{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorJ.Android", "MentorJ.Android\MentorJ.Android.csproj", "{1393CF21-4433-4BC0-A08A-CDDB1420833B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
