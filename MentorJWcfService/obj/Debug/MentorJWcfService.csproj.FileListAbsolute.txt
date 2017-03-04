@@ -20,4 +20,3 @@ C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\Microsoft.AI.Windows
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.dll
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.pdb
-C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache

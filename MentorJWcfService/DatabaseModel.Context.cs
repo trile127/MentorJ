@@ -25,8 +25,10 @@ namespace MentorJWcfService
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tblComment> tblComments { get; set; }
         public virtual DbSet<tblForum> tblForums { get; set; }
         public virtual DbSet<tblFriend> tblFriends { get; set; }
+        public virtual DbSet<tblGroup> tblGroups { get; set; }
         public virtual DbSet<tblGroupMember> tblGroupMembers { get; set; }
         public virtual DbSet<tblPhoto> tblPhotoes { get; set; }
         public virtual DbSet<tblPhotoAlbum> tblPhotoAlbums { get; set; }
@@ -35,7 +37,5 @@ namespace MentorJWcfService
         public virtual DbSet<tblUserProfile> tblUserProfiles { get; set; }
         public virtual DbSet<tblUserSetting> tblUserSettings { get; set; }
         public virtual DbSet<tblVideo> tblVideos { get; set; }
-        public virtual DbSet<tblComment> tblComments { get; set; }
-        public virtual DbSet<tblGroup> tblGroups { get; set; }
     }
 }

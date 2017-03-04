@@ -8,197 +8,62 @@ using System.Collections;
 
 namespace MentorJWcfService
 {
-    public partial class tblUserInfo
-    {
-       
-        
-        public static tblUserInfo ReadRecord(MentorJEntities db, int ID)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                var query = from p in context.tblUserInfoes
-                            where p.UserID == ID
-                            select p;
-                if (query != null && query.Count() > 0)
-                {
-                    return query.First();
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public static bool AddUpdateRecord(MentorJEntities db, tblUserInfo rec)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                tblUserInfo existingRec = ReadRecord(db, rec.UserID);
-                if (existingRec == null) //new record
-                    {
-                        return InsertRecord(context, rec);
-                    }
-                    else //found existing, update
-                    {
-                        return UpdateRecord(context, rec);
-                    }
-               
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-        public static bool DeleteRecord(MentorJEntities db, long ID)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                tblUserInfo existingRec = ReadRecord(context, ID);
-                if (existingRec != null) //there is a record
-                {
-                    context.tblUserInfoes.Remove(existingRec);
-                    context.SaveChangesAsync();
-                    return true;
-                }
-                return false;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public static bool InsertRecord(MentorJEntities db, tblUserInfo rec)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                tblUserInfo existingRec = ReadRecord(context, rec.UserID);
-
-                if (existingRec == null)
-                {
-                    if ( checkLoginName(context, rec) == false)  //if check fails, then username already taken.
-                    {
-                        return false;
-                    }
-                    rec.AccountCreationDate = DateTime.Now;
-                    rec.LastUpdatedDate = DateTime.Now;
-                    rec.FailedLoginAttempts = 0;
-                    rec.LastFailedLoginDate = DateTime.Now;
-
-                    context.tblUserInfoes.Add(rec);
-                    context.SaveChangesAsync();
-
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            
-        }
-
-        public static bool UpdateRecord(MentorJEntities db, tblUserInfo rec)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                tblUserInfo existingRec = ReadRecord(context, rec.UserID);
-                if (existingRec != null)
-                {
-                    rec.AccountCreationDate = DateTime.Now;
-                    rec.LastUpdatedDate = DateTime.Now;
-                    rec.FailedLoginAttempts = 0;
-                    rec.LastFailedLoginDate = DateTime.Now;
-                    Serializer.Clone<tblUserInfo>(rec, existingRec);
-                    context.SaveChangesAsync();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public static tblUserInfo ReadRecord(MentorJEntities db, long ID)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                var query = from p in context.tblUserInfoes
-                            where p.UserID == ID
-                            select p;
-                if (query != null && query.Count() > 0)
-                {
-                    return query.First();
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public static tblUserInfo ValidateLogin(MentorJEntities db, string username, string password)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                var query = from n in context.tblUserInfoes
-                            where n.UserName == username
-                            where n.Password == password
-                            select n;
-                if (query != null && query.Count() > 0)
-                {
-                    return query.First();
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public static bool checkLoginName(MentorJEntities db, tblUserInfo rec)
-        {
-            try
-            {
-                MentorJEntities context = (db == null ? new MentorJEntities() : db);
-                var query = from n in context.tblUserInfoes
-                            select n;
-                foreach (var users in query)
-                {
-                    if (users.UserName == rec.UserName)
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+    //[DataContract]
+    //public partial class tblUserInfo
+    //{
+    //    [DataMember]
+    //    public long UserID { get; set; }
+    //    [DataMember]
+    //    public string UserName { get; set; }
+    //    [DataMember]
+    //    public string Email { get; set; }
+    //    [DataMember]
+    //    public string Password { get; set; }
+    //    [DataMember]
+    //    public string First_Name { get; set; }
+    //    [DataMember]
+    //    public string Middle_Name { get; set; }
+    //    [DataMember]
+    //    public string Last_Name { get; set; }
+    //    [DataMember]
+    //    public string Sex { get; set; }
+    //    [DataMember]
+    //    public Nullable<System.DateTime> Birthday { get; set; }
+    //    [DataMember]
+    //    public Nullable<int> Age { get; set; }
+    //    [DataMember]
+    //    public string Street_Address { get; set; }
+    //    [DataMember]
+    //    public string City { get; set; }
+    //    [DataMember]
+    //    public string State { get; set; }
+    //    [DataMember]
+    //    public string ZipCode { get; set; }
+    //    [DataMember]
+    //    public string Country { get; set; }
+    //    [DataMember]
+    //    public string PhoneNumber { get; set; }
+    //    [DataMember]
+    //    public Nullable<bool> isPremium { get; set; }
+    //    [DataMember]
+    //    public Nullable<bool> isMentor { get; set; }
+    //    [DataMember]
+    //    public Nullable<bool> isAdmin { get; set; }
+    //    [DataMember]
+    //    public System.DateTime LastUpdatedDate { get; set; }
+    //    [DataMember]
+    //    public System.DateTime LastLoginDate { get; set; }
+    //    [DataMember]
+    //    public byte[] LastActiveDate { get; set; }
+    //    [DataMember]
+    //    public System.DateTime AccountCreationDate { get; set; }
+    //    [DataMember]
+    //    public Nullable<long> FailedLoginAttempts { get; set; }
+    //    [DataMember]
+    //    public Nullable<System.DateTime> LastFailedLoginDate { get; set; }
+    //    [DataMember]
+    //    public Nullable<bool> AccountLocked { get; set; }
 
 
-        }
-
-    }
+    //}
 }

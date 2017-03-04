@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorJWcfService", "MentorJWcfService\MentorJWcfService.csproj", "{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorJ.Android", "MentorJ.Android\MentorJ.Android.csproj", "{1393CF21-4433-4BC0-A08A-CDDB1420833B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorJ.Android", "MentorJ.Android\MentorJ.Android.csproj", "{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,12 @@ Global
 		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB8F0D10-65D8-43D8-93D4-5CC3AB734FA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1393CF21-4433-4BC0-A08A-CDDB1420833B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927C88CE-91C7-4933-B4E7-2AF5CB11FB37}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

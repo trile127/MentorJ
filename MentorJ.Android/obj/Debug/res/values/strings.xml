@@ -1,1 +1,1 @@
-<resources><string name="say_hello_world">Say Hello World</string><string name="get_hello_world_data">Get Hello World data</string><string name="login">Login Here!</string><string name="ApplicationName">HelloWorld.Android</string></resources>
+<resources><string name="say_hello_world">Say Hello World</string><string name="get_hello_world_data">Get Hello World data</string><string name="get_UserInfo">Get UserInfo data</string><string name="login">Login Here!</string><string name="ApplicationName">MentorJ.Android</string></resources>

@@ -1,6 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MentorJModelStoreContainer" CdmEntityContainer="MentorJEntities">
+    <EntitySetMapping Name="tblComments">
+      <EntityTypeMapping TypeName="MentorJModel.tblComment">
+        <MappingFragment StoreEntitySet="tblComments">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+          <ScalarProperty Name="Likes" ColumnName="Likes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tblForums">
       <EntityTypeMapping TypeName="MentorJModel.tblForum">
         <MappingFragment StoreEntitySet="tblForum">
@@ -20,6 +35,21 @@
         <MappingFragment StoreEntitySet="tblFriend">
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroups">
+      <EntityTypeMapping TypeName="MentorJModel.tblGroup">
+        <MappingFragment StoreEntitySet="tblGroup">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WebGroupLink" ColumnName="WebGroupLink" />
+          <ScalarProperty Name="LargePicture" ColumnName="LargePicture" />
+          <ScalarProperty Name="MediumPicture" ColumnName="MediumPicture" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -137,36 +167,6 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="Link" ColumnName="Link" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="Modified" ColumnName="Modified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblComments">
-      <EntityTypeMapping TypeName="MentorJModel.tblComment">
-        <MappingFragment StoreEntitySet="tblComments">
-          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
-          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
-          <ScalarProperty Name="VideoID" ColumnName="VideoID" />
-          <ScalarProperty Name="Likes" ColumnName="Likes" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="Modified" ColumnName="Modified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblGroups">
-      <EntityTypeMapping TypeName="MentorJModel.tblGroup">
-        <MappingFragment StoreEntitySet="tblGroup">
-          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Creator" ColumnName="Creator" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="WebGroupLink" ColumnName="WebGroupLink" />
-          <ScalarProperty Name="LargePicture" ColumnName="LargePicture" />
-          <ScalarProperty Name="MediumPicture" ColumnName="MediumPicture" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="Modified" ColumnName="Modified" />
         </MappingFragment>

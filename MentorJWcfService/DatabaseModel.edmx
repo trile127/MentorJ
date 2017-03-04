@@ -5,16 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="MentorJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MentorJ.dbo.tblComments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblComments">
           <Key>
             <PropertyRef Name="CommentID" />
-            <PropertyRef Name="ParentID" />
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="Likes" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="Modified" />
           </Key>
           <Property Name="CommentID" Type="bigint" Nullable="false" />
           <Property Name="ParentID" Type="bigint" Nullable="false" />
@@ -47,14 +40,9 @@ warning 6002: The table/view 'MentorJ.dbo.tblComments' does not have a primary k
           <Property Name="UserID" Type="bigint" Nullable="false" />
           <Property Name="FriendID" Type="bigint" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblGroup">
           <Key>
             <PropertyRef Name="GroupID" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="WebGroupLink" />
-            <PropertyRef Name="Created" />
           </Key>
           <Property Name="GroupID" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -89,7 +77,6 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
         <EntityType Name="tblPhotoAlbum">
           <Key>
             <PropertyRef Name="AlbumID" />
-            <PropertyRef Name="UserID" />
           </Key>
           <Property Name="AlbumID" Type="bigint" Nullable="false" />
           <Property Name="UserID" Type="bigint" Nullable="false" />
@@ -119,14 +106,14 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="bigint" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="First Name" Type="char" MaxLength="25" />
           <Property Name="Middle Name" Type="char" MaxLength="25" />
           <Property Name="Last Name" Type="char" MaxLength="25" />
           <Property Name="Sex" Type="char" MaxLength="10" />
-          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Birthday" Type="date" />
           <Property Name="Age" Type="int" />
           <Property Name="Street Address" Type="nchar" MaxLength="50" />
           <Property Name="City" Type="nchar" MaxLength="50" />
@@ -180,8 +167,10 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
           <Property Name="Modified" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MentorJModelStoreContainer">
+          <EntitySet Name="tblComments" EntityType="Self.tblComments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblForum" EntityType="Self.tblForum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblFriend" EntityType="Self.tblFriend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGroup" EntityType="Self.tblGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMembers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPhoto" EntityType="Self.tblPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPhotoAlbum" EntityType="Self.tblPhotoAlbum" Schema="dbo" store:Type="Tables" />
@@ -190,38 +179,26 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
           <EntitySet Name="tblUserProfile" EntityType="Self.tblUserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserSettings" EntityType="Self.tblUserSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVideo" EntityType="Self.tblVideo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblComments" EntityType="Self.tblComments" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tblComments].[CommentID] AS [CommentID], 
-    [tblComments].[ParentID] AS [ParentID], 
-    [tblComments].[UserID] AS [UserID], 
-    [tblComments].[PhotoID] AS [PhotoID], 
-    [tblComments].[VideoID] AS [VideoID], 
-    [tblComments].[Likes] AS [Likes], 
-    [tblComments].[Description] AS [Description], 
-    [tblComments].[Created] AS [Created], 
-    [tblComments].[Modified] AS [Modified]
-    FROM [dbo].[tblComments] AS [tblComments]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tblGroup" EntityType="Self.tblGroup" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tblGroup].[GroupID] AS [GroupID], 
-    [tblGroup].[Name] AS [Name], 
-    [tblGroup].[Creator] AS [Creator], 
-    [tblGroup].[Description] AS [Description], 
-    [tblGroup].[WebGroupLink] AS [WebGroupLink], 
-    [tblGroup].[LargePicture] AS [LargePicture], 
-    [tblGroup].[MediumPicture] AS [MediumPicture], 
-    [tblGroup].[Created] AS [Created], 
-    [tblGroup].[Modified] AS [Modified]
-    FROM [dbo].[tblGroup] AS [tblGroup]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MentorJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblComment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int64" Nullable="false" />
+          <Property Name="ParentID" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="PhotoID" Type="Int64" />
+          <Property Name="VideoID" Type="Int64" />
+          <Property Name="Likes" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="tblForum">
           <Key>
             <PropertyRef Name="ForumID" />
@@ -242,6 +219,20 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
           </Key>
           <Property Name="UserID" Type="Int64" Nullable="false" />
           <Property Name="FriendID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WebGroupLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LargePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MediumPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="tblGroupMember">
           <Key>
@@ -266,7 +257,6 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
         <EntityType Name="tblPhotoAlbum">
           <Key>
             <PropertyRef Name="AlbumID" />
-            <PropertyRef Name="UserID" />
           </Key>
           <Property Name="AlbumID" Type="Int64" Nullable="false" />
           <Property Name="UserID" Type="Int64" Nullable="false" />
@@ -296,14 +286,14 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int64" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="First_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
           <Property Name="Middle_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
           <Property Name="Last_Name" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
           <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
           <Property Name="Age" Type="Int32" />
           <Property Name="Street_Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
@@ -356,55 +346,19 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="tblComment">
-          <Key>
-            <PropertyRef Name="CommentID" />
-            <PropertyRef Name="ParentID" />
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="Likes" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="Modified" />
-          </Key>
-          <Property Name="CommentID" Type="Int64" Nullable="false" />
-          <Property Name="ParentID" Type="Int64" Nullable="false" />
-          <Property Name="UserID" Type="Int64" Nullable="false" />
-          <Property Name="PhotoID" Type="Int64" />
-          <Property Name="VideoID" Type="Int64" />
-          <Property Name="Likes" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="tblGroup">
-          <Key>
-            <PropertyRef Name="GroupID" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="WebGroupLink" />
-            <PropertyRef Name="Created" />
-          </Key>
-          <Property Name="GroupID" Type="Int64" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="WebGroupLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LargePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MediumPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Modified" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityContainer Name="MentorJEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblComments" EntityType="Self.tblComment" />
           <EntitySet Name="tblForums" EntityType="Self.tblForum" />
           <EntitySet Name="tblFriends" EntityType="Self.tblFriend" />
+          <EntitySet Name="tblGroups" EntityType="Self.tblGroup" />
           <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMember" />
           <EntitySet Name="tblPhotoes" EntityType="Self.tblPhoto" />
           <EntitySet Name="tblPhotoAlbums" EntityType="Self.tblPhotoAlbum" />
           <EntitySet Name="tblPosts" EntityType="Self.tblPost" />
-          <EntitySet Name="tblUserInfoes" EntityType="Self.tblUserInfo" />
+          <EntitySet Name="tblUserInfoes" EntityType="MentorJModel.tblUserInfo" />
           <EntitySet Name="tblUserProfiles" EntityType="Self.tblUserProfile" />
           <EntitySet Name="tblUserSettings" EntityType="Self.tblUserSetting" />
           <EntitySet Name="tblVideos" EntityType="Self.tblVideo" />
-          <EntitySet Name="tblComments" EntityType="Self.tblComment" />
-          <EntitySet Name="tblGroups" EntityType="Self.tblGroup" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -412,6 +366,21 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MentorJModelStoreContainer" CdmEntityContainer="MentorJEntities">
+          <EntitySetMapping Name="tblComments">
+            <EntityTypeMapping TypeName="MentorJModel.tblComment">
+              <MappingFragment StoreEntitySet="tblComments">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblForums">
             <EntityTypeMapping TypeName="MentorJModel.tblForum">
               <MappingFragment StoreEntitySet="tblForum">
@@ -431,6 +400,21 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
               <MappingFragment StoreEntitySet="tblFriend">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGroups">
+            <EntityTypeMapping TypeName="MentorJModel.tblGroup">
+              <MappingFragment StoreEntitySet="tblGroup">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="WebGroupLink" ColumnName="WebGroupLink" />
+                <ScalarProperty Name="LargePicture" ColumnName="LargePicture" />
+                <ScalarProperty Name="MediumPicture" ColumnName="MediumPicture" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -548,36 +532,6 @@ warning 6002: The table/view 'MentorJ.dbo.tblGroup' does not have a primary key 
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblComments">
-            <EntityTypeMapping TypeName="MentorJModel.tblComment">
-              <MappingFragment StoreEntitySet="tblComments">
-                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
-                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
-                <ScalarProperty Name="Likes" ColumnName="Likes" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblGroups">
-            <EntityTypeMapping TypeName="MentorJModel.tblGroup">
-              <MappingFragment StoreEntitySet="tblGroup">
-                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="WebGroupLink" ColumnName="WebGroupLink" />
-                <ScalarProperty Name="LargePicture" ColumnName="LargePicture" />
-                <ScalarProperty Name="MediumPicture" ColumnName="MediumPicture" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Modified" ColumnName="Modified" />
               </MappingFragment>
