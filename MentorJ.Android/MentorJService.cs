@@ -40,7 +40,7 @@ namespace MentorJWcfService
         
         private string First_NameField;
         
-        private byte[] LastActiveDateField;
+        private System.DateTime LastActiveDateField;
         
         private System.Nullable<System.DateTime> LastFailedLoginDateField;
         
@@ -192,7 +192,7 @@ namespace MentorJWcfService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] LastActiveDate
+        public System.DateTime LastActiveDate
         {
             get
             {
@@ -450,10 +450,20 @@ public interface IMentorJService
     
     MentorJWcfService.tblUserInfo EndValidateLogin(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/checkLoginName", ReplyAction="http://tempuri.org/IMentorJService/checkLoginNameResponse")]
-    System.IAsyncResult BegincheckLoginName(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/isUserNameTaken", ReplyAction="http://tempuri.org/IMentorJService/isUserNameTakenResponse")]
+    System.IAsyncResult BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndcheckLoginName(System.IAsyncResult result);
+    bool EndisUserNameTaken(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/isEmailTaken", ReplyAction="http://tempuri.org/IMentorJService/isEmailTakenResponse")]
+    System.IAsyncResult BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    
+    bool EndisEmailTaken(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/assignUserID", ReplyAction="http://tempuri.org/IMentorJService/assignUserIDResponse")]
+    System.IAsyncResult BeginassignUserID(System.AsyncCallback callback, object asyncState);
+    
+    long EndassignUserID(System.IAsyncResult result);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -601,12 +611,12 @@ public partial class ValidateLoginCompletedEventArgs : System.ComponentModel.Asy
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class checkLoginNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class isUserNameTakenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public checkLoginNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public isUserNameTakenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -618,6 +628,52 @@ public partial class checkLoginNameCompletedEventArgs : System.ComponentModel.As
         {
             base.RaiseExceptionIfNecessary();
             return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class isEmailTakenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public isEmailTakenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class assignUserIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public assignUserIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public long Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((long)(this.results[0]));
         }
     }
 }
@@ -663,11 +719,23 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
     
     private System.Threading.SendOrPostCallback onValidateLoginCompletedDelegate;
     
-    private BeginOperationDelegate onBegincheckLoginNameDelegate;
+    private BeginOperationDelegate onBeginisUserNameTakenDelegate;
     
-    private EndOperationDelegate onEndcheckLoginNameDelegate;
+    private EndOperationDelegate onEndisUserNameTakenDelegate;
     
-    private System.Threading.SendOrPostCallback oncheckLoginNameCompletedDelegate;
+    private System.Threading.SendOrPostCallback onisUserNameTakenCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginisEmailTakenDelegate;
+    
+    private EndOperationDelegate onEndisEmailTakenDelegate;
+    
+    private System.Threading.SendOrPostCallback onisEmailTakenCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginassignUserIDDelegate;
+    
+    private EndOperationDelegate onEndassignUserIDDelegate;
+    
+    private System.Threading.SendOrPostCallback onassignUserIDCompletedDelegate;
     
     private BeginOperationDelegate onBeginOpenDelegate;
     
@@ -746,7 +814,11 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
     
     public event System.EventHandler<ValidateLoginCompletedEventArgs> ValidateLoginCompleted;
     
-    public event System.EventHandler<checkLoginNameCompletedEventArgs> checkLoginNameCompleted;
+    public event System.EventHandler<isUserNameTakenCompletedEventArgs> isUserNameTakenCompleted;
+    
+    public event System.EventHandler<isEmailTakenCompletedEventArgs> isEmailTakenCompleted;
+    
+    public event System.EventHandler<assignUserIDCompletedEventArgs> assignUserIDCompleted;
     
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
     
@@ -1097,60 +1169,172 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BegincheckLoginName(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJService.BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BegincheckLoginName(rec, callback, asyncState);
+        return base.Channel.BeginisUserNameTaken(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndcheckLoginName(System.IAsyncResult result)
+    bool IMentorJService.EndisUserNameTaken(System.IAsyncResult result)
     {
-        return base.Channel.EndcheckLoginName(result);
+        return base.Channel.EndisUserNameTaken(result);
     }
     
-    private System.IAsyncResult OnBegincheckLoginName(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginisUserNameTaken(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BegincheckLoginName(rec, callback, asyncState);
+        return ((IMentorJService)(this)).BeginisUserNameTaken(rec, callback, asyncState);
     }
     
-    private object[] OnEndcheckLoginName(System.IAsyncResult result)
+    private object[] OnEndisUserNameTaken(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndcheckLoginName(result);
+        bool retVal = ((IMentorJService)(this)).EndisUserNameTaken(result);
         return new object[] {
                 retVal};
     }
     
-    private void OncheckLoginNameCompleted(object state)
+    private void OnisUserNameTakenCompleted(object state)
     {
-        if ((this.checkLoginNameCompleted != null))
+        if ((this.isUserNameTakenCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.checkLoginNameCompleted(this, new checkLoginNameCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.isUserNameTakenCompleted(this, new isUserNameTakenCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void checkLoginNameAsync(MentorJWcfService.tblUserInfo rec)
+    public void isUserNameTakenAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.checkLoginNameAsync(rec, null);
+        this.isUserNameTakenAsync(rec, null);
     }
     
-    public void checkLoginNameAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void isUserNameTakenAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBegincheckLoginNameDelegate == null))
+        if ((this.onBeginisUserNameTakenDelegate == null))
         {
-            this.onBegincheckLoginNameDelegate = new BeginOperationDelegate(this.OnBegincheckLoginName);
+            this.onBeginisUserNameTakenDelegate = new BeginOperationDelegate(this.OnBeginisUserNameTaken);
         }
-        if ((this.onEndcheckLoginNameDelegate == null))
+        if ((this.onEndisUserNameTakenDelegate == null))
         {
-            this.onEndcheckLoginNameDelegate = new EndOperationDelegate(this.OnEndcheckLoginName);
+            this.onEndisUserNameTakenDelegate = new EndOperationDelegate(this.OnEndisUserNameTaken);
         }
-        if ((this.oncheckLoginNameCompletedDelegate == null))
+        if ((this.onisUserNameTakenCompletedDelegate == null))
         {
-            this.oncheckLoginNameCompletedDelegate = new System.Threading.SendOrPostCallback(this.OncheckLoginNameCompleted);
+            this.onisUserNameTakenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisUserNameTakenCompleted);
         }
-        base.InvokeAsync(this.onBegincheckLoginNameDelegate, new object[] {
-                    rec}, this.onEndcheckLoginNameDelegate, this.oncheckLoginNameCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginisUserNameTakenDelegate, new object[] {
+                    rec}, this.onEndisUserNameTakenDelegate, this.onisUserNameTakenCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJService.BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginisEmailTaken(rec, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJService.EndisEmailTaken(System.IAsyncResult result)
+    {
+        return base.Channel.EndisEmailTaken(result);
+    }
+    
+    private System.IAsyncResult OnBeginisEmailTaken(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
+        return ((IMentorJService)(this)).BeginisEmailTaken(rec, callback, asyncState);
+    }
+    
+    private object[] OnEndisEmailTaken(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJService)(this)).EndisEmailTaken(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnisEmailTakenCompleted(object state)
+    {
+        if ((this.isEmailTakenCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.isEmailTakenCompleted(this, new isEmailTakenCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void isEmailTakenAsync(MentorJWcfService.tblUserInfo rec)
+    {
+        this.isEmailTakenAsync(rec, null);
+    }
+    
+    public void isEmailTakenAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    {
+        if ((this.onBeginisEmailTakenDelegate == null))
+        {
+            this.onBeginisEmailTakenDelegate = new BeginOperationDelegate(this.OnBeginisEmailTaken);
+        }
+        if ((this.onEndisEmailTakenDelegate == null))
+        {
+            this.onEndisEmailTakenDelegate = new EndOperationDelegate(this.OnEndisEmailTaken);
+        }
+        if ((this.onisEmailTakenCompletedDelegate == null))
+        {
+            this.onisEmailTakenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisEmailTakenCompleted);
+        }
+        base.InvokeAsync(this.onBeginisEmailTakenDelegate, new object[] {
+                    rec}, this.onEndisEmailTakenDelegate, this.onisEmailTakenCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJService.BeginassignUserID(System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginassignUserID(callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    long IMentorJService.EndassignUserID(System.IAsyncResult result)
+    {
+        return base.Channel.EndassignUserID(result);
+    }
+    
+    private System.IAsyncResult OnBeginassignUserID(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((IMentorJService)(this)).BeginassignUserID(callback, asyncState);
+    }
+    
+    private object[] OnEndassignUserID(System.IAsyncResult result)
+    {
+        long retVal = ((IMentorJService)(this)).EndassignUserID(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnassignUserIDCompleted(object state)
+    {
+        if ((this.assignUserIDCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.assignUserIDCompleted(this, new assignUserIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void assignUserIDAsync()
+    {
+        this.assignUserIDAsync(null);
+    }
+    
+    public void assignUserIDAsync(object userState)
+    {
+        if ((this.onBeginassignUserIDDelegate == null))
+        {
+            this.onBeginassignUserIDDelegate = new BeginOperationDelegate(this.OnBeginassignUserID);
+        }
+        if ((this.onEndassignUserIDDelegate == null))
+        {
+            this.onEndassignUserIDDelegate = new EndOperationDelegate(this.OnEndassignUserID);
+        }
+        if ((this.onassignUserIDCompletedDelegate == null))
+        {
+            this.onassignUserIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnassignUserIDCompleted);
+        }
+        base.InvokeAsync(this.onBeginassignUserIDDelegate, null, this.onEndassignUserIDDelegate, this.onassignUserIDCompletedDelegate, userState);
     }
     
     private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
@@ -1341,18 +1525,47 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
             return _result;
         }
         
-        public System.IAsyncResult BegincheckLoginName(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("checkLoginName", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("isUserNameTaken", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndcheckLoginName(System.IAsyncResult result)
+        public bool EndisUserNameTaken(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("checkLoginName", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("isUserNameTaken", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = rec;
+            System.IAsyncResult _result = base.BeginInvoke("isEmailTaken", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndisEmailTaken(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("isEmailTaken", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginassignUserID(System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[0];
+            System.IAsyncResult _result = base.BeginInvoke("assignUserID", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public long EndassignUserID(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            long _result = ((long)(base.EndInvoke("assignUserID", _args, result)));
             return _result;
         }
     }

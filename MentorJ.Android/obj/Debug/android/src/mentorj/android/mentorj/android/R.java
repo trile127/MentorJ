@@ -26,11 +26,11 @@ public final class R {
         public static final int mLlayoutBottomButtons=0x7f05000e;
         public static final int sayHelloWorldButton=0x7f050005;
         public static final int sayHelloWorldTextView=0x7f050006;
+        public static final int txt_email=0x7f050000;
+        public static final int txt_pwd=0x7f050001;
         public static final int txt_reg_email=0x7f05000a;
         public static final int txt_reg_password=0x7f05000b;
         public static final int txt_reg_username=0x7f050009;
-        public static final int txtpwd=0x7f050001;
-        public static final int txtusername=0x7f050000;
     }
     public static final class layout {
         public static final int login=0x7f030000;

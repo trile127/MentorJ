@@ -96,6 +96,12 @@ namespace MentorJ.Android
 			// aapt resource value: 0x7f050006
 			public const int sayHelloWorldTextView = 2131034118;
 			
+			// aapt resource value: 0x7f050000
+			public const int txt_email = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int txt_pwd = 2131034113;
+			
 			// aapt resource value: 0x7f05000a
 			public const int txt_reg_email = 2131034122;
 			
@@ -104,12 +110,6 @@ namespace MentorJ.Android
 			
 			// aapt resource value: 0x7f050009
 			public const int txt_reg_username = 2131034121;
-			
-			// aapt resource value: 0x7f050001
-			public const int txtpwd = 2131034113;
-			
-			// aapt resource value: 0x7f050000
-			public const int txtusername = 2131034112;
 			
 			static Id()
 			{

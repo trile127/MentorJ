@@ -30,7 +30,10 @@ namespace MentorJWcfService
         [OperationContract]
         tblUserInfo ValidateLogin(string username, string password);
         [OperationContract]
-        bool checkLoginName(tblUserInfo rec);
-
+        bool isUserNameTaken(tblUserInfo rec);
+        [OperationContract]
+        bool isEmailTaken(tblUserInfo rec);
+        [OperationContract]
+        long assignUserID();
     }
 }

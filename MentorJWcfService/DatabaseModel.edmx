@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MentorJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MentorJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblComments">
           <Key>
             <PropertyRef Name="CommentID" />
@@ -126,7 +126,7 @@
           <Property Name="isAdmin" Type="bit" />
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
           <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
-          <Property Name="LastActiveDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="LastActiveDate" Type="datetime" Nullable="false" />
           <Property Name="AccountCreationDate" Type="datetime" Nullable="false" />
           <Property Name="FailedLoginAttempts" Type="bigint" />
           <Property Name="LastFailedLoginDate" Type="datetime" />
@@ -180,8 +180,7 @@
           <EntitySet Name="tblUserSettings" EntityType="Self.tblUserSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVideo" EntityType="Self.tblVideo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MentorJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -306,7 +305,7 @@
           <Property Name="isAdmin" Type="Boolean" />
           <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastActiveDate" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastActiveDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" Precision="3" />
           <Property Name="AccountCreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FailedLoginAttempts" Type="Int64" />
           <Property Name="LastFailedLoginDate" Type="DateTime" Precision="3" />

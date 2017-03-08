@@ -54,5 +54,6 @@ C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\android\assets\S
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\android\assets\System.ServiceModel.Web.dll.mdb
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\MentorJ.Android.csprojResolveAssemblyReference.cache
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\obj\Debug\MentorJ.Android.dll.mdb
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJ.Android\bin\Debug\MentorJ.Android.dll.mdb

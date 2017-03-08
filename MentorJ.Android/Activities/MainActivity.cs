@@ -16,6 +16,7 @@ namespace MentorJ.Android
 {
     [Activity(Label = "MentorJ.Android", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
+
     {
         public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
 
@@ -95,9 +96,9 @@ namespace MentorJ.Android
 
         private void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
-        //    Intent n = new Intent(this, typeof(LoginActivity));
-        //    StartActivity(n);
-        //    Finish();
+            Intent n = new Intent(this, typeof(LoginActivity));
+            StartActivity(n);
+            Finish();
 
         }
 

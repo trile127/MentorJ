@@ -152,7 +152,11 @@ namespace MentorJWcfService
 
                 if (existingRec == null)
                 {
-                    if (checkLoginName(rec) == false)  //if check fails, then username already taken.
+                    if (isUserNameTaken(rec) == true)  //if check fails, then username already taken.
+                    {
+                        return false;
+                    }
+                    if (isEmailTaken(rec) == true)  //if check fails, then username already taken.
                     {
                         return false;
                     }
@@ -248,7 +252,7 @@ namespace MentorJWcfService
 
         }
 
-        public bool checkLoginName(tblUserInfo rec)
+        public bool isUserNameTaken(tblUserInfo rec)
         {
             try
             {
@@ -259,17 +263,57 @@ namespace MentorJWcfService
                 {
                     if (users.UserName == rec.UserName)
                     {
-                        return false;
+                        return true;
                     }
                 }
-                return true;
+                return false;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public bool isEmailTaken(tblUserInfo rec)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                var query = from n in context.tblUserInfoes
+                            select n;
+                foreach (var users in query)
+                {
+                    if (users.Email == rec.Email)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
+
+        public long assignUserID()
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                var item = context.tblUserInfoes.OrderByDescending(i => i.UserID).FirstOrDefault();
+                if (item != null)
+                {
+                    return item.UserID + 1;
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

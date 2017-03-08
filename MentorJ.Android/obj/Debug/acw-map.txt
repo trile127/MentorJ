@@ -1,4 +1,16 @@
+MentorJ.Android.LoginActivity, MentorJ.Android;md5523a6da226e7c08c3074140aab76c230.LoginActivity
+MentorJ.Android.LoginActivity, MentorJ.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5523a6da226e7c08c3074140aab76c230.LoginActivity
+MentorJ.Android.LoginActivity;md5523a6da226e7c08c3074140aab76c230.LoginActivity
+mentorj.android.LoginActivity;md5523a6da226e7c08c3074140aab76c230.LoginActivity
 MentorJ.Android.MainActivity, MentorJ.Android;md5523a6da226e7c08c3074140aab76c230.MainActivity
 MentorJ.Android.MainActivity, MentorJ.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5523a6da226e7c08c3074140aab76c230.MainActivity
 MentorJ.Android.MainActivity;md5523a6da226e7c08c3074140aab76c230.MainActivity
 mentorj.android.MainActivity;md5523a6da226e7c08c3074140aab76c230.MainActivity
+MentorJ.Android.RegisterActivity, MentorJ.Android;md5523a6da226e7c08c3074140aab76c230.RegisterActivity
+MentorJ.Android.RegisterActivity, MentorJ.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5523a6da226e7c08c3074140aab76c230.RegisterActivity
+MentorJ.Android.RegisterActivity;md5523a6da226e7c08c3074140aab76c230.RegisterActivity
+mentorj.android.RegisterActivity;md5523a6da226e7c08c3074140aab76c230.RegisterActivity
+MentorJ.Android.StoryBoardCode, MentorJ.Android;md5523a6da226e7c08c3074140aab76c230.StoryBoardCode
+MentorJ.Android.StoryBoardCode, MentorJ.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5523a6da226e7c08c3074140aab76c230.StoryBoardCode
+MentorJ.Android.StoryBoardCode;md5523a6da226e7c08c3074140aab76c230.StoryBoardCode
+mentorj.android.StoryBoardCode;md5523a6da226e7c08c3074140aab76c230.StoryBoardCode

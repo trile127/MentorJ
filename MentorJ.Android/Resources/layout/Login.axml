@@ -6,14 +6,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtusername"
-        android:hint="USER NAME or EMAIL"
+        android:id="@+id/txt_email"
+        android:hint="EMAIL"
         android:gravity="center"
         android:layout_marginTop="100dip" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtpwd"
+        android:id="@+id/txt_pwd"
         android:hint="PASSWORD"
         android:password="true"
         android:gravity="center" />

@@ -121,7 +121,7 @@
     <Property Name="isAdmin" Type="bit" />
     <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
     <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
-    <Property Name="LastActiveDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="LastActiveDate" Type="datetime" Nullable="false" />
     <Property Name="AccountCreationDate" Type="datetime" Nullable="false" />
     <Property Name="FailedLoginAttempts" Type="bigint" />
     <Property Name="LastFailedLoginDate" Type="datetime" />

@@ -6,6 +6,8 @@ using System.Reflection;
 
 namespace MentorJ.Android.Utilities
 {
+
+    
     public class Serializer
     {
 

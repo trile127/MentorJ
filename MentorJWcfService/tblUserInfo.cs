@@ -35,7 +35,7 @@ namespace MentorJWcfService
         public Nullable<bool> isAdmin { get; set; }
         public System.DateTime LastUpdatedDate { get; set; }
         public System.DateTime LastLoginDate { get; set; }
-        public byte[] LastActiveDate { get; set; }
+        public System.DateTime LastActiveDate { get; set; }
         public System.DateTime AccountCreationDate { get; set; }
         public Nullable<long> FailedLoginAttempts { get; set; }
         public Nullable<System.DateTime> LastFailedLoginDate { get; set; }

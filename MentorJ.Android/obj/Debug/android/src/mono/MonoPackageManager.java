@@ -105,20 +105,6 @@ class MonoPackageManager_Resources {
 		"SQLitePCLRaw.core.dll",
 		"SQLitePCLRaw.lib.e_sqlite3.dll",
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
-		"System.Threading.dll",
-		"System.Runtime.dll",
-		"System.Collections.dll",
-		"System.Collections.Concurrent.dll",
-		"System.Diagnostics.Debug.dll",
-		"System.Reflection.dll",
-		"System.Linq.dll",
-		"System.Runtime.InteropServices.dll",
-		"System.Runtime.Extensions.dll",
-		"System.Reflection.Extensions.dll",
-		"System.Linq.Expressions.dll",
-		"System.Globalization.dll",
-		"System.Threading.Tasks.dll",
-		"System.Resources.ResourceManager.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};
