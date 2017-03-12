@@ -140,6 +140,7 @@
           <Property Name="About" Type="nvarchar(max)" />
           <Property Name="WebProfileLink" Type="nvarchar(max)" Nullable="false" />
           <Property Name="WebPicturesOfLink" Type="nvarchar(max)" />
+          <Property Name="PictureData" Type="image" />
           <Property Name="PictureURL" Type="nvarchar(max)" />
           <Property Name="BigPictureURL" Type="nvarchar(max)" />
           <Property Name="SmallPictureURL" Type="nvarchar(max)" />
@@ -323,6 +324,7 @@
           <Property Name="BigPictureURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SmallPictureURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PictureData" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tblUserSetting">
           <Key>
@@ -502,6 +504,7 @@
           <EntitySetMapping Name="tblUserProfiles">
             <EntityTypeMapping TypeName="MentorJModel.tblUserProfile">
               <MappingFragment StoreEntitySet="tblUserProfile">
+                <ScalarProperty Name="PictureData" ColumnName="PictureData" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="About" ColumnName="About" />
                 <ScalarProperty Name="WebProfileLink" ColumnName="WebProfileLink" />

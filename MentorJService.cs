@@ -412,73 +412,215 @@ namespace MentorJWcfService
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblUserProfile", Namespace="http://schemas.datacontract.org/2004/07/MentorJWcfService")]
+    public partial class tblUserProfile : object
+    {
+        
+        private string AboutField;
+        
+        private string BigPictureURLField;
+        
+        private System.DateTime ModifiedField;
+        
+        private byte[] PictureDataField;
+        
+        private string PictureURLField;
+        
+        private string SmallPictureURLField;
+        
+        private long UserIDField;
+        
+        private string WebPicturesOfLinkField;
+        
+        private string WebProfileLinkField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string About
+        {
+            get
+            {
+                return this.AboutField;
+            }
+            set
+            {
+                this.AboutField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BigPictureURL
+        {
+            get
+            {
+                return this.BigPictureURLField;
+            }
+            set
+            {
+                this.BigPictureURLField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Modified
+        {
+            get
+            {
+                return this.ModifiedField;
+            }
+            set
+            {
+                this.ModifiedField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] PictureData
+        {
+            get
+            {
+                return this.PictureDataField;
+            }
+            set
+            {
+                this.PictureDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PictureURL
+        {
+            get
+            {
+                return this.PictureURLField;
+            }
+            set
+            {
+                this.PictureURLField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SmallPictureURL
+        {
+            get
+            {
+                return this.SmallPictureURLField;
+            }
+            set
+            {
+                this.SmallPictureURLField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WebPicturesOfLink
+        {
+            get
+            {
+                return this.WebPicturesOfLinkField;
+            }
+            set
+            {
+                this.WebPicturesOfLinkField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WebProfileLink
+        {
+            get
+            {
+                return this.WebProfileLinkField;
+            }
+            set
+            {
+                this.WebProfileLinkField = value;
+            }
+        }
+    }
 }
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IMentorJService")]
-public interface IMentorJService
+[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IMentorJInfoService")]
+public interface IMentorJInfoService
 {
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/ReadRecord", ReplyAction="http://tempuri.org/IMentorJService/ReadRecordResponse")]
-    System.IAsyncResult BeginReadRecord(long ID, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/ReadRecord_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/ReadRecord_UserInfoResponse")]
+    System.IAsyncResult BeginReadRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState);
     
-    MentorJWcfService.tblUserInfo EndReadRecord(System.IAsyncResult result);
+    MentorJWcfService.tblUserInfo EndReadRecord_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/AddUpdateRecord", ReplyAction="http://tempuri.org/IMentorJService/AddUpdateRecordResponse")]
-    System.IAsyncResult BeginAddUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/AddUpdateRecord_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/AddUpdateRecord_UserInfoResponse")]
+    System.IAsyncResult BeginAddUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndAddUpdateRecord(System.IAsyncResult result);
+    bool EndAddUpdateRecord_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/InsertRecord", ReplyAction="http://tempuri.org/IMentorJService/InsertRecordResponse")]
-    System.IAsyncResult BeginInsertRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/InsertRecord_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/InsertRecord_UserInfoResponse")]
+    System.IAsyncResult BeginInsertRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndInsertRecord(System.IAsyncResult result);
+    bool EndInsertRecord_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/DeleteRecord", ReplyAction="http://tempuri.org/IMentorJService/DeleteRecordResponse")]
-    System.IAsyncResult BeginDeleteRecord(long ID, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/DeleteRecord_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/DeleteRecord_UserInfoResponse")]
+    System.IAsyncResult BeginDeleteRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState);
     
-    bool EndDeleteRecord(System.IAsyncResult result);
+    bool EndDeleteRecord_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/UpdateRecord", ReplyAction="http://tempuri.org/IMentorJService/UpdateRecordResponse")]
-    System.IAsyncResult BeginUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/UpdateRecord_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/UpdateRecord_UserInfoResponse")]
+    System.IAsyncResult BeginUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndUpdateRecord(System.IAsyncResult result);
+    bool EndUpdateRecord_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/ValidateLogin", ReplyAction="http://tempuri.org/IMentorJService/ValidateLoginResponse")]
-    System.IAsyncResult BeginValidateLogin(string username, string password, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/ValidateLogin_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/ValidateLogin_UserInfoResponse")]
+    System.IAsyncResult BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState);
     
-    MentorJWcfService.tblUserInfo EndValidateLogin(System.IAsyncResult result);
+    MentorJWcfService.tblUserInfo EndValidateLogin_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/isUserNameTaken", ReplyAction="http://tempuri.org/IMentorJService/isUserNameTakenResponse")]
-    System.IAsyncResult BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/isUserNameTaken_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/isUserNameTaken_UserInfoResponse")]
+    System.IAsyncResult BeginisUserNameTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndisUserNameTaken(System.IAsyncResult result);
+    bool EndisUserNameTaken_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/isEmailTaken", ReplyAction="http://tempuri.org/IMentorJService/isEmailTakenResponse")]
-    System.IAsyncResult BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/isEmailTaken_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/isEmailTaken_UserInfoResponse")]
+    System.IAsyncResult BeginisEmailTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState);
     
-    bool EndisEmailTaken(System.IAsyncResult result);
+    bool EndisEmailTaken_UserInfo(System.IAsyncResult result);
     
-    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJService/assignUserID", ReplyAction="http://tempuri.org/IMentorJService/assignUserIDResponse")]
-    System.IAsyncResult BeginassignUserID(System.AsyncCallback callback, object asyncState);
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/assignUserID_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/assignUserID_UserInfoResponse")]
+    System.IAsyncResult BeginassignUserID_UserInfo(System.AsyncCallback callback, object asyncState);
     
-    long EndassignUserID(System.IAsyncResult result);
+    long EndassignUserID_UserInfo(System.IAsyncResult result);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public interface IMentorJServiceChannel : IMentorJService, System.ServiceModel.IClientChannel
+public interface IMentorJInfoServiceChannel : IMentorJInfoService, System.ServiceModel.IClientChannel
 {
 }
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class ReadRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class ReadRecord_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public ReadRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public ReadRecord_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -496,12 +638,12 @@ public partial class ReadRecordCompletedEventArgs : System.ComponentModel.AsyncC
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class AddUpdateRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class AddUpdateRecord_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public AddUpdateRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public AddUpdateRecord_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -519,12 +661,12 @@ public partial class AddUpdateRecordCompletedEventArgs : System.ComponentModel.A
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class InsertRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class InsertRecord_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public InsertRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public InsertRecord_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -542,12 +684,12 @@ public partial class InsertRecordCompletedEventArgs : System.ComponentModel.Asyn
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class DeleteRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class DeleteRecord_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public DeleteRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public DeleteRecord_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -565,12 +707,12 @@ public partial class DeleteRecordCompletedEventArgs : System.ComponentModel.Asyn
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class UpdateRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class UpdateRecord_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public UpdateRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public UpdateRecord_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -588,12 +730,12 @@ public partial class UpdateRecordCompletedEventArgs : System.ComponentModel.Asyn
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class ValidateLoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class ValidateLogin_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public ValidateLoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public ValidateLogin_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -611,12 +753,12 @@ public partial class ValidateLoginCompletedEventArgs : System.ComponentModel.Asy
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class isUserNameTakenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class isUserNameTaken_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public isUserNameTakenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public isUserNameTaken_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -634,12 +776,12 @@ public partial class isUserNameTakenCompletedEventArgs : System.ComponentModel.A
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class isEmailTakenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class isEmailTaken_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public isEmailTakenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public isEmailTaken_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -657,12 +799,12 @@ public partial class isEmailTakenCompletedEventArgs : System.ComponentModel.Asyn
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class assignUserIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+public partial class assignUserID_UserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
 {
     
     private object[] results;
     
-    public assignUserIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+    public assignUserID_UserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
             base(exception, cancelled, userState)
     {
         this.results = results;
@@ -680,62 +822,62 @@ public partial class assignUserIDCompletedEventArgs : System.ComponentModel.Asyn
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMentorJService>, IMentorJService
+public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<IMentorJInfoService>, IMentorJInfoService
 {
     
-    private BeginOperationDelegate onBeginReadRecordDelegate;
+    private BeginOperationDelegate onBeginReadRecord_UserInfoDelegate;
     
-    private EndOperationDelegate onEndReadRecordDelegate;
+    private EndOperationDelegate onEndReadRecord_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onReadRecordCompletedDelegate;
+    private System.Threading.SendOrPostCallback onReadRecord_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginAddUpdateRecordDelegate;
+    private BeginOperationDelegate onBeginAddUpdateRecord_UserInfoDelegate;
     
-    private EndOperationDelegate onEndAddUpdateRecordDelegate;
+    private EndOperationDelegate onEndAddUpdateRecord_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onAddUpdateRecordCompletedDelegate;
+    private System.Threading.SendOrPostCallback onAddUpdateRecord_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginInsertRecordDelegate;
+    private BeginOperationDelegate onBeginInsertRecord_UserInfoDelegate;
     
-    private EndOperationDelegate onEndInsertRecordDelegate;
+    private EndOperationDelegate onEndInsertRecord_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onInsertRecordCompletedDelegate;
+    private System.Threading.SendOrPostCallback onInsertRecord_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginDeleteRecordDelegate;
+    private BeginOperationDelegate onBeginDeleteRecord_UserInfoDelegate;
     
-    private EndOperationDelegate onEndDeleteRecordDelegate;
+    private EndOperationDelegate onEndDeleteRecord_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onDeleteRecordCompletedDelegate;
+    private System.Threading.SendOrPostCallback onDeleteRecord_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginUpdateRecordDelegate;
+    private BeginOperationDelegate onBeginUpdateRecord_UserInfoDelegate;
     
-    private EndOperationDelegate onEndUpdateRecordDelegate;
+    private EndOperationDelegate onEndUpdateRecord_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onUpdateRecordCompletedDelegate;
+    private System.Threading.SendOrPostCallback onUpdateRecord_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginValidateLoginDelegate;
+    private BeginOperationDelegate onBeginValidateLogin_UserInfoDelegate;
     
-    private EndOperationDelegate onEndValidateLoginDelegate;
+    private EndOperationDelegate onEndValidateLogin_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onValidateLoginCompletedDelegate;
+    private System.Threading.SendOrPostCallback onValidateLogin_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginisUserNameTakenDelegate;
+    private BeginOperationDelegate onBeginisUserNameTaken_UserInfoDelegate;
     
-    private EndOperationDelegate onEndisUserNameTakenDelegate;
+    private EndOperationDelegate onEndisUserNameTaken_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onisUserNameTakenCompletedDelegate;
+    private System.Threading.SendOrPostCallback onisUserNameTaken_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginisEmailTakenDelegate;
+    private BeginOperationDelegate onBeginisEmailTaken_UserInfoDelegate;
     
-    private EndOperationDelegate onEndisEmailTakenDelegate;
+    private EndOperationDelegate onEndisEmailTaken_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onisEmailTakenCompletedDelegate;
+    private System.Threading.SendOrPostCallback onisEmailTaken_UserInfoCompletedDelegate;
     
-    private BeginOperationDelegate onBeginassignUserIDDelegate;
+    private BeginOperationDelegate onBeginassignUserID_UserInfoDelegate;
     
-    private EndOperationDelegate onEndassignUserIDDelegate;
+    private EndOperationDelegate onEndassignUserID_UserInfoDelegate;
     
-    private System.Threading.SendOrPostCallback onassignUserIDCompletedDelegate;
+    private System.Threading.SendOrPostCallback onassignUserID_UserInfoCompletedDelegate;
     
     private BeginOperationDelegate onBeginOpenDelegate;
     
@@ -749,26 +891,26 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
     
     private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
     
-    public MentorJServiceClient()
+    public MentorJInfoServiceClient()
     {
     }
     
-    public MentorJServiceClient(string endpointConfigurationName) : 
+    public MentorJInfoServiceClient(string endpointConfigurationName) : 
             base(endpointConfigurationName)
     {
     }
     
-    public MentorJServiceClient(string endpointConfigurationName, string remoteAddress) : 
+    public MentorJInfoServiceClient(string endpointConfigurationName, string remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public MentorJServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public MentorJInfoServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public MentorJServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public MentorJInfoServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(binding, remoteAddress)
     {
     }
@@ -802,539 +944,539 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
         }
     }
     
-    public event System.EventHandler<ReadRecordCompletedEventArgs> ReadRecordCompleted;
+    public event System.EventHandler<ReadRecord_UserInfoCompletedEventArgs> ReadRecord_UserInfoCompleted;
     
-    public event System.EventHandler<AddUpdateRecordCompletedEventArgs> AddUpdateRecordCompleted;
+    public event System.EventHandler<AddUpdateRecord_UserInfoCompletedEventArgs> AddUpdateRecord_UserInfoCompleted;
     
-    public event System.EventHandler<InsertRecordCompletedEventArgs> InsertRecordCompleted;
+    public event System.EventHandler<InsertRecord_UserInfoCompletedEventArgs> InsertRecord_UserInfoCompleted;
     
-    public event System.EventHandler<DeleteRecordCompletedEventArgs> DeleteRecordCompleted;
+    public event System.EventHandler<DeleteRecord_UserInfoCompletedEventArgs> DeleteRecord_UserInfoCompleted;
     
-    public event System.EventHandler<UpdateRecordCompletedEventArgs> UpdateRecordCompleted;
+    public event System.EventHandler<UpdateRecord_UserInfoCompletedEventArgs> UpdateRecord_UserInfoCompleted;
     
-    public event System.EventHandler<ValidateLoginCompletedEventArgs> ValidateLoginCompleted;
+    public event System.EventHandler<ValidateLogin_UserInfoCompletedEventArgs> ValidateLogin_UserInfoCompleted;
     
-    public event System.EventHandler<isUserNameTakenCompletedEventArgs> isUserNameTakenCompleted;
+    public event System.EventHandler<isUserNameTaken_UserInfoCompletedEventArgs> isUserNameTaken_UserInfoCompleted;
     
-    public event System.EventHandler<isEmailTakenCompletedEventArgs> isEmailTakenCompleted;
+    public event System.EventHandler<isEmailTaken_UserInfoCompletedEventArgs> isEmailTaken_UserInfoCompleted;
     
-    public event System.EventHandler<assignUserIDCompletedEventArgs> assignUserIDCompleted;
+    public event System.EventHandler<assignUserID_UserInfoCompletedEventArgs> assignUserID_UserInfoCompleted;
     
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
     
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginReadRecord(long ID, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginReadRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginReadRecord(ID, callback, asyncState);
+        return base.Channel.BeginReadRecord_UserInfo(ID, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    MentorJWcfService.tblUserInfo IMentorJService.EndReadRecord(System.IAsyncResult result)
+    MentorJWcfService.tblUserInfo IMentorJInfoService.EndReadRecord_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndReadRecord(result);
+        return base.Channel.EndReadRecord_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginReadRecord(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginReadRecord_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         long ID = ((long)(inValues[0]));
-        return ((IMentorJService)(this)).BeginReadRecord(ID, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginReadRecord_UserInfo(ID, callback, asyncState);
     }
     
-    private object[] OnEndReadRecord(System.IAsyncResult result)
+    private object[] OnEndReadRecord_UserInfo(System.IAsyncResult result)
     {
-        MentorJWcfService.tblUserInfo retVal = ((IMentorJService)(this)).EndReadRecord(result);
+        MentorJWcfService.tblUserInfo retVal = ((IMentorJInfoService)(this)).EndReadRecord_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnReadRecordCompleted(object state)
+    private void OnReadRecord_UserInfoCompleted(object state)
     {
-        if ((this.ReadRecordCompleted != null))
+        if ((this.ReadRecord_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.ReadRecordCompleted(this, new ReadRecordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.ReadRecord_UserInfoCompleted(this, new ReadRecord_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void ReadRecordAsync(long ID)
+    public void ReadRecord_UserInfoAsync(long ID)
     {
-        this.ReadRecordAsync(ID, null);
+        this.ReadRecord_UserInfoAsync(ID, null);
     }
     
-    public void ReadRecordAsync(long ID, object userState)
+    public void ReadRecord_UserInfoAsync(long ID, object userState)
     {
-        if ((this.onBeginReadRecordDelegate == null))
+        if ((this.onBeginReadRecord_UserInfoDelegate == null))
         {
-            this.onBeginReadRecordDelegate = new BeginOperationDelegate(this.OnBeginReadRecord);
+            this.onBeginReadRecord_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginReadRecord_UserInfo);
         }
-        if ((this.onEndReadRecordDelegate == null))
+        if ((this.onEndReadRecord_UserInfoDelegate == null))
         {
-            this.onEndReadRecordDelegate = new EndOperationDelegate(this.OnEndReadRecord);
+            this.onEndReadRecord_UserInfoDelegate = new EndOperationDelegate(this.OnEndReadRecord_UserInfo);
         }
-        if ((this.onReadRecordCompletedDelegate == null))
+        if ((this.onReadRecord_UserInfoCompletedDelegate == null))
         {
-            this.onReadRecordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadRecordCompleted);
+            this.onReadRecord_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadRecord_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginReadRecordDelegate, new object[] {
-                    ID}, this.onEndReadRecordDelegate, this.onReadRecordCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginReadRecord_UserInfoDelegate, new object[] {
+                    ID}, this.onEndReadRecord_UserInfoDelegate, this.onReadRecord_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginAddUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginAddUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginAddUpdateRecord(rec, callback, asyncState);
+        return base.Channel.BeginAddUpdateRecord_UserInfo(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndAddUpdateRecord(System.IAsyncResult result)
+    bool IMentorJInfoService.EndAddUpdateRecord_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndAddUpdateRecord(result);
+        return base.Channel.EndAddUpdateRecord_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginAddUpdateRecord(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginAddUpdateRecord_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BeginAddUpdateRecord(rec, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginAddUpdateRecord_UserInfo(rec, callback, asyncState);
     }
     
-    private object[] OnEndAddUpdateRecord(System.IAsyncResult result)
+    private object[] OnEndAddUpdateRecord_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndAddUpdateRecord(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndAddUpdateRecord_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnAddUpdateRecordCompleted(object state)
+    private void OnAddUpdateRecord_UserInfoCompleted(object state)
     {
-        if ((this.AddUpdateRecordCompleted != null))
+        if ((this.AddUpdateRecord_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.AddUpdateRecordCompleted(this, new AddUpdateRecordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.AddUpdateRecord_UserInfoCompleted(this, new AddUpdateRecord_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void AddUpdateRecordAsync(MentorJWcfService.tblUserInfo rec)
+    public void AddUpdateRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.AddUpdateRecordAsync(rec, null);
+        this.AddUpdateRecord_UserInfoAsync(rec, null);
     }
     
-    public void AddUpdateRecordAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void AddUpdateRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBeginAddUpdateRecordDelegate == null))
+        if ((this.onBeginAddUpdateRecord_UserInfoDelegate == null))
         {
-            this.onBeginAddUpdateRecordDelegate = new BeginOperationDelegate(this.OnBeginAddUpdateRecord);
+            this.onBeginAddUpdateRecord_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginAddUpdateRecord_UserInfo);
         }
-        if ((this.onEndAddUpdateRecordDelegate == null))
+        if ((this.onEndAddUpdateRecord_UserInfoDelegate == null))
         {
-            this.onEndAddUpdateRecordDelegate = new EndOperationDelegate(this.OnEndAddUpdateRecord);
+            this.onEndAddUpdateRecord_UserInfoDelegate = new EndOperationDelegate(this.OnEndAddUpdateRecord_UserInfo);
         }
-        if ((this.onAddUpdateRecordCompletedDelegate == null))
+        if ((this.onAddUpdateRecord_UserInfoCompletedDelegate == null))
         {
-            this.onAddUpdateRecordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddUpdateRecordCompleted);
+            this.onAddUpdateRecord_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddUpdateRecord_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginAddUpdateRecordDelegate, new object[] {
-                    rec}, this.onEndAddUpdateRecordDelegate, this.onAddUpdateRecordCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginAddUpdateRecord_UserInfoDelegate, new object[] {
+                    rec}, this.onEndAddUpdateRecord_UserInfoDelegate, this.onAddUpdateRecord_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginInsertRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginInsertRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginInsertRecord(rec, callback, asyncState);
+        return base.Channel.BeginInsertRecord_UserInfo(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndInsertRecord(System.IAsyncResult result)
+    bool IMentorJInfoService.EndInsertRecord_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndInsertRecord(result);
+        return base.Channel.EndInsertRecord_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginInsertRecord(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginInsertRecord_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BeginInsertRecord(rec, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginInsertRecord_UserInfo(rec, callback, asyncState);
     }
     
-    private object[] OnEndInsertRecord(System.IAsyncResult result)
+    private object[] OnEndInsertRecord_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndInsertRecord(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndInsertRecord_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnInsertRecordCompleted(object state)
+    private void OnInsertRecord_UserInfoCompleted(object state)
     {
-        if ((this.InsertRecordCompleted != null))
+        if ((this.InsertRecord_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.InsertRecordCompleted(this, new InsertRecordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.InsertRecord_UserInfoCompleted(this, new InsertRecord_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void InsertRecordAsync(MentorJWcfService.tblUserInfo rec)
+    public void InsertRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.InsertRecordAsync(rec, null);
+        this.InsertRecord_UserInfoAsync(rec, null);
     }
     
-    public void InsertRecordAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void InsertRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBeginInsertRecordDelegate == null))
+        if ((this.onBeginInsertRecord_UserInfoDelegate == null))
         {
-            this.onBeginInsertRecordDelegate = new BeginOperationDelegate(this.OnBeginInsertRecord);
+            this.onBeginInsertRecord_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginInsertRecord_UserInfo);
         }
-        if ((this.onEndInsertRecordDelegate == null))
+        if ((this.onEndInsertRecord_UserInfoDelegate == null))
         {
-            this.onEndInsertRecordDelegate = new EndOperationDelegate(this.OnEndInsertRecord);
+            this.onEndInsertRecord_UserInfoDelegate = new EndOperationDelegate(this.OnEndInsertRecord_UserInfo);
         }
-        if ((this.onInsertRecordCompletedDelegate == null))
+        if ((this.onInsertRecord_UserInfoCompletedDelegate == null))
         {
-            this.onInsertRecordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertRecordCompleted);
+            this.onInsertRecord_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertRecord_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginInsertRecordDelegate, new object[] {
-                    rec}, this.onEndInsertRecordDelegate, this.onInsertRecordCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginInsertRecord_UserInfoDelegate, new object[] {
+                    rec}, this.onEndInsertRecord_UserInfoDelegate, this.onInsertRecord_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginDeleteRecord(long ID, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginDeleteRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginDeleteRecord(ID, callback, asyncState);
+        return base.Channel.BeginDeleteRecord_UserInfo(ID, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndDeleteRecord(System.IAsyncResult result)
+    bool IMentorJInfoService.EndDeleteRecord_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndDeleteRecord(result);
+        return base.Channel.EndDeleteRecord_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginDeleteRecord(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginDeleteRecord_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         long ID = ((long)(inValues[0]));
-        return ((IMentorJService)(this)).BeginDeleteRecord(ID, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginDeleteRecord_UserInfo(ID, callback, asyncState);
     }
     
-    private object[] OnEndDeleteRecord(System.IAsyncResult result)
+    private object[] OnEndDeleteRecord_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndDeleteRecord(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndDeleteRecord_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnDeleteRecordCompleted(object state)
+    private void OnDeleteRecord_UserInfoCompleted(object state)
     {
-        if ((this.DeleteRecordCompleted != null))
+        if ((this.DeleteRecord_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.DeleteRecordCompleted(this, new DeleteRecordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.DeleteRecord_UserInfoCompleted(this, new DeleteRecord_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void DeleteRecordAsync(long ID)
+    public void DeleteRecord_UserInfoAsync(long ID)
     {
-        this.DeleteRecordAsync(ID, null);
+        this.DeleteRecord_UserInfoAsync(ID, null);
     }
     
-    public void DeleteRecordAsync(long ID, object userState)
+    public void DeleteRecord_UserInfoAsync(long ID, object userState)
     {
-        if ((this.onBeginDeleteRecordDelegate == null))
+        if ((this.onBeginDeleteRecord_UserInfoDelegate == null))
         {
-            this.onBeginDeleteRecordDelegate = new BeginOperationDelegate(this.OnBeginDeleteRecord);
+            this.onBeginDeleteRecord_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginDeleteRecord_UserInfo);
         }
-        if ((this.onEndDeleteRecordDelegate == null))
+        if ((this.onEndDeleteRecord_UserInfoDelegate == null))
         {
-            this.onEndDeleteRecordDelegate = new EndOperationDelegate(this.OnEndDeleteRecord);
+            this.onEndDeleteRecord_UserInfoDelegate = new EndOperationDelegate(this.OnEndDeleteRecord_UserInfo);
         }
-        if ((this.onDeleteRecordCompletedDelegate == null))
+        if ((this.onDeleteRecord_UserInfoCompletedDelegate == null))
         {
-            this.onDeleteRecordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteRecordCompleted);
+            this.onDeleteRecord_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteRecord_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginDeleteRecordDelegate, new object[] {
-                    ID}, this.onEndDeleteRecordDelegate, this.onDeleteRecordCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginDeleteRecord_UserInfoDelegate, new object[] {
+                    ID}, this.onEndDeleteRecord_UserInfoDelegate, this.onDeleteRecord_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginUpdateRecord(rec, callback, asyncState);
+        return base.Channel.BeginUpdateRecord_UserInfo(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndUpdateRecord(System.IAsyncResult result)
+    bool IMentorJInfoService.EndUpdateRecord_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndUpdateRecord(result);
+        return base.Channel.EndUpdateRecord_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginUpdateRecord(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginUpdateRecord_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BeginUpdateRecord(rec, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginUpdateRecord_UserInfo(rec, callback, asyncState);
     }
     
-    private object[] OnEndUpdateRecord(System.IAsyncResult result)
+    private object[] OnEndUpdateRecord_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndUpdateRecord(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndUpdateRecord_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnUpdateRecordCompleted(object state)
+    private void OnUpdateRecord_UserInfoCompleted(object state)
     {
-        if ((this.UpdateRecordCompleted != null))
+        if ((this.UpdateRecord_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.UpdateRecordCompleted(this, new UpdateRecordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.UpdateRecord_UserInfoCompleted(this, new UpdateRecord_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void UpdateRecordAsync(MentorJWcfService.tblUserInfo rec)
+    public void UpdateRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.UpdateRecordAsync(rec, null);
+        this.UpdateRecord_UserInfoAsync(rec, null);
     }
     
-    public void UpdateRecordAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void UpdateRecord_UserInfoAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBeginUpdateRecordDelegate == null))
+        if ((this.onBeginUpdateRecord_UserInfoDelegate == null))
         {
-            this.onBeginUpdateRecordDelegate = new BeginOperationDelegate(this.OnBeginUpdateRecord);
+            this.onBeginUpdateRecord_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginUpdateRecord_UserInfo);
         }
-        if ((this.onEndUpdateRecordDelegate == null))
+        if ((this.onEndUpdateRecord_UserInfoDelegate == null))
         {
-            this.onEndUpdateRecordDelegate = new EndOperationDelegate(this.OnEndUpdateRecord);
+            this.onEndUpdateRecord_UserInfoDelegate = new EndOperationDelegate(this.OnEndUpdateRecord_UserInfo);
         }
-        if ((this.onUpdateRecordCompletedDelegate == null))
+        if ((this.onUpdateRecord_UserInfoCompletedDelegate == null))
         {
-            this.onUpdateRecordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateRecordCompleted);
+            this.onUpdateRecord_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateRecord_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginUpdateRecordDelegate, new object[] {
-                    rec}, this.onEndUpdateRecordDelegate, this.onUpdateRecordCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginUpdateRecord_UserInfoDelegate, new object[] {
+                    rec}, this.onEndUpdateRecord_UserInfoDelegate, this.onUpdateRecord_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginValidateLogin(string username, string password, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginValidateLogin(username, password, callback, asyncState);
+        return base.Channel.BeginValidateLogin_UserInfo(username, password, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    MentorJWcfService.tblUserInfo IMentorJService.EndValidateLogin(System.IAsyncResult result)
+    MentorJWcfService.tblUserInfo IMentorJInfoService.EndValidateLogin_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndValidateLogin(result);
+        return base.Channel.EndValidateLogin_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginValidateLogin(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginValidateLogin_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         string username = ((string)(inValues[0]));
         string password = ((string)(inValues[1]));
-        return ((IMentorJService)(this)).BeginValidateLogin(username, password, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginValidateLogin_UserInfo(username, password, callback, asyncState);
     }
     
-    private object[] OnEndValidateLogin(System.IAsyncResult result)
+    private object[] OnEndValidateLogin_UserInfo(System.IAsyncResult result)
     {
-        MentorJWcfService.tblUserInfo retVal = ((IMentorJService)(this)).EndValidateLogin(result);
+        MentorJWcfService.tblUserInfo retVal = ((IMentorJInfoService)(this)).EndValidateLogin_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnValidateLoginCompleted(object state)
+    private void OnValidateLogin_UserInfoCompleted(object state)
     {
-        if ((this.ValidateLoginCompleted != null))
+        if ((this.ValidateLogin_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.ValidateLoginCompleted(this, new ValidateLoginCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.ValidateLogin_UserInfoCompleted(this, new ValidateLogin_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void ValidateLoginAsync(string username, string password)
+    public void ValidateLogin_UserInfoAsync(string username, string password)
     {
-        this.ValidateLoginAsync(username, password, null);
+        this.ValidateLogin_UserInfoAsync(username, password, null);
     }
     
-    public void ValidateLoginAsync(string username, string password, object userState)
+    public void ValidateLogin_UserInfoAsync(string username, string password, object userState)
     {
-        if ((this.onBeginValidateLoginDelegate == null))
+        if ((this.onBeginValidateLogin_UserInfoDelegate == null))
         {
-            this.onBeginValidateLoginDelegate = new BeginOperationDelegate(this.OnBeginValidateLogin);
+            this.onBeginValidateLogin_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginValidateLogin_UserInfo);
         }
-        if ((this.onEndValidateLoginDelegate == null))
+        if ((this.onEndValidateLogin_UserInfoDelegate == null))
         {
-            this.onEndValidateLoginDelegate = new EndOperationDelegate(this.OnEndValidateLogin);
+            this.onEndValidateLogin_UserInfoDelegate = new EndOperationDelegate(this.OnEndValidateLogin_UserInfo);
         }
-        if ((this.onValidateLoginCompletedDelegate == null))
+        if ((this.onValidateLogin_UserInfoCompletedDelegate == null))
         {
-            this.onValidateLoginCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnValidateLoginCompleted);
+            this.onValidateLogin_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnValidateLogin_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginValidateLoginDelegate, new object[] {
+        base.InvokeAsync(this.onBeginValidateLogin_UserInfoDelegate, new object[] {
                     username,
-                    password}, this.onEndValidateLoginDelegate, this.onValidateLoginCompletedDelegate, userState);
+                    password}, this.onEndValidateLogin_UserInfoDelegate, this.onValidateLogin_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginisUserNameTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginisUserNameTaken(rec, callback, asyncState);
+        return base.Channel.BeginisUserNameTaken_UserInfo(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndisUserNameTaken(System.IAsyncResult result)
+    bool IMentorJInfoService.EndisUserNameTaken_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndisUserNameTaken(result);
+        return base.Channel.EndisUserNameTaken_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginisUserNameTaken(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginisUserNameTaken_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BeginisUserNameTaken(rec, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginisUserNameTaken_UserInfo(rec, callback, asyncState);
     }
     
-    private object[] OnEndisUserNameTaken(System.IAsyncResult result)
+    private object[] OnEndisUserNameTaken_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndisUserNameTaken(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndisUserNameTaken_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnisUserNameTakenCompleted(object state)
+    private void OnisUserNameTaken_UserInfoCompleted(object state)
     {
-        if ((this.isUserNameTakenCompleted != null))
+        if ((this.isUserNameTaken_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.isUserNameTakenCompleted(this, new isUserNameTakenCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.isUserNameTaken_UserInfoCompleted(this, new isUserNameTaken_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void isUserNameTakenAsync(MentorJWcfService.tblUserInfo rec)
+    public void isUserNameTaken_UserInfoAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.isUserNameTakenAsync(rec, null);
+        this.isUserNameTaken_UserInfoAsync(rec, null);
     }
     
-    public void isUserNameTakenAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void isUserNameTaken_UserInfoAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBeginisUserNameTakenDelegate == null))
+        if ((this.onBeginisUserNameTaken_UserInfoDelegate == null))
         {
-            this.onBeginisUserNameTakenDelegate = new BeginOperationDelegate(this.OnBeginisUserNameTaken);
+            this.onBeginisUserNameTaken_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginisUserNameTaken_UserInfo);
         }
-        if ((this.onEndisUserNameTakenDelegate == null))
+        if ((this.onEndisUserNameTaken_UserInfoDelegate == null))
         {
-            this.onEndisUserNameTakenDelegate = new EndOperationDelegate(this.OnEndisUserNameTaken);
+            this.onEndisUserNameTaken_UserInfoDelegate = new EndOperationDelegate(this.OnEndisUserNameTaken_UserInfo);
         }
-        if ((this.onisUserNameTakenCompletedDelegate == null))
+        if ((this.onisUserNameTaken_UserInfoCompletedDelegate == null))
         {
-            this.onisUserNameTakenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisUserNameTakenCompleted);
+            this.onisUserNameTaken_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisUserNameTaken_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginisUserNameTakenDelegate, new object[] {
-                    rec}, this.onEndisUserNameTakenDelegate, this.onisUserNameTakenCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginisUserNameTaken_UserInfoDelegate, new object[] {
+                    rec}, this.onEndisUserNameTaken_UserInfoDelegate, this.onisUserNameTaken_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginisEmailTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginisEmailTaken(rec, callback, asyncState);
+        return base.Channel.BeginisEmailTaken_UserInfo(rec, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    bool IMentorJService.EndisEmailTaken(System.IAsyncResult result)
+    bool IMentorJInfoService.EndisEmailTaken_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndisEmailTaken(result);
+        return base.Channel.EndisEmailTaken_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginisEmailTaken(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginisEmailTaken_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         MentorJWcfService.tblUserInfo rec = ((MentorJWcfService.tblUserInfo)(inValues[0]));
-        return ((IMentorJService)(this)).BeginisEmailTaken(rec, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginisEmailTaken_UserInfo(rec, callback, asyncState);
     }
     
-    private object[] OnEndisEmailTaken(System.IAsyncResult result)
+    private object[] OnEndisEmailTaken_UserInfo(System.IAsyncResult result)
     {
-        bool retVal = ((IMentorJService)(this)).EndisEmailTaken(result);
+        bool retVal = ((IMentorJInfoService)(this)).EndisEmailTaken_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnisEmailTakenCompleted(object state)
+    private void OnisEmailTaken_UserInfoCompleted(object state)
     {
-        if ((this.isEmailTakenCompleted != null))
+        if ((this.isEmailTaken_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.isEmailTakenCompleted(this, new isEmailTakenCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.isEmailTaken_UserInfoCompleted(this, new isEmailTaken_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void isEmailTakenAsync(MentorJWcfService.tblUserInfo rec)
+    public void isEmailTaken_UserInfoAsync(MentorJWcfService.tblUserInfo rec)
     {
-        this.isEmailTakenAsync(rec, null);
+        this.isEmailTaken_UserInfoAsync(rec, null);
     }
     
-    public void isEmailTakenAsync(MentorJWcfService.tblUserInfo rec, object userState)
+    public void isEmailTaken_UserInfoAsync(MentorJWcfService.tblUserInfo rec, object userState)
     {
-        if ((this.onBeginisEmailTakenDelegate == null))
+        if ((this.onBeginisEmailTaken_UserInfoDelegate == null))
         {
-            this.onBeginisEmailTakenDelegate = new BeginOperationDelegate(this.OnBeginisEmailTaken);
+            this.onBeginisEmailTaken_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginisEmailTaken_UserInfo);
         }
-        if ((this.onEndisEmailTakenDelegate == null))
+        if ((this.onEndisEmailTaken_UserInfoDelegate == null))
         {
-            this.onEndisEmailTakenDelegate = new EndOperationDelegate(this.OnEndisEmailTaken);
+            this.onEndisEmailTaken_UserInfoDelegate = new EndOperationDelegate(this.OnEndisEmailTaken_UserInfo);
         }
-        if ((this.onisEmailTakenCompletedDelegate == null))
+        if ((this.onisEmailTaken_UserInfoCompletedDelegate == null))
         {
-            this.onisEmailTakenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisEmailTakenCompleted);
+            this.onisEmailTaken_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnisEmailTaken_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginisEmailTakenDelegate, new object[] {
-                    rec}, this.onEndisEmailTakenDelegate, this.onisEmailTakenCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginisEmailTaken_UserInfoDelegate, new object[] {
+                    rec}, this.onEndisEmailTaken_UserInfoDelegate, this.onisEmailTaken_UserInfoCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJService.BeginassignUserID(System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginassignUserID_UserInfo(System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginassignUserID(callback, asyncState);
+        return base.Channel.BeginassignUserID_UserInfo(callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    long IMentorJService.EndassignUserID(System.IAsyncResult result)
+    long IMentorJInfoService.EndassignUserID_UserInfo(System.IAsyncResult result)
     {
-        return base.Channel.EndassignUserID(result);
+        return base.Channel.EndassignUserID_UserInfo(result);
     }
     
-    private System.IAsyncResult OnBeginassignUserID(object[] inValues, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult OnBeginassignUserID_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
-        return ((IMentorJService)(this)).BeginassignUserID(callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginassignUserID_UserInfo(callback, asyncState);
     }
     
-    private object[] OnEndassignUserID(System.IAsyncResult result)
+    private object[] OnEndassignUserID_UserInfo(System.IAsyncResult result)
     {
-        long retVal = ((IMentorJService)(this)).EndassignUserID(result);
+        long retVal = ((IMentorJInfoService)(this)).EndassignUserID_UserInfo(result);
         return new object[] {
                 retVal};
     }
     
-    private void OnassignUserIDCompleted(object state)
+    private void OnassignUserID_UserInfoCompleted(object state)
     {
-        if ((this.assignUserIDCompleted != null))
+        if ((this.assignUserID_UserInfoCompleted != null))
         {
             InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-            this.assignUserIDCompleted(this, new assignUserIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            this.assignUserID_UserInfoCompleted(this, new assignUserID_UserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
         }
     }
     
-    public void assignUserIDAsync()
+    public void assignUserID_UserInfoAsync()
     {
-        this.assignUserIDAsync(null);
+        this.assignUserID_UserInfoAsync(null);
     }
     
-    public void assignUserIDAsync(object userState)
+    public void assignUserID_UserInfoAsync(object userState)
     {
-        if ((this.onBeginassignUserIDDelegate == null))
+        if ((this.onBeginassignUserID_UserInfoDelegate == null))
         {
-            this.onBeginassignUserIDDelegate = new BeginOperationDelegate(this.OnBeginassignUserID);
+            this.onBeginassignUserID_UserInfoDelegate = new BeginOperationDelegate(this.OnBeginassignUserID_UserInfo);
         }
-        if ((this.onEndassignUserIDDelegate == null))
+        if ((this.onEndassignUserID_UserInfoDelegate == null))
         {
-            this.onEndassignUserIDDelegate = new EndOperationDelegate(this.OnEndassignUserID);
+            this.onEndassignUserID_UserInfoDelegate = new EndOperationDelegate(this.OnEndassignUserID_UserInfo);
         }
-        if ((this.onassignUserIDCompletedDelegate == null))
+        if ((this.onassignUserID_UserInfoCompletedDelegate == null))
         {
-            this.onassignUserIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnassignUserIDCompleted);
+            this.onassignUserID_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnassignUserID_UserInfoCompleted);
         }
-        base.InvokeAsync(this.onBeginassignUserIDDelegate, null, this.onEndassignUserIDDelegate, this.onassignUserIDCompletedDelegate, userState);
+        base.InvokeAsync(this.onBeginassignUserID_UserInfoDelegate, null, this.onEndassignUserID_UserInfoDelegate, this.onassignUserID_UserInfoCompletedDelegate, userState);
     }
     
     private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
@@ -1421,151 +1563,875 @@ public partial class MentorJServiceClient : System.ServiceModel.ClientBase<IMent
         base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
     }
     
-    protected override IMentorJService CreateChannel()
+    protected override IMentorJInfoService CreateChannel()
     {
-        return new MentorJServiceClientChannel(this);
+        return new MentorJInfoServiceClientChannel(this);
     }
     
-    private class MentorJServiceClientChannel : ChannelBase<IMentorJService>, IMentorJService
+    private class MentorJInfoServiceClientChannel : ChannelBase<IMentorJInfoService>, IMentorJInfoService
     {
         
-        public MentorJServiceClientChannel(System.ServiceModel.ClientBase<IMentorJService> client) : 
+        public MentorJInfoServiceClientChannel(System.ServiceModel.ClientBase<IMentorJInfoService> client) : 
                 base(client)
         {
         }
         
-        public System.IAsyncResult BeginReadRecord(long ID, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginReadRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = ID;
-            System.IAsyncResult _result = base.BeginInvoke("ReadRecord", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("ReadRecord_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public MentorJWcfService.tblUserInfo EndReadRecord(System.IAsyncResult result)
+        public MentorJWcfService.tblUserInfo EndReadRecord_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            MentorJWcfService.tblUserInfo _result = ((MentorJWcfService.tblUserInfo)(base.EndInvoke("ReadRecord", _args, result)));
+            MentorJWcfService.tblUserInfo _result = ((MentorJWcfService.tblUserInfo)(base.EndInvoke("ReadRecord_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginAddUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginAddUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("AddUpdateRecord", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("AddUpdateRecord_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndAddUpdateRecord(System.IAsyncResult result)
+        public bool EndAddUpdateRecord_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("AddUpdateRecord", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("AddUpdateRecord_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginInsertRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginInsertRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("InsertRecord", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("InsertRecord_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndInsertRecord(System.IAsyncResult result)
+        public bool EndInsertRecord_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("InsertRecord", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("InsertRecord_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginDeleteRecord(long ID, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginDeleteRecord_UserInfo(long ID, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = ID;
-            System.IAsyncResult _result = base.BeginInvoke("DeleteRecord", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("DeleteRecord_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndDeleteRecord(System.IAsyncResult result)
+        public bool EndDeleteRecord_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("DeleteRecord", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("DeleteRecord_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginUpdateRecord(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginUpdateRecord_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("UpdateRecord", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("UpdateRecord_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndUpdateRecord(System.IAsyncResult result)
+        public bool EndUpdateRecord_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("UpdateRecord", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("UpdateRecord_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginValidateLogin(string username, string password, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[2];
             _args[0] = username;
             _args[1] = password;
-            System.IAsyncResult _result = base.BeginInvoke("ValidateLogin", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("ValidateLogin_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public MentorJWcfService.tblUserInfo EndValidateLogin(System.IAsyncResult result)
+        public MentorJWcfService.tblUserInfo EndValidateLogin_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            MentorJWcfService.tblUserInfo _result = ((MentorJWcfService.tblUserInfo)(base.EndInvoke("ValidateLogin", _args, result)));
+            MentorJWcfService.tblUserInfo _result = ((MentorJWcfService.tblUserInfo)(base.EndInvoke("ValidateLogin_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginisUserNameTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginisUserNameTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("isUserNameTaken", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("isUserNameTaken_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndisUserNameTaken(System.IAsyncResult result)
+        public bool EndisUserNameTaken_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("isUserNameTaken", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("isUserNameTaken_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginisEmailTaken(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginisEmailTaken_UserInfo(MentorJWcfService.tblUserInfo rec, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
             _args[0] = rec;
-            System.IAsyncResult _result = base.BeginInvoke("isEmailTaken", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("isEmailTaken_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public bool EndisEmailTaken(System.IAsyncResult result)
+        public bool EndisEmailTaken_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            bool _result = ((bool)(base.EndInvoke("isEmailTaken", _args, result)));
+            bool _result = ((bool)(base.EndInvoke("isEmailTaken_UserInfo", _args, result)));
             return _result;
         }
         
-        public System.IAsyncResult BeginassignUserID(System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginassignUserID_UserInfo(System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[0];
-            System.IAsyncResult _result = base.BeginInvoke("assignUserID", _args, callback, asyncState);
+            System.IAsyncResult _result = base.BeginInvoke("assignUserID_UserInfo", _args, callback, asyncState);
             return _result;
         }
         
-        public long EndassignUserID(System.IAsyncResult result)
+        public long EndassignUserID_UserInfo(System.IAsyncResult result)
         {
             object[] _args = new object[0];
-            long _result = ((long)(base.EndInvoke("assignUserID", _args, result)));
+            long _result = ((long)(base.EndInvoke("assignUserID_UserInfo", _args, result)));
+            return _result;
+        }
+    }
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IMentorJProfileService")]
+public interface IMentorJProfileService
+{
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/ReadRecord_UserProfile", ReplyAction="http://tempuri.org/IMentorJProfileService/ReadRecord_UserProfileResponse")]
+    System.IAsyncResult BeginReadRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState);
+    
+    MentorJWcfService.tblUserProfile EndReadRecord_UserProfile(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/AddUpdateRecord_UserProfile", ReplyAction="http://tempuri.org/IMentorJProfileService/AddUpdateRecord_UserProfileResponse")]
+    System.IAsyncResult BeginAddUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState);
+    
+    bool EndAddUpdateRecord_UserProfile(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/InsertRecord_UserProfile", ReplyAction="http://tempuri.org/IMentorJProfileService/InsertRecord_UserProfileResponse")]
+    System.IAsyncResult BeginInsertRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState);
+    
+    bool EndInsertRecord_UserProfile(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/DeleteRecord_UserProfile", ReplyAction="http://tempuri.org/IMentorJProfileService/DeleteRecord_UserProfileResponse")]
+    System.IAsyncResult BeginDeleteRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState);
+    
+    bool EndDeleteRecord_UserProfile(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/UpdateRecord_UserProfile", ReplyAction="http://tempuri.org/IMentorJProfileService/UpdateRecord_UserProfileResponse")]
+    System.IAsyncResult BeginUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState);
+    
+    bool EndUpdateRecord_UserProfile(System.IAsyncResult result);
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public interface IMentorJProfileServiceChannel : IMentorJProfileService, System.ServiceModel.IClientChannel
+{
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class ReadRecord_UserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public ReadRecord_UserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public MentorJWcfService.tblUserProfile Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((MentorJWcfService.tblUserProfile)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class AddUpdateRecord_UserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public AddUpdateRecord_UserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class InsertRecord_UserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public InsertRecord_UserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class DeleteRecord_UserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public DeleteRecord_UserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class UpdateRecord_UserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public UpdateRecord_UserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBase<IMentorJProfileService>, IMentorJProfileService
+{
+    
+    private BeginOperationDelegate onBeginReadRecord_UserProfileDelegate;
+    
+    private EndOperationDelegate onEndReadRecord_UserProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback onReadRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginAddUpdateRecord_UserProfileDelegate;
+    
+    private EndOperationDelegate onEndAddUpdateRecord_UserProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback onAddUpdateRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginInsertRecord_UserProfileDelegate;
+    
+    private EndOperationDelegate onEndInsertRecord_UserProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback onInsertRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginDeleteRecord_UserProfileDelegate;
+    
+    private EndOperationDelegate onEndDeleteRecord_UserProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback onDeleteRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginUpdateRecord_UserProfileDelegate;
+    
+    private EndOperationDelegate onEndUpdateRecord_UserProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback onUpdateRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginOpenDelegate;
+    
+    private EndOperationDelegate onEndOpenDelegate;
+    
+    private System.Threading.SendOrPostCallback onOpenCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginCloseDelegate;
+    
+    private EndOperationDelegate onEndCloseDelegate;
+    
+    private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
+    
+    public MentorJProfileServiceClient()
+    {
+    }
+    
+    public MentorJProfileServiceClient(string endpointConfigurationName) : 
+            base(endpointConfigurationName)
+    {
+    }
+    
+    public MentorJProfileServiceClient(string endpointConfigurationName, string remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public MentorJProfileServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public MentorJProfileServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(binding, remoteAddress)
+    {
+    }
+    
+    public System.Net.CookieContainer CookieContainer
+    {
+        get
+        {
+            System.ServiceModel.Channels.IHttpCookieContainerManager httpCookieContainerManager = this.InnerChannel.GetProperty<System.ServiceModel.Channels.IHttpCookieContainerManager>();
+            if ((httpCookieContainerManager != null))
+            {
+                return httpCookieContainerManager.CookieContainer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        set
+        {
+            System.ServiceModel.Channels.IHttpCookieContainerManager httpCookieContainerManager = this.InnerChannel.GetProperty<System.ServiceModel.Channels.IHttpCookieContainerManager>();
+            if ((httpCookieContainerManager != null))
+            {
+                httpCookieContainerManager.CookieContainer = value;
+            }
+            else
+            {
+                throw new System.InvalidOperationException("Unable to set the CookieContainer. Please make sure the binding contains an HttpC" +
+                        "ookieContainerBindingElement.");
+            }
+        }
+    }
+    
+    public event System.EventHandler<ReadRecord_UserProfileCompletedEventArgs> ReadRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<AddUpdateRecord_UserProfileCompletedEventArgs> AddUpdateRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<InsertRecord_UserProfileCompletedEventArgs> InsertRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<DeleteRecord_UserProfileCompletedEventArgs> DeleteRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<UpdateRecord_UserProfileCompletedEventArgs> UpdateRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BeginReadRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginReadRecord_UserProfile(ID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    MentorJWcfService.tblUserProfile IMentorJProfileService.EndReadRecord_UserProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndReadRecord_UserProfile(result);
+    }
+    
+    private System.IAsyncResult OnBeginReadRecord_UserProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long ID = ((long)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BeginReadRecord_UserProfile(ID, callback, asyncState);
+    }
+    
+    private object[] OnEndReadRecord_UserProfile(System.IAsyncResult result)
+    {
+        MentorJWcfService.tblUserProfile retVal = ((IMentorJProfileService)(this)).EndReadRecord_UserProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnReadRecord_UserProfileCompleted(object state)
+    {
+        if ((this.ReadRecord_UserProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.ReadRecord_UserProfileCompleted(this, new ReadRecord_UserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void ReadRecord_UserProfileAsync(long ID)
+    {
+        this.ReadRecord_UserProfileAsync(ID, null);
+    }
+    
+    public void ReadRecord_UserProfileAsync(long ID, object userState)
+    {
+        if ((this.onBeginReadRecord_UserProfileDelegate == null))
+        {
+            this.onBeginReadRecord_UserProfileDelegate = new BeginOperationDelegate(this.OnBeginReadRecord_UserProfile);
+        }
+        if ((this.onEndReadRecord_UserProfileDelegate == null))
+        {
+            this.onEndReadRecord_UserProfileDelegate = new EndOperationDelegate(this.OnEndReadRecord_UserProfile);
+        }
+        if ((this.onReadRecord_UserProfileCompletedDelegate == null))
+        {
+            this.onReadRecord_UserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadRecord_UserProfileCompleted);
+        }
+        base.InvokeAsync(this.onBeginReadRecord_UserProfileDelegate, new object[] {
+                    ID}, this.onEndReadRecord_UserProfileDelegate, this.onReadRecord_UserProfileCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BeginAddUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginAddUpdateRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJProfileService.EndAddUpdateRecord_UserProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndAddUpdateRecord_UserProfile(result);
+    }
+    
+    private System.IAsyncResult OnBeginAddUpdateRecord_UserProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        MentorJWcfService.tblUserProfile rec = ((MentorJWcfService.tblUserProfile)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BeginAddUpdateRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    private object[] OnEndAddUpdateRecord_UserProfile(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJProfileService)(this)).EndAddUpdateRecord_UserProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnAddUpdateRecord_UserProfileCompleted(object state)
+    {
+        if ((this.AddUpdateRecord_UserProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.AddUpdateRecord_UserProfileCompleted(this, new AddUpdateRecord_UserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void AddUpdateRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec)
+    {
+        this.AddUpdateRecord_UserProfileAsync(rec, null);
+    }
+    
+    public void AddUpdateRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec, object userState)
+    {
+        if ((this.onBeginAddUpdateRecord_UserProfileDelegate == null))
+        {
+            this.onBeginAddUpdateRecord_UserProfileDelegate = new BeginOperationDelegate(this.OnBeginAddUpdateRecord_UserProfile);
+        }
+        if ((this.onEndAddUpdateRecord_UserProfileDelegate == null))
+        {
+            this.onEndAddUpdateRecord_UserProfileDelegate = new EndOperationDelegate(this.OnEndAddUpdateRecord_UserProfile);
+        }
+        if ((this.onAddUpdateRecord_UserProfileCompletedDelegate == null))
+        {
+            this.onAddUpdateRecord_UserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddUpdateRecord_UserProfileCompleted);
+        }
+        base.InvokeAsync(this.onBeginAddUpdateRecord_UserProfileDelegate, new object[] {
+                    rec}, this.onEndAddUpdateRecord_UserProfileDelegate, this.onAddUpdateRecord_UserProfileCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BeginInsertRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginInsertRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJProfileService.EndInsertRecord_UserProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndInsertRecord_UserProfile(result);
+    }
+    
+    private System.IAsyncResult OnBeginInsertRecord_UserProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        MentorJWcfService.tblUserProfile rec = ((MentorJWcfService.tblUserProfile)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BeginInsertRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    private object[] OnEndInsertRecord_UserProfile(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJProfileService)(this)).EndInsertRecord_UserProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnInsertRecord_UserProfileCompleted(object state)
+    {
+        if ((this.InsertRecord_UserProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.InsertRecord_UserProfileCompleted(this, new InsertRecord_UserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void InsertRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec)
+    {
+        this.InsertRecord_UserProfileAsync(rec, null);
+    }
+    
+    public void InsertRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec, object userState)
+    {
+        if ((this.onBeginInsertRecord_UserProfileDelegate == null))
+        {
+            this.onBeginInsertRecord_UserProfileDelegate = new BeginOperationDelegate(this.OnBeginInsertRecord_UserProfile);
+        }
+        if ((this.onEndInsertRecord_UserProfileDelegate == null))
+        {
+            this.onEndInsertRecord_UserProfileDelegate = new EndOperationDelegate(this.OnEndInsertRecord_UserProfile);
+        }
+        if ((this.onInsertRecord_UserProfileCompletedDelegate == null))
+        {
+            this.onInsertRecord_UserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertRecord_UserProfileCompleted);
+        }
+        base.InvokeAsync(this.onBeginInsertRecord_UserProfileDelegate, new object[] {
+                    rec}, this.onEndInsertRecord_UserProfileDelegate, this.onInsertRecord_UserProfileCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BeginDeleteRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginDeleteRecord_UserProfile(ID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJProfileService.EndDeleteRecord_UserProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndDeleteRecord_UserProfile(result);
+    }
+    
+    private System.IAsyncResult OnBeginDeleteRecord_UserProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long ID = ((long)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BeginDeleteRecord_UserProfile(ID, callback, asyncState);
+    }
+    
+    private object[] OnEndDeleteRecord_UserProfile(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJProfileService)(this)).EndDeleteRecord_UserProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnDeleteRecord_UserProfileCompleted(object state)
+    {
+        if ((this.DeleteRecord_UserProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.DeleteRecord_UserProfileCompleted(this, new DeleteRecord_UserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void DeleteRecord_UserProfileAsync(long ID)
+    {
+        this.DeleteRecord_UserProfileAsync(ID, null);
+    }
+    
+    public void DeleteRecord_UserProfileAsync(long ID, object userState)
+    {
+        if ((this.onBeginDeleteRecord_UserProfileDelegate == null))
+        {
+            this.onBeginDeleteRecord_UserProfileDelegate = new BeginOperationDelegate(this.OnBeginDeleteRecord_UserProfile);
+        }
+        if ((this.onEndDeleteRecord_UserProfileDelegate == null))
+        {
+            this.onEndDeleteRecord_UserProfileDelegate = new EndOperationDelegate(this.OnEndDeleteRecord_UserProfile);
+        }
+        if ((this.onDeleteRecord_UserProfileCompletedDelegate == null))
+        {
+            this.onDeleteRecord_UserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteRecord_UserProfileCompleted);
+        }
+        base.InvokeAsync(this.onBeginDeleteRecord_UserProfileDelegate, new object[] {
+                    ID}, this.onEndDeleteRecord_UserProfileDelegate, this.onDeleteRecord_UserProfileCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BeginUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginUpdateRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJProfileService.EndUpdateRecord_UserProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndUpdateRecord_UserProfile(result);
+    }
+    
+    private System.IAsyncResult OnBeginUpdateRecord_UserProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        MentorJWcfService.tblUserProfile rec = ((MentorJWcfService.tblUserProfile)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BeginUpdateRecord_UserProfile(rec, callback, asyncState);
+    }
+    
+    private object[] OnEndUpdateRecord_UserProfile(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJProfileService)(this)).EndUpdateRecord_UserProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnUpdateRecord_UserProfileCompleted(object state)
+    {
+        if ((this.UpdateRecord_UserProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.UpdateRecord_UserProfileCompleted(this, new UpdateRecord_UserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void UpdateRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec)
+    {
+        this.UpdateRecord_UserProfileAsync(rec, null);
+    }
+    
+    public void UpdateRecord_UserProfileAsync(MentorJWcfService.tblUserProfile rec, object userState)
+    {
+        if ((this.onBeginUpdateRecord_UserProfileDelegate == null))
+        {
+            this.onBeginUpdateRecord_UserProfileDelegate = new BeginOperationDelegate(this.OnBeginUpdateRecord_UserProfile);
+        }
+        if ((this.onEndUpdateRecord_UserProfileDelegate == null))
+        {
+            this.onEndUpdateRecord_UserProfileDelegate = new EndOperationDelegate(this.OnEndUpdateRecord_UserProfile);
+        }
+        if ((this.onUpdateRecord_UserProfileCompletedDelegate == null))
+        {
+            this.onUpdateRecord_UserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateRecord_UserProfileCompleted);
+        }
+        base.InvokeAsync(this.onBeginUpdateRecord_UserProfileDelegate, new object[] {
+                    rec}, this.onEndUpdateRecord_UserProfileDelegate, this.onUpdateRecord_UserProfileCompletedDelegate, userState);
+    }
+    
+    private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
+    }
+    
+    private object[] OnEndOpen(System.IAsyncResult result)
+    {
+        ((System.ServiceModel.ICommunicationObject)(this)).EndOpen(result);
+        return null;
+    }
+    
+    private void OnOpenCompleted(object state)
+    {
+        if ((this.OpenCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.OpenCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void OpenAsync()
+    {
+        this.OpenAsync(null);
+    }
+    
+    public void OpenAsync(object userState)
+    {
+        if ((this.onBeginOpenDelegate == null))
+        {
+            this.onBeginOpenDelegate = new BeginOperationDelegate(this.OnBeginOpen);
+        }
+        if ((this.onEndOpenDelegate == null))
+        {
+            this.onEndOpenDelegate = new EndOperationDelegate(this.OnEndOpen);
+        }
+        if ((this.onOpenCompletedDelegate == null))
+        {
+            this.onOpenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnOpenCompleted);
+        }
+        base.InvokeAsync(this.onBeginOpenDelegate, null, this.onEndOpenDelegate, this.onOpenCompletedDelegate, userState);
+    }
+    
+    private System.IAsyncResult OnBeginClose(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((System.ServiceModel.ICommunicationObject)(this)).BeginClose(callback, asyncState);
+    }
+    
+    private object[] OnEndClose(System.IAsyncResult result)
+    {
+        ((System.ServiceModel.ICommunicationObject)(this)).EndClose(result);
+        return null;
+    }
+    
+    private void OnCloseCompleted(object state)
+    {
+        if ((this.CloseCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.CloseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void CloseAsync()
+    {
+        this.CloseAsync(null);
+    }
+    
+    public void CloseAsync(object userState)
+    {
+        if ((this.onBeginCloseDelegate == null))
+        {
+            this.onBeginCloseDelegate = new BeginOperationDelegate(this.OnBeginClose);
+        }
+        if ((this.onEndCloseDelegate == null))
+        {
+            this.onEndCloseDelegate = new EndOperationDelegate(this.OnEndClose);
+        }
+        if ((this.onCloseCompletedDelegate == null))
+        {
+            this.onCloseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCloseCompleted);
+        }
+        base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
+    }
+    
+    protected override IMentorJProfileService CreateChannel()
+    {
+        return new MentorJProfileServiceClientChannel(this);
+    }
+    
+    private class MentorJProfileServiceClientChannel : ChannelBase<IMentorJProfileService>, IMentorJProfileService
+    {
+        
+        public MentorJProfileServiceClientChannel(System.ServiceModel.ClientBase<IMentorJProfileService> client) : 
+                base(client)
+        {
+        }
+        
+        public System.IAsyncResult BeginReadRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = ID;
+            System.IAsyncResult _result = base.BeginInvoke("ReadRecord_UserProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public MentorJWcfService.tblUserProfile EndReadRecord_UserProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            MentorJWcfService.tblUserProfile _result = ((MentorJWcfService.tblUserProfile)(base.EndInvoke("ReadRecord_UserProfile", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginAddUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = rec;
+            System.IAsyncResult _result = base.BeginInvoke("AddUpdateRecord_UserProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndAddUpdateRecord_UserProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("AddUpdateRecord_UserProfile", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginInsertRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = rec;
+            System.IAsyncResult _result = base.BeginInvoke("InsertRecord_UserProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndInsertRecord_UserProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("InsertRecord_UserProfile", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginDeleteRecord_UserProfile(long ID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = ID;
+            System.IAsyncResult _result = base.BeginInvoke("DeleteRecord_UserProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndDeleteRecord_UserProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("DeleteRecord_UserProfile", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = rec;
+            System.IAsyncResult _result = base.BeginInvoke("UpdateRecord_UserProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndUpdateRecord_UserProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("UpdateRecord_UserProfile", _args, result)));
             return _result;
         }
     }

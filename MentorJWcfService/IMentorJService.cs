@@ -14,26 +14,41 @@ namespace MentorJWcfService
 {
 
     [ServiceContract]
-    public interface IMentorJService
+    public interface IMentorJInfoService
     {
 
         [OperationContract]
-        tblUserInfo ReadRecord(long ID);
+        tblUserInfo ReadRecord_UserInfo(long ID);
         [OperationContract]
-        bool AddUpdateRecord(tblUserInfo rec);
+        bool AddUpdateRecord_UserInfo(tblUserInfo rec);
         [OperationContract]
-        bool InsertRecord(tblUserInfo rec);
+        bool InsertRecord_UserInfo(tblUserInfo rec);
         [OperationContract]
-        bool DeleteRecord(long ID);
+        bool DeleteRecord_UserInfo(long ID);
         [OperationContract]
-        bool UpdateRecord(tblUserInfo rec);
+        bool UpdateRecord_UserInfo(tblUserInfo rec);
         [OperationContract]
-        tblUserInfo ValidateLogin(string username, string password);
+        tblUserInfo ValidateLogin_UserInfo(string username, string password);
         [OperationContract]
-        bool isUserNameTaken(tblUserInfo rec);
+        bool isUserNameTaken_UserInfo(tblUserInfo rec);
         [OperationContract]
-        bool isEmailTaken(tblUserInfo rec);
+        bool isEmailTaken_UserInfo(tblUserInfo rec);
         [OperationContract]
-        long assignUserID();
+        long assignUserID_UserInfo();
+    }
+
+    [ServiceContract]
+    public interface IMentorJProfileService
+    {
+        [OperationContract]
+        tblUserProfile ReadRecord_UserProfile(long ID);
+        [OperationContract]
+        bool AddUpdateRecord_UserProfile(tblUserProfile rec);
+        [OperationContract]
+        bool InsertRecord_UserProfile(tblUserProfile rec);
+        [OperationContract]
+        bool DeleteRecord_UserProfile(long ID);
+        [OperationContract]
+        bool UpdateRecord_UserProfile(tblUserProfile rec);
     }
 }

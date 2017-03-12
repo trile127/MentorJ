@@ -135,6 +135,7 @@
     <Property Name="About" Type="nvarchar(max)" />
     <Property Name="WebProfileLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="WebPicturesOfLink" Type="nvarchar(max)" />
+    <Property Name="PictureData" Type="image" />
     <Property Name="PictureURL" Type="nvarchar(max)" />
     <Property Name="BigPictureURL" Type="nvarchar(max)" />
     <Property Name="SmallPictureURL" Type="nvarchar(max)" />

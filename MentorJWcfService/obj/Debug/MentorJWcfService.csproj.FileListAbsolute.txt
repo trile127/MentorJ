@@ -1,3 +1,4 @@
+C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\ApplicationInsights.config
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll.config
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll
@@ -20,4 +21,3 @@ C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\Microsoft.AI.Windows
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.dll
 C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.pdb
-C:\Users\Tri Le`\Source\Repos\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache

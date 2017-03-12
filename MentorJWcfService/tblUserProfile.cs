@@ -22,5 +22,6 @@ namespace MentorJWcfService
         public string BigPictureURL { get; set; }
         public string SmallPictureURL { get; set; }
         public System.DateTime Modified { get; set; }
+        public byte[] PictureData { get; set; }
     }
 }

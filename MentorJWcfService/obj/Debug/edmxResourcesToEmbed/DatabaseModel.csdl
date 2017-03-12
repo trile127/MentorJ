@@ -139,6 +139,7 @@
     <Property Name="BigPictureURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SmallPictureURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PictureData" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="tblUserSetting">
     <Key>

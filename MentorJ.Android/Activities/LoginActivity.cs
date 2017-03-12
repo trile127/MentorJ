@@ -79,7 +79,7 @@ namespace MentorJ.Android
                     session_editor.PutString("pass", SESSION_PASS);
                     session_editor.PutLong("userid", SESSION_USERID);
                     session_editor.Commit();
-                    Intent n = new Intent(this, typeof(StoryBoardCode));
+                    Intent n = new Intent(this, typeof(MyProfileActivity));
                     StartActivity(n);
                     Finish();
                 }
@@ -126,7 +126,7 @@ namespace MentorJ.Android
             {
 
                 Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show();
-                Intent n = new Intent(this, typeof(StoryBoardCode));
+                Intent n = new Intent(this, typeof(MyProfileActivity));
                 StartActivity(n);
                 Finish();
             }

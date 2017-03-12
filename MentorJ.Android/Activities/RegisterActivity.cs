@@ -22,6 +22,7 @@ namespace MentorJ.Android
     public class RegisterActivity : Activity
     {
         private MentorJServiceClient _client;
+        
         EditText txtUsername;
         EditText txtEmail;
         EditText txtPassword;

@@ -3,7 +3,11 @@
     <system.serviceModel>
         <bindings>
             <basicHttpBinding>
-                <binding name="BasicHttpBinding_IMentorJService" maxBufferSize="2147483647"
+                <binding name="BasicHttpBinding_IMentorJInfoService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IMentorJProfileService" maxBufferSize="2147483647"
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
@@ -11,8 +15,11 @@
         </bindings>
         <client>
             <endpoint address="http://localhost:9607/MentorJService.svc"
-                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMentorJService"
-                contract="IMentorJService" name="BasicHttpBinding_IMentorJService" />
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMentorJInfoService"
+                contract="IMentorJInfoService" name="BasicHttpBinding_IMentorJInfoService" />
+            <endpoint address="http://localhost:9607/MentorJService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMentorJProfileService"
+                contract="IMentorJProfileService" name="BasicHttpBinding_IMentorJProfileService" />
         </client>
         <extensions />
     </system.serviceModel>

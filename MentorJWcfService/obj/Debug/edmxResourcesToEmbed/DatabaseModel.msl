@@ -138,6 +138,7 @@
     <EntitySetMapping Name="tblUserProfiles">
       <EntityTypeMapping TypeName="MentorJModel.tblUserProfile">
         <MappingFragment StoreEntitySet="tblUserProfile">
+          <ScalarProperty Name="PictureData" ColumnName="PictureData" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="About" ColumnName="About" />
           <ScalarProperty Name="WebProfileLink" ColumnName="WebProfileLink" />

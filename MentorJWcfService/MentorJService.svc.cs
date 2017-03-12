@@ -12,7 +12,9 @@ using System.Text;
 
 namespace MentorJWcfService
 {
-    public partial class MentorJService : IMentorJService
+   
+
+        public partial class MentorJService : IMentorJInfoService
     {
 
         //private tblUserInfo TranslatetblUserInfoTotblUserInfo(tblUserInfo user)
@@ -94,7 +96,7 @@ namespace MentorJWcfService
         //}
 
 
-        public tblUserInfo ReadRecord(long ID)
+        public tblUserInfo ReadRecord_UserInfo(long ID)
         {
             try
             {
@@ -120,19 +122,19 @@ namespace MentorJWcfService
 
 
 
-        public bool AddUpdateRecord(tblUserInfo rec)
+        public bool AddUpdateRecord_UserInfo(tblUserInfo rec)
         {
             try
             {
                 MentorJEntities context = new MentorJEntities();
-                tblUserInfo existingRec = ReadRecord(rec.UserID);
+                tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
                 if (existingRec == null) //new record
                 {
-                    return InsertRecord(rec);
+                    return InsertRecord_UserInfo(rec);
                 }
                 else //found existing, update
                 {
-                    return UpdateRecord(rec);
+                    return UpdateRecord_UserInfo(rec);
                 }
 
             }
@@ -143,20 +145,20 @@ namespace MentorJWcfService
 
         }
 
-        public bool InsertRecord(tblUserInfo rec)
+        public bool InsertRecord_UserInfo(tblUserInfo rec)
         {
             try
             {
                 MentorJEntities context = new MentorJEntities();
-                tblUserInfo existingRec = ReadRecord(rec.UserID);
+                tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
 
                 if (existingRec == null)
                 {
-                    if (isUserNameTaken(rec) == true)  //if check fails, then username already taken.
+                    if (isUserNameTaken_UserInfo(rec) == true)  //if check fails, then username already taken.
                     {
                         return false;
                     }
-                    if (isEmailTaken(rec) == true)  //if check fails, then username already taken.
+                    if (isEmailTaken_UserInfo(rec) == true)  //if check fails, then username already taken.
                     {
                         return false;
                     }
@@ -180,12 +182,12 @@ namespace MentorJWcfService
 
    
 
-        public bool DeleteRecord(long ID)
+        public bool DeleteRecord_UserInfo(long ID)
         {
             try
             {
                 MentorJEntities context = new MentorJEntities();
-                tblUserInfo existingRec = ReadRecord(ID);
+                tblUserInfo existingRec = ReadRecord_UserInfo(ID);
                 if (existingRec != null) //there is a record
                 {
 
@@ -205,12 +207,12 @@ namespace MentorJWcfService
 
       
 
-        public bool UpdateRecord(tblUserInfo rec)
+        public bool UpdateRecord_UserInfo(tblUserInfo rec)
         {
             try
             {
                 MentorJEntities context = new MentorJEntities();
-                tblUserInfo existingRec = ReadRecord(rec.UserID);
+                tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
                 if (existingRec != null)
                 {
                     rec.AccountCreationDate = DateTime.Now;
@@ -229,7 +231,7 @@ namespace MentorJWcfService
             }
         }
 
-        public tblUserInfo ValidateLogin(string username, string password)
+        public tblUserInfo ValidateLogin_UserInfo(string username, string password)
         {
             try
             {
@@ -252,7 +254,7 @@ namespace MentorJWcfService
 
         }
 
-        public bool isUserNameTaken(tblUserInfo rec)
+        public bool isUserNameTaken_UserInfo(tblUserInfo rec)
         {
             try
             {
@@ -274,7 +276,7 @@ namespace MentorJWcfService
             }
         }
 
-        public bool isEmailTaken(tblUserInfo rec)
+        public bool isEmailTaken_UserInfo(tblUserInfo rec)
         {
             try
             {
@@ -298,7 +300,7 @@ namespace MentorJWcfService
 
 
 
-        public long assignUserID()
+        public long assignUserID_UserInfo()
         {
             try
             {
@@ -319,4 +321,140 @@ namespace MentorJWcfService
 
 
     }
+}
+
+namespace MentorJWcfService
+{
+    public partial class MentorJService : IMentorJProfileService
+    {
+        public tblUserProfile ReadRecord_UserProfile(long ID)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                var query = from n in context.tblUserProfiles
+                            where n.UserID == ID
+                            select n;
+                if (query != null && query.Count() > 0)
+                {
+                    //return TranslatetblUserInfoTotblUserInfo(query.First());
+                    return query.First();
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+        public bool AddUpdateRecord_UserProfile(tblUserProfile rec)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                tblUserProfile existingRec = ReadRecord_UserProfile(rec.UserID);
+                if (existingRec == null) //new record
+                {
+                    return InsertRecord_UserProfile(rec);
+                }
+                else //found existing, update
+                {
+                    return UpdateRecord_UserProfile(rec);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public bool InsertRecord_UserProfile(tblUserProfile rec)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                tblUserProfile existingRec = ReadRecord_UserProfile(rec.UserID);
+
+                if (existingRec == null)
+                {
+
+                    //generate profile URL;
+                    //if (isUserNameTaken(rec) == true)  //if check fails, then username already taken.
+                    //{
+                    //    return false;
+                    //}
+                    //if (isEmailTaken(rec) == true)  //if check fails, then username already taken.
+                    //{
+                    //    return false;
+                    //}
+                    rec.Modified = DateTime.Now;
+                    context.tblUserProfiles.Add(rec);
+                    context.SaveChangesAsync();
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        public bool DeleteRecord_UserProfile(long ID)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                tblUserProfile existingRec = ReadRecord_UserProfile(ID);
+                if (existingRec != null) //there is a record
+                {
+                    context.tblUserProfiles.Remove(existingRec);
+                    context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        public bool UpdateRecord_UserProfile(tblUserProfile rec)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                tblUserProfile existingRec = ReadRecord_UserProfile(rec.UserID);
+                if (existingRec != null)
+                {
+                    rec.Modified = DateTime.Now;
+                    Serializer.Clone<tblUserProfile>(rec, existingRec);
+                    context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+    }
+
 }

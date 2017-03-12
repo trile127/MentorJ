@@ -1,2 +1,0 @@
-android.app.Application
-MentorJ.Android.MentorJ.Android

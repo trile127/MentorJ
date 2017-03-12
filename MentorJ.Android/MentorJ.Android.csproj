@@ -83,7 +83,7 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
-    <Compile Include="Activities\StoryBoardCode.cs" />
+    <Compile Include="Activities\MyProfileActivity.cs" />
     <Compile Include="MentorJService.cs" />
     <Compile Include="Models\sqltblUserInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
