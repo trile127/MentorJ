@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:android="http://schemas.android.com/apk/res/android" attributeFormDefault="qualified" elementFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="schemas.android.com.apk.res.android.xsd" namespace="http://schemas.android.com/apk/res/android" />
+  <xs:import schemaLocation="schemas.android.com.apk.res.auto.xsd" namespace="http://schemas.android.com/apk/res-auto" />
+  <xs:import schemaLocation="schemas.android.com.tools.xsd" namespace="http://schemas.android.com/tools" />
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>3/4/2017 6:02:34 PM</xs:documentation>
+    <xs:documentation>3/14/2017 10:17:58 AM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -207,6 +209,7 @@
         <xs:attribute ref="android:fontFeatureSettings" />
         <xs:attribute ref="android:breakStrategy" />
         <xs:attribute ref="android:hyphenationFrequency" />
+        <xs:attribute ref="tools:text" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -303,17 +306,9 @@
     <xs:attribute ref="android:foregroundTint" />
     <xs:attribute ref="android:foregroundTintMode" />
     <xs:attribute ref="android:scrollIndicators" />
+    <xs:attribute ref="tools:visibility" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="SurfaceView" type="SurfaceView">
@@ -624,6 +619,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="AdapterView">
         <xs:attribute ref="android:entries" />
+        <xs:attribute ref="tools:listitem" />
+        <xs:attribute ref="tools:listheader" />
+        <xs:attribute ref="tools:listfooter" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -1060,6 +1058,9 @@
         <xs:attribute ref="android:outAnimation" />
         <xs:attribute ref="android:loopViews" />
         <xs:attribute ref="android:animateFirstView" />
+        <xs:attribute ref="tools:listitem" />
+        <xs:attribute ref="tools:listheader" />
+        <xs:attribute ref="tools:listfooter" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -1170,6 +1171,9 @@
         <xs:attribute ref="android:smoothScrollbar" />
         <xs:attribute ref="android:choiceMode" />
         <xs:attribute ref="android:fastScrollAlwaysVisible" />
+        <xs:attribute ref="tools:listitem" />
+        <xs:attribute ref="tools:listheader" />
+        <xs:attribute ref="tools:listfooter" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -1360,17 +1364,9 @@
     <xs:attribute ref="android:fragmentReenterTransition" />
     <xs:attribute ref="android:fragmentAllowEnterTransitionOverlap" />
     <xs:attribute ref="android:fragmentAllowReturnTransitionOverlap" />
+    <xs:attribute ref="tools:layout" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
 </xs:schema>

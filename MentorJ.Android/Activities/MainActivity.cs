@@ -20,7 +20,8 @@ namespace MentorJ.Android
     {
         public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
 
-        private MentorJServiceClient _client;
+
+        private MentorJInfoServiceClient _client;
         private Button _getUserInfoButton;
         private TextView _getUserInfoTextView;
         private Button _sayHelloWorldButton;
@@ -47,7 +48,7 @@ namespace MentorJ.Android
 
             SetContentView(Resource.Layout.Main);
 
-            InitializeMentorJServiceClient();
+            InitializeMentorJInfoServiceClient();
 
             // This button will invoke the GetHelloWorldData - the method that takes a C# object as a parameter.
             _getUserInfoButton = FindViewById<Button>(Resource.Id.getUserInfoButton);
@@ -69,13 +70,13 @@ namespace MentorJ.Android
             settings.MaxCharactersFromEntities = 1024;
         }
 
-        private void InitializeMentorJServiceClient()
+        private void InitializeMentorJInfoServiceClient()
         {
             BasicHttpBinding binding = CreateBasicHttp();
 
-            _client = new MentorJServiceClient(binding, EndPoint);
+            _client = new MentorJInfoServiceClient(binding, EndPoint);
              //_client.SayHelloToCompleted += ClientOnSayHelloToCompleted;
-            _client.ReadRecordCompleted += ClientOnReadRecordCompleted;
+            _client.ReadRecord_UserInfoCompleted += ClientOnReadRecordCompleted;
 
 
         }
@@ -84,7 +85,7 @@ namespace MentorJ.Android
         {
             _getUserInfoTextView.Text = "Waiting for WCF...";
 
-           _client.ReadRecordAsync(1);
+           _client.ReadRecord_UserInfoAsync(1);
 
         }
 
@@ -96,13 +97,15 @@ namespace MentorJ.Android
 
         private void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
+            //Intent n = new Intent(this, typeof(LoginActivity));
+            //StartActivity(n);
+            //Finish();
             Intent n = new Intent(this, typeof(LoginActivity));
             StartActivity(n);
             Finish();
-
         }
 
-        private void ClientOnReadRecordCompleted(object sender, ReadRecordCompletedEventArgs readRecordCompletedEventArgs)
+        private void ClientOnReadRecordCompleted(object sender, ReadRecord_UserInfoCompletedEventArgs readRecordCompletedEventArgs)
         {
             string msg = null;
             tblUserInfo newUser = null;

@@ -41,14 +41,14 @@ namespace MentorJ.Android
             session = GetSharedPreferences(userSessionPref, FileCreationMode.Private);
         }
 
-        public void initialize()
+        private void initialize()
         {
             // Get our button from the layout resource,  
             // and attach an event to it  
-            btnsign = FindViewById<Button>(Resource.Id.btnlogin);
-            btncreate = FindViewById<Button>(Resource.Id.btnregister);
-            txtEmail = FindViewById<EditText>(Resource.Id.txt_email);
-            txtPassword = FindViewById<EditText>(Resource.Id.txt_pwd);
+            //btnsign = FindViewById<Button>(Resource.Id.btnlogin);
+            //btncreate = FindViewById<Button>(Resource.Id.btnregister);
+            //txtEmail = FindViewById<EditText>(Resource.Id.txt_email);
+            //txtPassword = FindViewById<EditText>(Resource.Id.txt_pwd);
             btnsign.Click += Btnsign_Click;
             btncreate.Click += Btncreate_Click;
             //CreateDB();
@@ -93,25 +93,25 @@ namespace MentorJ.Android
                 Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
-        public string CreateDB()
-        {
-            var output = "";
-            output += "Creating Database if it doesnt exists";
-            if ( File.Exists(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3")) == false )
-            {
-                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-                var db = new SQLiteConnection(dpPath);
-                output += "\n Database Created....";
-                Toast.MakeText(this, "Database Created!,", ToastLength.Short).Show();
-                return output;
-            } //Create New Database  
-            else
-            {
-                output = "Database already exists.";
-                Toast.MakeText(this, "User Login Database already exists!,", ToastLength.Short).Show();
-                return output;
-            }
-        }
+        //public string CreateDB()
+        //{
+        //    var output = "";
+        //    output += "Creating Database if it doesnt exists";
+        //    if ( File.Exists(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3")) == false )
+        //    {
+        //        string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+        //        var db = new SQLiteConnection(dpPath);
+        //        output += "\n Database Created....";
+        //        Toast.MakeText(this, "Database Created!,", ToastLength.Short).Show();
+        //        return output;
+        //    } //Create New Database  
+        //    else
+        //    {
+        //        output = "Database already exists.";
+        //        Toast.MakeText(this, "User Login Database already exists!,", ToastLength.Short).Show();
+        //        return output;
+        //    }
+        //}
 
         // method to check existing credentials
         public void checkCredentials()
@@ -124,6 +124,8 @@ namespace MentorJ.Android
             long userid = preferences.GetLong("userid", -1);
             if (!username.Equals("") && !email.Equals("") && !pass.Equals("") && userid != -1)
             {
+                //Check with webserver HERE
+
 
                 Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show();
                 Intent n = new Intent(this, typeof(MyProfileActivity));

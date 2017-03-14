@@ -215,10 +215,8 @@ namespace MentorJWcfService
                 tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
                 if (existingRec != null)
                 {
-                    rec.AccountCreationDate = DateTime.Now;
+                    
                     rec.LastUpdatedDate = DateTime.Now;
-                    rec.FailedLoginAttempts = 0;
-                    rec.LastFailedLoginDate = DateTime.Now;
                     Serializer.Clone<tblUserInfo>(rec, existingRec);
                     context.SaveChangesAsync();
                     return true;

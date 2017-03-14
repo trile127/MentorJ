@@ -21,12 +21,24 @@ namespace MentorJ.Android
     [Activity(Label = "RegisterActivity")]
     public class RegisterActivity : Activity
     {
-        private MentorJServiceClient _client;
+        private MentorJInfoServiceClient _client;
         
         EditText txtUsername;
         EditText txtEmail;
         EditText txtPassword;
-        Button btncreate, btn_reg_back;
+        EditText txtFirstName;
+        EditText txtMiddleName;
+        EditText txtLastName;
+        EditText txtConfirmPassword;
+        EditText txtStreetAddress;
+        EditText txtCity;
+        EditText txtState;
+        EditText txtCountry;
+        EditText txtPhoneNumber;
+
+        Button btnContinue, btnContinue2;
+
+        tblUserInfo newUser;
         public static String userSessionPref = "userPrefs";
         public static String User_Email = "userEmail";
         public static String User_Password = "userPassword";
@@ -36,11 +48,15 @@ namespace MentorJ.Android
         int checkUserName = -1, checkEmail = -1;
         long getUserID = -1;
         public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
+
+
+        //Insert Code Here
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Register);
+            SetContentView(Resource.Layout.RegisterBasicInfo);
             Initialize();
             InitializeMentorJServiceClient();
             session = GetSharedPreferences(userSessionPref, FileCreationMode.Private);
@@ -48,14 +64,29 @@ namespace MentorJ.Android
 
         private void Initialize()
         {
-            btncreate = FindViewById<Button>(Resource.Id.btn_reg_create);
-            btn_reg_back = FindViewById<Button>(Resource.Id.btn_reg_back);
-            btn_reg_back.Click += Btn_reg_back_Click;
-            txtUsername = FindViewById<EditText>(Resource.Id.txt_reg_username);
-            txtEmail= FindViewById<EditText>(Resource.Id.txt_reg_email);
-            txtPassword = FindViewById<EditText>(Resource.Id.txt_reg_password);
-            btncreate.Click += Btncreate_Click;
+            btnContinue = FindViewById<Button>(Resource.Id.btnContinue);
+            btnContinue.Click += btnContinue_Click;
+            btnContinue2 = FindViewById<Button>(Resource.Id.btnContinue2);
+            btnContinue.Click += btnContinue2_Click;
 
+            //btn_reg_back = FindViewById<Button>(Resource.Id.btn_reg_back);
+            //btn_reg_back.Click += Btn_reg_back_Click;
+
+            txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
+            txtEmail= FindViewById<EditText>(Resource.Id.txtEmail);
+            txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+            txtConfirmPassword = FindViewById<EditText>(Resource.Id.txtConfirmPassword);
+            txtFirstName = FindViewById<EditText>(Resource.Id.txtFirstName);
+            txtMiddleName = FindViewById<EditText>(Resource.Id.txtMiddleName);
+            txtLastName = FindViewById<EditText>(Resource.Id.txtLastName);
+            txtStreetAddress = FindViewById<EditText>(Resource.Id.txtStreetAddress);
+            txtCity = FindViewById<EditText>(Resource.Id.txtCity);
+            txtState = FindViewById<EditText>(Resource.Id.txtState);
+            txtCountry = FindViewById<EditText>(Resource.Id.txtCountry);
+            txtPhoneNumber = FindViewById<EditText>(Resource.Id.txtPhoneNumber);
+            
+
+            //Insert Code Here for buttons and textviews
         }
 
         private async Task delayTask()
@@ -67,12 +98,12 @@ namespace MentorJ.Android
         {
             BasicHttpBinding binding = CreateBasicHttp();
 
-            _client = new MentorJServiceClient(binding, EndPoint);
+            _client = new MentorJInfoServiceClient(binding, EndPoint);
             //_client.SayHelloToCompleted += ClientOnSayHelloToCompleted;
-            _client.InsertRecordCompleted += ClientOnInsertRecordCompleted;
-            _client.isUserNameTakenCompleted += ClientOnisUserNameTakenCompleted;
-            _client.isEmailTakenCompleted += ClientOnisEmailTakenCompleted;
-            _client.assignUserIDCompleted += ClientOnisassignUserIDCompleted;
+            _client.InsertRecord_UserInfoCompleted += ClientOnInsertRecordCompleted;
+            _client.isUserNameTaken_UserInfoCompleted += ClientOnisUserNameTakenCompleted;
+            _client.isEmailTaken_UserInfoCompleted += ClientOnisEmailTakenCompleted;
+            _client.assignUserID_UserInfoCompleted += ClientOnisassignUserIDCompleted;
 
 
         }
@@ -106,13 +137,47 @@ namespace MentorJ.Android
             Finish();
         }
 
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
 
-        private async void Btncreate_Click(object sender, EventArgs e)
+            try
+            {
+
+                newUser = new tblUserInfo();
+                //Put code here
+                //Go to next page, but check required fields FIRST
+                //Also check if username and email are already TAKEN
+                
+
+                if (txtUsername.Text.Trim() != "")  //if something is in it
+                {
+                    
+                    newUser.UserName = txtUsername.Text.Trim();
+                    
+                }
+
+                newUser.Email = txtEmail.Text;
+                newUser.Password = txtPassword.Text;
+                newUser.First_Name = "Tri";
+                newUser.Middle_Name = "Xuan";
+                newUser.Last_Name = "Le";
+
+                //All good?
+                SetContentView(Resource.Layout.RegisterBasicInfo);
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+            }
+        }
+
+
+        private async void btnContinue2_Click(object sender, EventArgs e)
         {
             
             try
             {
-                _client.assignUserIDAsync();
+                _client.assignUserID_UserInfoAsync();
                 while (getUserID == -1)
                 {
                     await delayTask();
@@ -126,7 +191,7 @@ namespace MentorJ.Android
                 //db.CreateTable<tblUserInfo>();
                 tblUserInfo newUser = new tblUserInfo();
                 newUser.UserID = getUserID;
-                newUser.UserName = txtUsername.Text;
+                newUser.UserName = txtUsername.Text.Trim();
                 newUser.Email = txtEmail.Text;
                 newUser.Password = txtPassword.Text;
                 newUser.First_Name = "Tri";
@@ -152,16 +217,16 @@ namespace MentorJ.Android
                 newUser.LastFailedLoginDate = DateTime.Now;
                 newUser.AccountLocked = false;
                 
-                _client.isUserNameTakenAsync(newUser);  //check if username in use
+                _client.isUserNameTaken_UserInfoAsync(newUser);  //check if username in use
                 
-                _client.isEmailTakenAsync(newUser); //check if email is in use
+                _client.isEmailTaken_UserInfoAsync(newUser); //check if email is in use
                 while (checkEmail == -1 && checkUserName == -1) // wait for request to change flags
                 {
                     await delayTask();
                 }
                 if (!isNameTaken && !isEmailTaken)    //if name and email are unused, insert into web SQL Database
                 {
-                    _client.InsertRecordAsync(newUser);
+                    _client.InsertRecord_UserInfoAsync(newUser);
                 }
                 else
                 {
@@ -203,7 +268,7 @@ namespace MentorJ.Android
 
 
 
-        private void ClientOnInsertRecordCompleted(object sender, InsertRecordCompletedEventArgs insertRecordCompletedEventArgs)
+        private void ClientOnInsertRecordCompleted(object sender, InsertRecord_UserInfoCompletedEventArgs insertRecordCompletedEventArgs)
         {
             string msg = null;
             bool insertion = false;
@@ -224,7 +289,7 @@ namespace MentorJ.Android
             RunOnUiThread(() => Toast.MakeText(this, msg, ToastLength.Long).Show());
         }
 
-        private void ClientOnisUserNameTakenCompleted(object sender, isUserNameTakenCompletedEventArgs isUserNameTakenCompletedEventArgs)
+        private void ClientOnisUserNameTakenCompleted(object sender, isUserNameTaken_UserInfoCompletedEventArgs isUserNameTakenCompletedEventArgs)
         {
             string msg = null;
 
@@ -255,7 +320,7 @@ namespace MentorJ.Android
             checkUserName = 1;
             RunOnUiThread(() => Toast.MakeText(this, msg, ToastLength.Long).Show());
         }
-        private void ClientOnisassignUserIDCompleted(object sender, assignUserIDCompletedEventArgs isassignUserIDCompletedEventArgs)
+        private void ClientOnisassignUserIDCompleted(object sender, assignUserID_UserInfoCompletedEventArgs isassignUserIDCompletedEventArgs)
         {
             string msg = null;
 
@@ -280,7 +345,7 @@ namespace MentorJ.Android
         }
 
 
-        private void ClientOnisEmailTakenCompleted(object sender, isEmailTakenCompletedEventArgs isEmailTakenCompletedEventArgs)
+        private void ClientOnisEmailTakenCompleted(object sender, isEmailTaken_UserInfoCompletedEventArgs isEmailTakenCompletedEventArgs)
         {
             string msg = null;
 

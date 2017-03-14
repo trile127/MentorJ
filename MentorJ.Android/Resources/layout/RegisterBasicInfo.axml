@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:id="@+id/scrollView1"
+    android:background="@drawable/backgroundgradient"
+    android:layout_weight="1"
+    android:scrollbars="none">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Basic Information"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BasicInfo"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFirstName"
+            android:background="@drawable/edittextstyle"
+            android:hint="First Name"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtMiddleName"
+            android:background="@drawable/edittextstyle"
+            android:hint="Middle Name (optional)"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLastName"
+            android:background="@drawable/edittextstyle"
+            android:hint="Last Name"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmail"
+            android:background="@drawable/edittextstyle"
+            android:hint="Email Address"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUsername"
+            android:background="@drawable/edittextstyle"
+            android:hint="Username"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPassword"
+            android:hint="Password"
+            android:background="@drawable/edittextstyle"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtConfirmPassword"
+            android:hint="Confirm Password"
+            android:background="@drawable/edittextstyle"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp" />
+        <Button
+            android:text="Continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnContinue"
+            android:stateListAnimator="@null"
+            android:background="@drawable/buttoncontinuestyle"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>
