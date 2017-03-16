@@ -23,6 +23,7 @@ namespace MentorJ.Android
         EditText txtPassword;
         Button btncreate;
         Button btnsign;
+        Button btnforgotpw;
         public static String userSessionPref = "userPrefs";
         public static String User_Name = "userName";
         public static String User_Email = "userEmail";
@@ -45,18 +46,30 @@ namespace MentorJ.Android
         {
             // Get our button from the layout resource,  
             // and attach an event to it  
-            //btnsign = FindViewById<Button>(Resource.Id.btnlogin);
-            //btncreate = FindViewById<Button>(Resource.Id.btnregister);
-            //txtEmail = FindViewById<EditText>(Resource.Id.txt_email);
-            //txtPassword = FindViewById<EditText>(Resource.Id.txt_pwd);
-            btnsign.Click += Btnsign_Click;
-            btncreate.Click += Btncreate_Click;
+            btnsign = FindViewById<Button>(Resource.Id.btnLogin);
+            btncreate = FindViewById<Button>(Resource.Id.btnRegister);
+            txtEmail = FindViewById<EditText>(Resource.Id.editEmail);
+            txtPassword = FindViewById<EditText>(Resource.Id.editPassword);
+            btnforgotpw = FindViewById<EditText>(Resource.Id.btnForgotPw);
+
+
+            btnsign.Click += btnsign_Click;
+            btncreate.Click += btncreate_Click;
+            btnforgotpw.Click += btnforgotpw_Click;
+            
+
             //CreateDB();
         }
         private void Btncreate_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(RegisterActivity));
         }
+
+        private void Btnforgotpw_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(ForgotPwActivity));
+        }
+
         private void Btnsign_Click(object sender, EventArgs e)
         {
             try
@@ -67,7 +80,7 @@ namespace MentorJ.Android
                 var query = data.Where(x => (x.Email == txtEmail.Text) && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query  
                 if (query != null)
                 {
-                    //if you want you can tost 
+                    //if you want you can toast 
                     Toast.MakeText(this, "Login Success", ToastLength.Short).Show();
                     SESSION_NAME = query.UserName;
                     SESSION_EMAIL = query.Email;
