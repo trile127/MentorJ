@@ -5,7 +5,7 @@
   <xs:import schemaLocation="schemas.android.com.tools.xsd" namespace="http://schemas.android.com/tools" />
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>3/14/2017 10:17:58 AM</xs:documentation>
+    <xs:documentation>3/19/2017 5:49:13 PM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -309,6 +309,15 @@
     <xs:attribute ref="tools:visibility" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
+    <xs:attribute ref="android:layout_weight" />
+    <xs:attribute ref="android:layout_gravity" />
+    <xs:attribute ref="android:layout_margin" />
+    <xs:attribute ref="android:layout_marginLeft" />
+    <xs:attribute ref="android:layout_marginTop" />
+    <xs:attribute ref="android:layout_marginRight" />
+    <xs:attribute ref="android:layout_marginBottom" />
+    <xs:attribute ref="android:layout_marginStart" />
+    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="SurfaceView" type="SurfaceView">
@@ -1367,6 +1376,15 @@
     <xs:attribute ref="tools:layout" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
+    <xs:attribute ref="android:layout_weight" />
+    <xs:attribute ref="android:layout_gravity" />
+    <xs:attribute ref="android:layout_margin" />
+    <xs:attribute ref="android:layout_marginLeft" />
+    <xs:attribute ref="android:layout_marginTop" />
+    <xs:attribute ref="android:layout_marginRight" />
+    <xs:attribute ref="android:layout_marginBottom" />
+    <xs:attribute ref="android:layout_marginStart" />
+    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
 </xs:schema>

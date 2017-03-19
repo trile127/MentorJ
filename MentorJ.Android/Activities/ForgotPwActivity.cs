@@ -14,7 +14,7 @@ using System.IO;
 using MentorJ.Android;
 using MentorJWcfService;
 
-namespace MentorJ.Android.Activities
+namespace MentorJ.Android
 {
     [Activity(Label = "ForgotPwActivity")]
     public class ForgotPwActivity : Activity
@@ -40,13 +40,18 @@ namespace MentorJ.Android.Activities
             btnreturn = FindViewById<Button>(Resource.Id.btnReturn);
             txtEmail = FindViewById<EditText>(Resource.Id.editEmail);
 
-            btnsend.Click += btnsend_Click;
-            btnreturn.Click += btnreturn_Click;
+            btnsend.Click += Btnsend_Click;
+            btnreturn.Click += Btnreturn_Click;
         }
 
         private void Btnreturn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(LoginActivity));
+        }
+
+        private void Btnsend_Click(object sender, EventArgs e)
+        {
+            
         }
 
         // insert method to check if email is registered
