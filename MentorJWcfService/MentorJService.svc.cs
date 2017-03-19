@@ -229,13 +229,13 @@ namespace MentorJWcfService
             }
         }
 
-        public tblUserInfo ValidateLogin_UserInfo(string username, string password)
+        public tblUserInfo ValidateLogin_UserInfo(string email, string password)
         {
             try
             {
                 MentorJEntities context = new MentorJEntities();
                 var query = from n in context.tblUserInfoes
-                            where n.UserName == username
+                            where n.Email == email
                             where n.Password == password
                             select n;
                 if (query != null && query.Count() > 0)

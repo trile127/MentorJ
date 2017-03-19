@@ -13,17 +13,23 @@ using SQLite;
 using System.IO;
 using MentorJ.Android;
 using MentorJWcfService;
+using System.ServiceModel;
+using MentorJ.Android.Utilities;
+using System.Threading.Tasks;
+
 
 namespace MentorJ.Android
 {
     [Activity(Label = "LoginActivity")]
     public class LoginActivity : Activity
     {
+
+        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
         EditText txtEmail;
         EditText txtPassword;
-        Button btncreate;
-        Button btnsign;
-        Button btnforgotpw;
+        Button btnCreate;
+        Button btnSign;
+        Button btnforgotPW;
         public static String userSessionPref = "userPrefs";
         public static String User_Name = "userName";
         public static String User_Email = "userEmail";
@@ -32,45 +38,85 @@ namespace MentorJ.Android
         String SESSION_NAME, SESSION_EMAIL, SESSION_PASS;
         long SESSION_USERID;
 
+        private MentorJInfoServiceClient _client;
+        string msg;
+        tblUserInfo newUser;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource  
             SetContentView(Resource.Layout.Login);
             checkCredentials();
-            initialize();
+            Initialize();
+            InitializeMentorJInfoServiceClient();
             session = GetSharedPreferences(userSessionPref, FileCreationMode.Private);
         }
 
-        private void initialize()
+        private void Initialize()
         {
             // Get our button from the layout resource,  
             // and attach an event to it  
-            btnsign = FindViewById<Button>(Resource.Id.btnLogin);
-            btncreate = FindViewById<Button>(Resource.Id.btnRegister);
+            btnSign = FindViewById<Button>(Resource.Id.btnLogin);
+            btnCreate = FindViewById<Button>(Resource.Id.btnRegister);
             txtEmail = FindViewById<EditText>(Resource.Id.editEmail);
             txtPassword = FindViewById<EditText>(Resource.Id.editPassword);
-            btnforgotpw = FindViewById<EditText>(Resource.Id.btnForgotPw);
+            btnforgotPW = FindViewById<Button>(Resource.Id.btnForgotPw);
 
 
-            btnsign.Click += btnsign_Click;
-            btncreate.Click += btncreate_Click;
-            btnforgotpw.Click += btnforgotpw_Click;
-            
+            btnSign.Click += Btnsign_Click;
+            btnCreate.Click += Btncreate_Click;
+            btnforgotPW.Click += BtnforgotPW_Click;
+
 
             //CreateDB();
         }
+
+        private static BasicHttpBinding CreateBasicHttp()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "basicHttpBinding",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
+            return binding;
+        }
+
+        private void InitializeMentorJInfoServiceClient()
+        {
+            BasicHttpBinding binding = CreateBasicHttp();
+            _client = new MentorJInfoServiceClient(binding, EndPoint);
+            _client.ValidateLogin_UserInfoCompleted += ClientOnValidateLogin_UserInfoCompleted;
+        }
+
+        private async Task delayTask()
+        {
+            await Task.Delay(500);
+        }
+
         private void Btncreate_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(RegisterActivity));
+            Intent n = new Intent(this, typeof(RegisterActivity));
+            StartActivity(n);
+            Finish();
+
         }
 
-        private void Btnforgotpw_Click(object sender, EventArgs e)
+        private void BtnforgotPW_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(ForgotPwActivity));
+
+            Intent n = new Intent(this, typeof(ForgotPwActivity));
+            StartActivity(n);
+            Finish();
+
         }
 
-        private void Btnsign_Click(object sender, EventArgs e)
+        private async void Btnsign_Click(object sender, EventArgs e)
         {
             try
             {
@@ -92,9 +138,35 @@ namespace MentorJ.Android
                     session_editor.PutString("pass", SESSION_PASS);
                     session_editor.PutLong("userid", SESSION_USERID);
                     session_editor.Commit();
-                    Intent n = new Intent(this, typeof(MyProfileActivity));
-                    StartActivity(n);
-                    Finish();
+                    //Intent n = new Intent(this, typeof(MyProfileActivity));
+                    //StartActivity(n);
+                    //Finish();
+
+                    _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+
+                    //Figure out a better way to wait and break out
+                    while (msg == null || msg != "Login Successful!")
+                    {
+                        await delayTask();
+                        if (msg != null && msg != "Login Successful!")
+                        {
+                            break;
+                            //Error, 
+                        }
+                    }
+
+                    if (msg == "Login Successful!")
+                    {
+                        //Set user preferences
+
+                        Intent n = new Intent(this, typeof(MyProfileActivity));
+                        StartActivity(n);
+                        Finish();
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Login Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed. IE: "Username or password incorrect"
+                    }
                 }
                 else
                 {
@@ -127,7 +199,8 @@ namespace MentorJ.Android
         //}
 
         // method to check existing credentials
-        public void checkCredentials()
+
+        public async void checkCredentials()
         {
             ISharedPreferences preferences = GetSharedPreferences(userSessionPref, FileCreationMode.Private);
             String email = preferences.GetString("email", "");
@@ -136,16 +209,62 @@ namespace MentorJ.Android
             String pass = preferences.GetString("pass", "");
             long userid = preferences.GetLong("userid", -1);
             if (!username.Equals("") && !email.Equals("") && !pass.Equals("") && userid != -1)
-            {
+            {
                 //Check with webserver HERE
+                _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+
+                //Figure out a better way to wait and break out
+                while (msg == null || msg != "Login Successful!")
+                {
+                    await delayTask();
+                    if (msg != null && msg != "Login Successful!")
+                    {
+                        break;
+                        //Error, 
+                    }
+                }
+
+                if (msg == "Login Successful!")
+                {
+                    //Set user preferences
+                    Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show();
+                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                    StartActivity(n);
+                    Finish();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Login Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed. IE: "Username or password incorrect"
+                }
 
 
-                Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show();
-                Intent n = new Intent(this, typeof(MyProfileActivity));
-                StartActivity(n);
-                Finish();
             }
 
+        }
+
+        private void ClientOnValidateLogin_UserInfoCompleted(object sender, ValidateLogin_UserInfoCompletedEventArgs validateLoginCompletedEventArgs)
+        {
+            string msg = null;
+
+
+            if (validateLoginCompletedEventArgs.Error != null)
+            {
+                msg = validateLoginCompletedEventArgs.Error.Message;
+            }
+            else if (validateLoginCompletedEventArgs.Cancelled)
+            {
+                msg = "Request was cancelled.";
+            }
+            else
+            {
+                newUser = validateLoginCompletedEventArgs.Result;
+                newUser.LastLoginDate = DateTime.Now;
+                newUser.LastActiveDate = DateTime.Now;
+                _client.UpdateRecord_UserInfoAsync(newUser);
+                msg = "Login Successful!";
+
+            }
+            RunOnUiThread(() => Toast.MakeText(this, msg, ToastLength.Short).Show());
         }
     }
 }

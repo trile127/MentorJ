@@ -13,7 +13,7 @@ using MentorJ.Android;
 
 namespace MentorJ.Android
 {
-    [Activity(Label = "StoryBoardCode")]
+    [Activity(Label = "MyProfileActivity")]
     public class MyProfileActivity : Activity
     {
         private Button btn_reg_logout;

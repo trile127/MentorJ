@@ -80,8 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ForgotPwActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
-    <Compile Include="Activities\LoginTestActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\MyProfileActivity.cs" />
@@ -109,6 +109,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RegisterBasicInfo.axml" />
     <AndroidResource Include="Resources\layout\RegisterAdditionalInfo.axml" />
+    <AndroidResource Include="Resources\layout\ForgotPw.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
