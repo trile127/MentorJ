@@ -189,23 +189,23 @@ namespace MentorJ.Android
                 //if ( data == null )
                 //{
                 //db.CreateTable<tblUserInfo>();
-                tblUserInfo newUser = new tblUserInfo();
+                
                 newUser.UserID = getUserID;
                 newUser.UserName = txtUsername.Text.Trim();
                 newUser.Email = txtEmail.Text;
                 newUser.Password = txtPassword.Text;
-                newUser.First_Name = "Tri";
-                newUser.Middle_Name = "Xuan";
-                newUser.Last_Name = "Le";
+                newUser.First_Name = txtFirstName.Text.Trim();
+                newUser.Middle_Name = txtMiddleName.Text.Trim();
+                newUser.Last_Name = txtLastName.Text.Trim();
                 newUser.Sex = "Male";
                 newUser.Birthday = DateTime.Now;
                 newUser.Age = 24;
-                newUser.Street_Address = "6447";
-                newUser.City = "Aex";
-                newUser.State = "Vir";
+                newUser.Street_Address = txtStreetAddress.Text.Trim();
+                newUser.City = txtCity.Text.Trim();
+                newUser.State = txtState.Text.Trim();
                 newUser.ZipCode = "22312";
-                newUser.Country = "USA";
-                newUser.PhoneNumber = "703";
+                newUser.Country = txtCountry.Text.Trim();
+                newUser.PhoneNumber = txtPhoneNumber.Text.Trim();
                 newUser.isPremium = true;
                 newUser.isMentor = true;
                 newUser.isAdmin = false;

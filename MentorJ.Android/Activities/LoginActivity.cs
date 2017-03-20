@@ -36,11 +36,11 @@ namespace MentorJ.Android
         public static String User_Password = "userPassword";
         ISharedPreferences session;
         String SESSION_NAME, SESSION_EMAIL, SESSION_PASS;
-        long SESSION_USERID;
+        public static long SESSION_USERID;
 
         private MentorJInfoServiceClient _client;
         string msg;
-        tblUserInfo newUser;
+        tblUserInfo user;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -122,27 +122,68 @@ namespace MentorJ.Android
             {
                 string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
                 var db = new SQLiteConnection(dpPath);
-                var data = db.Table<tblUserInfo>(); //Call Table  
-                var query = data.Where(x => (x.Email == txtEmail.Text) && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query  
-                if (query != null)
-                {
-                    //if you want you can toast 
-                    Toast.MakeText(this, "Login Success", ToastLength.Short).Show();
-                    SESSION_NAME = query.UserName;
-                    SESSION_EMAIL = query.Email;
-                    SESSION_PASS = query.Password;
-                    SESSION_USERID = query.UserID;
-                    ISharedPreferencesEditor session_editor = session.Edit();
-                    session_editor.PutString("username", SESSION_NAME);
-                    session_editor.PutString("email", SESSION_EMAIL);
-                    session_editor.PutString("pass", SESSION_PASS);
-                    session_editor.PutLong("userid", SESSION_USERID);
-                    session_editor.Commit();
-                    //Intent n = new Intent(this, typeof(MyProfileActivity));
-                    //StartActivity(n);
-                    //Finish();
+                
 
-                    _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+  
+                if ( tblUserInfo.TableExists<tblUserInfo>(db) )
+                //if (db.Table<tblUserInfo>() != null)
+                {
+                    var data = db.Table<tblUserInfo>(); //Call Table  
+                    var query = data.Where(x => (x.Email == txtEmail.Text) && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query  
+                    if (query != null)
+                    {
+                        //if you want you can toast 
+                        Toast.MakeText(this, "Login Success", ToastLength.Short).Show();
+                        SESSION_NAME = query.UserName;
+                        SESSION_EMAIL = query.Email;
+                        SESSION_PASS = query.Password;
+                        SESSION_USERID = query.UserID;
+                        ISharedPreferencesEditor session_editor = session.Edit();
+                        session_editor.PutString("username", SESSION_NAME);
+                        session_editor.PutString("email", SESSION_EMAIL);
+                        session_editor.PutString("pass", SESSION_PASS);
+                        session_editor.PutLong("userid", SESSION_USERID);
+                        session_editor.Commit();
+                        
+
+                        _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+
+                        //Figure out a better way to wait and break out
+                        while (msg == null || msg != "Login Successful!")
+                        {
+                            await delayTask();
+                            if (msg != null && msg != "Login Successful!")
+                            {
+                                break;
+                                //Error, 
+                            }
+                        }
+
+                        if (msg == "Login Successful!")
+                        {
+                            //Set user preferences
+
+                            Intent n = new Intent(this, typeof(MyProfileActivity));
+                            StartActivity(n);
+                            Finish();
+                        }
+                        else
+                        {
+                            Toast.MakeText(this, "Login Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed. IE: "Username or password incorrect"
+                        }
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Email or Password invalid", ToastLength.Short).Show();
+                    }
+                }
+                else
+                {
+                    //No Database, so create one
+                    string test = tblUserInfo.createDatabase(dpPath);
+                    var dataTbl = db.Table<tblUserInfo>();
+
+                    _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim()); //When done, will give tblUserInfo user object the record information
 
                     //Figure out a better way to wait and break out
                     while (msg == null || msg != "Login Successful!")
@@ -154,10 +195,21 @@ namespace MentorJ.Android
                             //Error, 
                         }
                     }
-
                     if (msg == "Login Successful!")
                     {
-                        //Set user preferences
+                        string success = tblUserInfo.insertUpdateData(user, dpPath); //Insert userInfo into SQLITE on phone
+                        Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
+
+                        SESSION_NAME = user.UserName;
+                        SESSION_EMAIL = user.Email;
+                        SESSION_PASS = user.Password;
+                        SESSION_USERID = user.UserID;
+                        ISharedPreferencesEditor session_editor = session.Edit();
+                        session_editor.PutString("username", SESSION_NAME);
+                        session_editor.PutString("email", SESSION_EMAIL);
+                        session_editor.PutString("pass", SESSION_PASS);
+                        session_editor.PutLong("userid", SESSION_USERID);
+                        session_editor.Commit();
 
                         Intent n = new Intent(this, typeof(MyProfileActivity));
                         StartActivity(n);
@@ -165,13 +217,11 @@ namespace MentorJ.Android
                     }
                     else
                     {
-                        Toast.MakeText(this, "Login Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed. IE: "Username or password incorrect"
+                        Toast.MakeText(this, "Login Failed", ToastLength.Short).Show();
                     }
+
                 }
-                else
-                {
-                    Toast.MakeText(this, "Email or Password invalid", ToastLength.Short).Show();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -244,7 +294,6 @@ namespace MentorJ.Android
 
         private void ClientOnValidateLogin_UserInfoCompleted(object sender, ValidateLogin_UserInfoCompletedEventArgs validateLoginCompletedEventArgs)
         {
-            string msg = null;
 
 
             if (validateLoginCompletedEventArgs.Error != null)
@@ -257,10 +306,10 @@ namespace MentorJ.Android
             }
             else
             {
-                newUser = validateLoginCompletedEventArgs.Result;
-                newUser.LastLoginDate = DateTime.Now;
-                newUser.LastActiveDate = DateTime.Now;
-                _client.UpdateRecord_UserInfoAsync(newUser);
+                user = validateLoginCompletedEventArgs.Result;
+                user.LastLoginDate = DateTime.Now;
+                user.LastActiveDate = DateTime.Now;
+                _client.UpdateRecord_UserInfoAsync(user);
                 msg = "Login Successful!";
 
             }
