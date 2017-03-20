@@ -34,8 +34,13 @@ namespace MentorJWcfService
                 return ex.Message;
             }
         }
+        public static bool TableExists<T>(SQLiteConnection connection)
+        {
+            const string cmdText = "SELECT * FROM sqlite_master WHERE type='table' AND name='tblUserInfo'";
+            var cmd = connection.CreateCommand(cmdText, typeof(T).Name);
+            return cmd.ExecuteScalar<string>() != null;
+        }
 
-        
 
         public static string insertUpdateData(tblUserInfo data, string path)
         {
