@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Collections;
 //using MentorJWcfService.DataBaseEntitiesSupplement;
 
 namespace MentorJWcfService
@@ -347,8 +348,6 @@ namespace MentorJWcfService
         }
 
 
-
-
         public bool AddUpdateRecord_UserProfile(tblUserProfile rec)
         {
             try
@@ -444,6 +443,34 @@ namespace MentorJWcfService
                     return true;
                 }
                 return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ArrayList getUserProfiles(string username)
+        {
+            try
+            {
+                MentorJEntities context = new MentorJEntities();
+                var query = from n in context.tblUserInfoes
+                            where n.UserName.Contains(username)
+                            orderby n.UserName.IndexOf(username),
+                                        n.UserName.Length ascending
+                            select n.UserID;
+                ArrayList list = new ArrayList();
+                int count = 0;
+                foreach (var id in query)
+                {
+                    count++;
+                    list.Add(id);
+                    if (count > 100)
+                        break;
+                }
+                return list;
+                //return query;
             }
             catch (Exception ex)
             {

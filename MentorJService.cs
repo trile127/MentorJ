@@ -1742,6 +1742,14 @@ public interface IMentorJProfileService
     System.IAsyncResult BeginUpdateRecord_UserProfile(MentorJWcfService.tblUserProfile rec, System.AsyncCallback callback, object asyncState);
     
     bool EndUpdateRecord_UserProfile(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/getUserProfiles", ReplyAction="http://tempuri.org/IMentorJProfileService/getUserProfilesResponse")]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserProfile))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+    System.IAsyncResult BegingetUserProfiles(string username, System.AsyncCallback callback, object asyncState);
+    
+    object[] EndgetUserProfiles(System.IAsyncResult result);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1866,6 +1874,29 @@ public partial class UpdateRecord_UserProfileCompletedEventArgs : System.Compone
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class getUserProfilesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public getUserProfilesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public object[] Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((object[])(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBase<IMentorJProfileService>, IMentorJProfileService
 {
     
@@ -1898,6 +1929,12 @@ public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBas
     private EndOperationDelegate onEndUpdateRecord_UserProfileDelegate;
     
     private System.Threading.SendOrPostCallback onUpdateRecord_UserProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBegingetUserProfilesDelegate;
+    
+    private EndOperationDelegate onEndgetUserProfilesDelegate;
+    
+    private System.Threading.SendOrPostCallback ongetUserProfilesCompletedDelegate;
     
     private BeginOperationDelegate onBeginOpenDelegate;
     
@@ -1973,6 +2010,8 @@ public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBas
     public event System.EventHandler<DeleteRecord_UserProfileCompletedEventArgs> DeleteRecord_UserProfileCompleted;
     
     public event System.EventHandler<UpdateRecord_UserProfileCompletedEventArgs> UpdateRecord_UserProfileCompleted;
+    
+    public event System.EventHandler<getUserProfilesCompletedEventArgs> getUserProfilesCompleted;
     
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
     
@@ -2263,6 +2302,63 @@ public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBas
                     rec}, this.onEndUpdateRecord_UserProfileDelegate, this.onUpdateRecord_UserProfileCompletedDelegate, userState);
     }
     
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJProfileService.BegingetUserProfiles(string username, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BegingetUserProfiles(username, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    object[] IMentorJProfileService.EndgetUserProfiles(System.IAsyncResult result)
+    {
+        return base.Channel.EndgetUserProfiles(result);
+    }
+    
+    private System.IAsyncResult OnBegingetUserProfiles(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        string username = ((string)(inValues[0]));
+        return ((IMentorJProfileService)(this)).BegingetUserProfiles(username, callback, asyncState);
+    }
+    
+    private object[] OnEndgetUserProfiles(System.IAsyncResult result)
+    {
+        object[] retVal = ((IMentorJProfileService)(this)).EndgetUserProfiles(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OngetUserProfilesCompleted(object state)
+    {
+        if ((this.getUserProfilesCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.getUserProfilesCompleted(this, new getUserProfilesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void getUserProfilesAsync(string username)
+    {
+        this.getUserProfilesAsync(username, null);
+    }
+    
+    public void getUserProfilesAsync(string username, object userState)
+    {
+        if ((this.onBegingetUserProfilesDelegate == null))
+        {
+            this.onBegingetUserProfilesDelegate = new BeginOperationDelegate(this.OnBegingetUserProfiles);
+        }
+        if ((this.onEndgetUserProfilesDelegate == null))
+        {
+            this.onEndgetUserProfilesDelegate = new EndOperationDelegate(this.OnEndgetUserProfiles);
+        }
+        if ((this.ongetUserProfilesCompletedDelegate == null))
+        {
+            this.ongetUserProfilesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OngetUserProfilesCompleted);
+        }
+        base.InvokeAsync(this.onBegingetUserProfilesDelegate, new object[] {
+                    username}, this.onEndgetUserProfilesDelegate, this.ongetUserProfilesCompletedDelegate, userState);
+    }
+    
     private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
@@ -2432,6 +2528,21 @@ public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBas
         {
             object[] _args = new object[0];
             bool _result = ((bool)(base.EndInvoke("UpdateRecord_UserProfile", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BegingetUserProfiles(string username, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = username;
+            System.IAsyncResult _result = base.BeginInvoke("getUserProfiles", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public object[] EndgetUserProfiles(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            object[] _result = ((object[])(base.EndInvoke("getUserProfiles", _args, result)));
             return _result;
         }
     }

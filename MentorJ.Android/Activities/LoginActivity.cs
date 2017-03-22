@@ -47,9 +47,9 @@ namespace MentorJ.Android
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource  
             SetContentView(Resource.Layout.Login);
-            checkCredentials();
             Initialize();
             InitializeMentorJInfoServiceClient();
+            checkCredentials();
             session = GetSharedPreferences(userSessionPref, FileCreationMode.Private);
         }
 
@@ -261,7 +261,7 @@ namespace MentorJ.Android
             if (!username.Equals("") && !email.Equals("") && !pass.Equals("") && userid != -1)
             {
                 //Check with webserver HERE
-                _client.ValidateLogin_UserInfoAsync(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+                _client.ValidateLogin_UserInfoAsync(email, pass);
 
                 //Figure out a better way to wait and break out
                 while (msg == null || msg != "Login Successful!")
@@ -277,13 +277,15 @@ namespace MentorJ.Android
                 if (msg == "Login Successful!")
                 {
                     //Set user preferences
-                    Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show();
+                    msg = null;
+                    RunOnUiThread(() => Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show() );
                     Intent n = new Intent(this, typeof(MyProfileActivity));
                     StartActivity(n);
                     Finish();
                 }
                 else
                 {
+                    msg = null;
                     Toast.MakeText(this, "Login Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed. IE: "Username or password incorrect"
                 }
 
