@@ -1,6 +1,7 @@
 ﻿using MentorJWcfService;
 using MentorJWcfService.Utilities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -50,5 +51,7 @@ namespace MentorJWcfService
         bool DeleteRecord_UserProfile(long ID);
         [OperationContract]
         bool UpdateRecord_UserProfile(tblUserProfile rec);
+        [OperationContract]
+        ArrayList getUserProfiles(string username);
     }
 }
