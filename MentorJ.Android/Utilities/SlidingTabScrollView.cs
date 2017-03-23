@@ -12,7 +12,7 @@ using Android.Widget;
 using Android.Support.V4.View;
 using Android.Util;
 using Android.Support.V4.App;
-using Android.Support.Fragment;
+
 
 namespace MentorJ.Android
 {
@@ -179,12 +179,11 @@ namespace MentorJ.Android
             textView.Gravity = GravityFlags.Center;
             textView.SetTextSize(ComplexUnitType.Sp, TAB_VIEW_TEXT_SIZE_SP);
             textView.Typeface = Typeface.DefaultBold;
-            //textView.LayoutParameters = new TableLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent, 50.0f);
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Honeycomb)
             {
                 TypedValue outValue = new TypedValue();
-                Context.Theme.ResolveAttribute(Android.Resource.Attribute.SelectableItemBackground, outValue, false);
+                //Context.Theme.ResolveAttribute(Android.Resource.Attribute.SelectableItemBackground, outValue, false);
                 textView.SetBackgroundResource(outValue.ResourceId);
             }
 

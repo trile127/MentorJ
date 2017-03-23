@@ -59,7 +59,7 @@ namespace MentorJ.Android
             float density = Resources.DisplayMetrics.Density;
 
             TypedValue outValue = new TypedValue();
-            context.Theme.ResolveAttribute(Android.Resource.Attribute.ColorForeground, outValue, true);
+            //context.Theme.ResolveAttribute(Resource.Attribute.ColorForeground, outValue, true);
             int themeForeGround = outValue.Data;
             mDefaultBottomBorderColor = SetColorAlpha(themeForeGround, DEFAULT_BOTTOM_BORDER_COLOR_ALPHA);
 
