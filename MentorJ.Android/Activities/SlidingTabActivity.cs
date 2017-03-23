@@ -1,16 +1,21 @@
-using Android.Views;
-using Android.OS;
-using Android.Support.V4.View;
-using Android.Support.V4.App;
+using System;
 using System.Collections.Generic;
-using Android.App;
-using Android.Widget;
+using System.Linq;
+using System.Text;
 
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Util;
+using Android.Views;
+using Android.Widget;
+using Android.App;
+using Android.Support.V4.View;
 
 namespace MentorJ.Android
 {
-    [Activity(Label = "Sliding Tab Layout", MainLauncher = true, Icon = "@drawable/xs")]
-    public class MainActivity : FragmentActivity
+    [Activity(Label = "SlidingTabActivity", MainLauncher = true, Icon = "@drawable/xs")]
+    public class SlidingTabActivity : Activity
     {
         private ViewPager mViewPager;
         private SlidingTabScrollView mScrollView;
@@ -19,11 +24,16 @@ namespace MentorJ.Android
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.SlidingTabActivity);
+            SetContentView(Resource.Layout.FragmentSample);
             mScrollView = FindViewById<SlidingTabScrollView>(Resource.Id.slidingTabs);
             mViewPager = FindViewById<ViewPager>(Resource.Id.viewPager);
 
-            mViewPager.Adapter = new SamplePagerAdapter(SupportFragmentManager);
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            SlidingTabsFragment fragment = new SlidingTabsFragment();
+            transaction.Replace(Resource.Id.sample_content_fragment, fragment);
+            transaction.Commit();
+
+            mViewPager.Adapter = new SamplePagerAdapter();
             mScrollView.ViewPager = mViewPager;
         }
 
@@ -34,81 +44,6 @@ namespace MentorJ.Android
         }
     }
 
-    public class SamplePagerAdapter : FragmentPagerAdapter
-    {
-        private List<Android.Support.V4.App.Fragment> mFragmentHolder;
 
-        public SamplePagerAdapter(Android.Support.V4.App.FragmentManager fragManager) : base(fragManager)
-        {
-            mFragmentHolder = new List<Android.Support.V4.App.Fragment>();
-            mFragmentHolder.Add(new Fragment1());
-            mFragmentHolder.Add(new Fragment2());
-            mFragmentHolder.Add(new Fragment3());
-        }
-
-        public override int Count
-        {
-            get { return mFragmentHolder.Count; }
-        }
-
-        public override Android.Support.V4.App.Fragment GetItem(int position)
-        {
-            return mFragmentHolder[position];
-        }
-    }
-
-    public class Fragment1 : Android.Support.V4.App.Fragment
-    {
-        private TextView mTextView;
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            var view = inflater.Inflate(Resource.Layout.ProfilePage, container, false);
-
-            mTextView = view.FindViewById<TextView>(Resource.Id.txtMyProfile);
-            mTextView.Text = "Fragment 1 Class";
-            return view;
-        }
-
-        public override string ToString() //Called on line 156 in SlidingTabScrollView
-        {
-            return "Fragment 1";
-        }
-    }
-
-    public class Fragment2 : Android.Support.V4.App.Fragment
-    {
-        private EditText mTxt;
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            var view = inflater.Inflate(Resource.Layout.GroupsPage, container, false);
-
-            mTxt = view.FindViewById<EditText>(Resource.Id.editText1);
-            mTxt.Text = "Fragment 2 Class :)";
-            return view;
-        }
-
-        public override string ToString() //Called on line 156 in SlidingTabScrollView
-        {
-            return "Fragment 2";
-        }
-    }
-
-    public class Fragment3 : Android.Support.V4.App.Fragment
-    {
-        private Button mButton;
-
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            var view = inflater.Inflate(Resource.Layout.Forum, container, false);
-
-            mButton = view.FindViewById<Button>(Resource.Id.btnSample);
-            return view;
-        }
-
-        public override string ToString() //Called on line 156 in SlidingTabScrollView
-        {
-            return "Fragment 3";
-        }
-    }
 }
 

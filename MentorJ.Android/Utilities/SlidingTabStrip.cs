@@ -16,45 +16,44 @@ namespace MentorJ.Android
 {
     public class SlidingTabStrip : LinearLayout
     {
+        //Copy and paste from here................................................................  
         private const int DEFAULT_BOTTOM_BORDER_THICKNESS_DIPS = 2;
         private const byte DEFAULT_BOTTOM_BORDER_COLOR_ALPHA = 0X26;
         private const int SELECTED_INDICATOR_THICKNESS_DIPS = 8;
-        //change indicator and divider colors here
-        private int[] INDICATOR_COLORS = { 0x76BDC1, 0xC15757 };
+        private int[] INDICATOR_COLORS = { 0x19A319, 0x0000FC };
         private int[] DIVIDER_COLORS = { 0xC5C5C5 };
 
         private const int DEFAULT_DIVIDER_THICKNESS_DIPS = 1;
         private const float DEFAULT_DIVIDER_HEIGHT = 0.5f;
 
-        //Bottom border
+        //Bottom border  
         private int mBottomBorderThickness;
         private Paint mBottomBorderPaint;
         private int mDefaultBottomBorderColor;
 
-        //Indicator
+        //Indicator  
         private int mSelectedIndicatorThickness;
         private Paint mSelectedIndicatorPaint;
 
-        //Divider
+        //Divider  
         private Paint mDividerPaint;
         private float mDividerHeight;
 
-        //Selected position and offset
+        //Selected position and offset  
         private int mSelectedPosition;
         private float mSelectionOffset;
 
-        //Tab colorizer
+        //Tab colorizer  
         private SlidingTabScrollView.TabColorizer mCustomTabColorizer;
         private SimpleTabColorizer mDefaultTabColorizer;
+        //Stop copy and paste here........................................................................  
 
-
-        //Constructors
+        //Constructors  
         public SlidingTabStrip(Context context) : this(context, null)
         { }
-        //I is interface
+
         public SlidingTabStrip(Context context, IAttributeSet attrs) : base(context, attrs)
         {
-            //Allows further optimizations
             SetWillNotDraw(false);
 
             float density = Resources.DisplayMetrics.Density;
@@ -64,14 +63,13 @@ namespace MentorJ.Android
             int themeForeGround = outValue.Data;
             mDefaultBottomBorderColor = SetColorAlpha(themeForeGround, DEFAULT_BOTTOM_BORDER_COLOR_ALPHA);
 
-            //TabColorizer sets indicator and divider colors
             mDefaultTabColorizer = new SimpleTabColorizer();
             mDefaultTabColorizer.IndicatorColors = INDICATOR_COLORS;
             mDefaultTabColorizer.DividerColors = DIVIDER_COLORS;
 
             mBottomBorderThickness = (int)(DEFAULT_BOTTOM_BORDER_THICKNESS_DIPS * density);
             mBottomBorderPaint = new Paint();
-            mBottomBorderPaint.Color = GetColorFromInteger(0xC5C5C5); //Gray
+            mBottomBorderPaint.Color = GetColorFromInteger(0xC5C5C5); //Gray  
 
             mSelectedIndicatorThickness = (int)(SELECTED_INDICATOR_THICKNESS_DIPS * density);
             mSelectedIndicatorPaint = new Paint();
@@ -94,10 +92,8 @@ namespace MentorJ.Android
         {
             set
             {
-                //null means that it wasn't supplied custom colorizer, so we set a default
                 mCustomTabColorizer = null;
                 mDefaultTabColorizer.IndicatorColors = value;
-                //force to redraw itself
                 this.Invalidate();
             }
         }
@@ -126,7 +122,6 @@ namespace MentorJ.Android
         {
             mSelectedPosition = position;
             mSelectionOffset = positionOffset;
-            //forces to draw it over again and then calls the OnDraw method
             this.Invalidate();
         }
 
@@ -137,30 +132,23 @@ namespace MentorJ.Android
             int dividerHeightPx = (int)(Math.Min(Math.Max(0f, mDividerHeight), 1f) * height);
             SlidingTabScrollView.TabColorizer tabColorizer = mCustomTabColorizer != null ? mCustomTabColorizer : mDefaultTabColorizer;
 
-            //Thick colored underline below the current selection
+            //Thick colored underline below the current selection  
             if (tabCount > 0)
             {
-                //Selected view that we want
                 View selectedTitle = GetChildAt(mSelectedPosition);
-                //View to the left
                 int left = selectedTitle.Left;
                 int right = selectedTitle.Right;
                 int color = tabColorizer.GetIndicatorColor(mSelectedPosition);
 
-                //if offset is zero then it isn't scrolling anymore.
-                //checks if it's out of bounds
                 if (mSelectionOffset > 0f && mSelectedPosition < (tabCount - 1))
                 {
                     int nextColor = tabColorizer.GetIndicatorColor(mSelectedPosition + 1);
                     if (color != nextColor)
                     {
-                        //mSelectionOffset figures out how far the indicator is from tab1 to tab2
-                        //or its destination
                         color = blendColor(nextColor, color, mSelectionOffset);
                     }
 
                     View nextTitle = GetChildAt(mSelectedPosition + 1);
-                    //finds coordinate of the next tab
                     left = (int)(mSelectionOffset * nextTitle.Left + (1.0f - mSelectionOffset) * left);
                     right = (int)(mSelectionOffset * nextTitle.Right + (1.0f - mSelectionOffset) * right);
                 }
@@ -169,7 +157,7 @@ namespace MentorJ.Android
 
                 canvas.DrawRect(left, height - mSelectedIndicatorThickness, right, height, mSelectedIndicatorPaint);
 
-                //Creates vertical dividers between tabs
+                //Creat vertical dividers between tabs  
                 int separatorTop = (height - dividerHeightPx) / 2;
                 for (int i = 0; i < ChildCount; i++)
                 {
@@ -177,8 +165,7 @@ namespace MentorJ.Android
                     mDividerPaint.Color = GetColorFromInteger(tabColorizer.GetDividerColor(i));
                     canvas.DrawLine(child.Right, separatorTop, child.Right, separatorTop + dividerHeightPx, mDividerPaint);
                 }
-                
-                //Draws bottom border
+
                 canvas.DrawRect(0, height - mBottomBorderThickness, Width, height, mBottomBorderPaint);
             }
         }

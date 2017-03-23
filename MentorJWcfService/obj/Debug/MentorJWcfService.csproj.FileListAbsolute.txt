@@ -18,6 +18,5 @@ D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\bin\Mic
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\bin\Microsoft.AI.Web.xml
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\bin\Microsoft.AI.WindowsServer.xml
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\bin\Microsoft.ApplicationInsights.xml
-D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\obj\Debug\MentorJWcfService.dll
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJWcfService\obj\Debug\MentorJWcfService.pdb

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android.Graphics;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Support.V4.View;
 using Android.Util;
 using Android.Support.V4.App;
+using Android.Support.Fragment;
 
 namespace MentorJ.Android
 {
@@ -52,8 +53,7 @@ namespace MentorJ.Android
 
             //Make sure the tab strips fill the view
             FillViewport = true;
-            this.SetBackgroundColor(Android.Graphics.Color.Rgb(0xE5, 0xE5, 0xE5)); //Gray color
-
+            this.SetBackgroundColor(Color.Rgb(0xE5, 0xE5, 0xE5)); //Gray color
             mTitleOffset = (int)(TITLE_OFFSET_DIPS * Resources.DisplayMetrics.Density);
 
             mTabStrip = new SlidingTabStrip(context);
@@ -158,7 +158,7 @@ namespace MentorJ.Android
             {
                 TextView tabView = CreateDefaultTabView(Context);
                 tabView.Text = ((FragmentPagerAdapter)adapter).GetItem(i).ToString();
-                tabView.SetTextColor(Android.Graphics.Color.Black);
+                tabView.SetTextColor(Color.Black);
                 tabView.Tag = i;
                 tabView.Click += tabView_Click;
                 mTabStrip.AddView(tabView);
@@ -173,22 +173,22 @@ namespace MentorJ.Android
             mViewPager.CurrentItem = pageToScrollTo;
         }
 
-        private TextView CreateDefaultTabView(Android.Content.Context context)
+        private TextView CreateDefaultTabView(Context context)
         {
             TextView textView = new TextView(context);
             textView.Gravity = GravityFlags.Center;
             textView.SetTextSize(ComplexUnitType.Sp, TAB_VIEW_TEXT_SIZE_SP);
-            textView.Typeface = Android.Graphics.Typeface.DefaultBold;
+            textView.Typeface = Typeface.DefaultBold;
             //textView.LayoutParameters = new TableLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent, 50.0f);
 
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Honeycomb)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Honeycomb)
             {
                 TypedValue outValue = new TypedValue();
                 Context.Theme.ResolveAttribute(Android.Resource.Attribute.SelectableItemBackground, outValue, false);
                 textView.SetBackgroundResource(outValue.ResourceId);
             }
 
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.IceCreamSandwich)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.IceCreamSandwich)
             {
                 textView.SetAllCaps(true);
             }
