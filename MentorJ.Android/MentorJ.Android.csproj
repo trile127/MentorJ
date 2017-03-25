@@ -120,7 +120,7 @@
     <Compile Include="SQL\SQLiteUtilities.cs" />
     <Compile Include="Utilities\AppPreferences.cs" />
     <Compile Include="Utilities\PageAdapter.cs" />
-    <Compile Include="Utilities\SlidingTabFragment.cs" />
+    <Compile Include="Utilities\SlidingTabsFragment.cs" />
     <Compile Include="Utilities\SlidingTabScrollView.cs" />
     <Compile Include="Utilities\SlidingTabStrip.cs" />
     <Compile Include="Utilities\Utilities.cs" />
@@ -183,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Themes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_action_overflow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\xs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\action_bar_main.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,5 +8,5 @@
 	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
 	<uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<application android:label="MentorJ.Android" android:theme="@style/CustomActionBarTheme"></application>
+	<application android:label="MentorJ.Android" android:icon="@drawable/Icon" android:theme="@style/CustomActionBarTheme"></application>
 </manifest>

@@ -18,29 +18,29 @@ namespace MentorJ.Android
     public class MainActivity : Activity
 
     {
-        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
+        //public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
 
 
-        private MentorJInfoServiceClient _client;
-        private Button _getUserInfoButton;
-        private TextView _getUserInfoTextView;
-        private Button _sayHelloWorldButton;
-        private TextView _sayHelloWorldTextView;
+        //private MentorJInfoServiceClient _client;
+        //private Button _getUserInfoButton;
+        //private TextView _getUserInfoTextView;
+        //private Button _sayHelloWorldButton;
+        //private TextView _sayHelloWorldTextView;
         private Button _loginButton;
-        private static BasicHttpBinding CreateBasicHttp()
-        {
-            BasicHttpBinding binding = new BasicHttpBinding
-            {
-                Name = "basicHttpBinding",
-                MaxBufferSize = 2147483647,
-                MaxReceivedMessageSize = 2147483647
-            };
-            TimeSpan timeout = new TimeSpan(0, 0, 30);
-            binding.SendTimeout = timeout;
-            binding.OpenTimeout = timeout;
-            binding.ReceiveTimeout = timeout;
-            return binding;
-        }
+        //private static BasicHttpBinding CreateBasicHttp()
+        //{
+        //    BasicHttpBinding binding = new BasicHttpBinding
+        //    {
+        //        Name = "basicHttpBinding",
+        //        MaxBufferSize = 2147483647,
+        //        MaxReceivedMessageSize = 2147483647
+        //    };
+        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
+        //    binding.SendTimeout = timeout;
+        //    binding.OpenTimeout = timeout;
+        //    binding.ReceiveTimeout = timeout;
+        //    return binding;
+        //}
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -48,12 +48,10 @@ namespace MentorJ.Android
 
             SetContentView(Resource.Layout.Main);
 
-            InitializeMentorJInfoServiceClient();
-
             // This button will invoke the GetHelloWorldData - the method that takes a C# object as a parameter.
-            _getUserInfoButton = FindViewById<Button>(Resource.Id.getUserInfoButton);
-            _getUserInfoButton.Click += GetUserInfoButtonOnClick;
-            _getUserInfoTextView = FindViewById<TextView>(Resource.Id.getUserInfoTextView);
+            //_getUserInfoButton = FindViewById<Button>(Resource.Id.getUserInfoButton);
+            //_getUserInfoButton.Click += GetUserInfoButtonOnClick;
+            //_getUserInfoTextView = FindViewById<TextView>(Resource.Id.getUserInfoTextView);
 
             // This button will invoke SayHelloWorld - this method takes a simple string as a parameter.
             //_sayHelloWorldButton = FindViewById<Button>(Resource.Id.sayHelloWorldButton);
@@ -62,32 +60,32 @@ namespace MentorJ.Android
 
             _loginButton = FindViewById<Button>(Resource.Id.loginButton);
             _loginButton.Click += LoginButtonOnClick;
+            //InitializeMentorJInfoServiceClient();
 
 
-
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.DtdProcessing = DtdProcessing.Parse;
-            settings.MaxCharactersFromEntities = 1024;
+            //XmlReaderSettings settings = new XmlReaderSettings();
+            //settings.DtdProcessing = DtdProcessing.Parse;
+            //settings.MaxCharactersFromEntities = 1024;
         }
 
-        private void InitializeMentorJInfoServiceClient()
-        {
-            BasicHttpBinding binding = CreateBasicHttp();
+        //private void InitializeMentorJInfoServiceClient()
+        //{
+        //    BasicHttpBinding binding = CreateBasicHttp();
 
-            _client = new MentorJInfoServiceClient(binding, EndPoint);
-             //_client.SayHelloToCompleted += ClientOnSayHelloToCompleted;
-            _client.ReadRecord_UserInfoCompleted += ClientOnReadRecordCompleted;
+        //    _client = new MentorJInfoServiceClient(binding, EndPoint);
+        //     //_client.SayHelloToCompleted += ClientOnSayHelloToCompleted;
+        //    _client.ReadRecord_UserInfoCompleted += ClientOnReadRecordCompleted;
 
 
-        }
+        //}
 
-        private void GetUserInfoButtonOnClick(object sender, EventArgs eventArgs)
-        {
-            _getUserInfoTextView.Text = "Waiting for WCF...";
+        //private void GetUserInfoButtonOnClick(object sender, EventArgs eventArgs)
+        //{
+        //    _getUserInfoTextView.Text = "Waiting for WCF...";
 
-           _client.ReadRecord_UserInfoAsync(1);
+        //   _client.ReadRecord_UserInfoAsync(1);
 
-        }
+        //}
 
         //private void SayHelloWorldButtonOnClick(object sender, EventArgs eventArgs)
         //{
@@ -105,26 +103,26 @@ namespace MentorJ.Android
             Finish();
         }
 
-        private void ClientOnReadRecordCompleted(object sender, ReadRecord_UserInfoCompletedEventArgs readRecordCompletedEventArgs)
-        {
-            string msg = null;
-            tblUserInfo newUser = null;
+        //private void ClientOnReadRecordCompleted(object sender, ReadRecord_UserInfoCompletedEventArgs readRecordCompletedEventArgs)
+        //{
+        //    string msg = null;
+        //    tblUserInfo newUser = null;
 
-            if (readRecordCompletedEventArgs.Error != null)
-            {
-                msg = readRecordCompletedEventArgs.Error.Message;
-            }
-            else if (readRecordCompletedEventArgs.Cancelled)
-            {
-                msg = "Request was cancelled.";
-            }
-            else
-            {
-                newUser = readRecordCompletedEventArgs.Result;
-                Serializer.Clone<tblUserInfo>(readRecordCompletedEventArgs.Result, newUser);
-            }
-            RunOnUiThread(() => _getUserInfoTextView.Text = newUser.UserName);
-        }
+        //    if (readRecordCompletedEventArgs.Error != null)
+        //    {
+        //        msg = readRecordCompletedEventArgs.Error.Message;
+        //    }
+        //    else if (readRecordCompletedEventArgs.Cancelled)
+        //    {
+        //        msg = "Request was cancelled.";
+        //    }
+        //    else
+        //    {
+        //        newUser = readRecordCompletedEventArgs.Result;
+        //        Serializer.Clone<tblUserInfo>(readRecordCompletedEventArgs.Result, newUser);
+        //    }
+        //    RunOnUiThread(() => _getUserInfoTextView.Text = newUser.UserName);
+        //}
 
         //private void ClientOnSayHelloToCompleted(object sender, SayHelloToCompletedEventArgs sayHelloToCompletedEventArgs)
         //{

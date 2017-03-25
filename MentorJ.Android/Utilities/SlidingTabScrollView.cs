@@ -157,7 +157,7 @@ namespace MentorJ.Android
             for (int i = 0; i < adapter.Count; i++)
             {
                 TextView tabView = CreateDefaultTabView(Context);
-                tabView.Text = ((FragmentPagerAdapter)adapter).GetItem(i).ToString();
+                tabView.Text = ((SlidingTabsFragment.SamplePagerAdapter)adapter).GetHeaderTitle(i);
                 tabView.SetTextColor(Color.Black);
                 tabView.Tag = i;
                 tabView.Click += tabView_Click;
