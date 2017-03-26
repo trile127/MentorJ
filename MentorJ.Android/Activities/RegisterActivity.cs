@@ -186,10 +186,6 @@ namespace MentorJ.Android
                 string test = tblUserInfo.createDatabase(dpPath);
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<tblUserInfo>();
-                //if ( data == null )
-                //{
-                //db.CreateTable<tblUserInfo>();
-                
                 newUser.UserID = getUserID;
                 newUser.UserName = txtUsername.Text.Trim();
                 newUser.Email = txtEmail.Text;
@@ -227,13 +223,22 @@ namespace MentorJ.Android
                 if (!isNameTaken && !isEmailTaken)    //if name and email are unused, insert into web SQL Database
                 {
                     _client.InsertRecord_UserInfoAsync(newUser);
+                    string success = tblUserInfo.insertUpdateData(newUser, dpPath); //Insert userInfo into SQLITE on phone
+                    Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
+                    checkEmail = -1; // reset FLAGS, request done.
+                    checkUserName = -1;
+                    getUserID = -1;
+                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                    StartActivity(n);
+                    Finish();
                 }
                 else
                 {
+                    checkEmail = -1; // reset FLAGS, request done.
+                    checkUserName = -1;
+                    getUserID = -1;
                     Toast.MakeText(this, "The same user credentials have already been taken!,", ToastLength.Long).Show();
                 }
-                string success = tblUserInfo.insertUpdateData(newUser, dpPath); //Insert userInfo into SQLITE on phone
-                Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
 
                 //}
 
@@ -256,9 +261,6 @@ namespace MentorJ.Android
                 //    }
 
                 //}
-                checkEmail = -1; // reset FLAGS, request done.
-                checkUserName = -1;
-                getUserID = -1;
             }
             catch (Exception ex)
             {

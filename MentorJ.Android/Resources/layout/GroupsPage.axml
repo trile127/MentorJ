@@ -6,12 +6,11 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:background="@drawable/backgroundgradient">
-
-  <EditText
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
         android:hint="Testing"
         android:textColor="#000"
-        android:background="@drawable/edittextstyle"/>
+        android:background="@drawable/edittextstyle" />
 </LinearLayout>

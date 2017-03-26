@@ -112,7 +112,6 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\MyProfileActivity.cs" />
-    <Compile Include="Activities\SlidingTabActivity.cs" />
     <Compile Include="MentorJService.cs" />
     <Compile Include="Models\sqltblUserInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -144,7 +143,9 @@
     <AndroidResource Include="Resources\layout\Forum.axml" />
     <AndroidResource Include="Resources\layout\GroupsPage.axml" />
     <AndroidResource Include="Resources\layout\FragmentSample.axml" />
-    <AndroidResource Include="Resources\layout\ProfilePage.axml" />
+    <AndroidResource Include="Resources\layout\ProfilePage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\PagerItem.axml" />
     <AndroidResource Include="Resources\layout\MainScrollLayout.axml" />
     <AndroidResource Include="Resources\layout\ForgotPassword.axml" />

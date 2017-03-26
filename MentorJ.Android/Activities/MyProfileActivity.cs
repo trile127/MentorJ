@@ -16,19 +16,25 @@ namespace MentorJ.Android
     [Activity(Label = "MyProfileActivity")]
     public class MyProfileActivity : Activity
     {
-        private Button btn_reg_logout;
-        protected override void OnCreate(Bundle savedInstanceState)
+        //private Button btn_reg_logout;
+
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
-            // Create your application here
-            SetContentView(Resource.Layout.Storyboard);
-            btn_reg_logout = FindViewById<Button>(Resource.Id.btn_reg_logout);
-            btn_reg_logout.Click += Btn_reg_logout_Click;
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.ProfilePage);
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            SlidingTabsFragment fragment = new SlidingTabsFragment();
+            transaction.Replace(Resource.Id.sample_content_fragment, fragment);
+            transaction.Commit();
+
         }
 
-        private void Btn_reg_logout_Click(object sender, EventArgs e)
+        public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            StartActivity(typeof(MainActivity));
+            MenuInflater.Inflate(Resource.Menu.action_bar_main, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
+       
     }
 }

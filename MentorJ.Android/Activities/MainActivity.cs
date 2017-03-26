@@ -98,7 +98,7 @@ namespace MentorJ.Android
             //Intent n = new Intent(this, typeof(LoginActivity));
             //StartActivity(n);
             //Finish();
-            Intent n = new Intent(this, typeof(SlidingTabActivity));
+            Intent n = new Intent(this, typeof(LoginActivity));
             StartActivity(n);
             Finish();
         }

@@ -2,7 +2,7 @@
 <xs:schema xmlns:android="http://schemas.android.com/apk/res/android" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res/android" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v24</xs:documentation>
-    <xs:documentation>3/25/2017 10:07:45 AM</xs:documentation>
+    <xs:documentation>3/26/2017 2:56:01 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="accessibilityLiveRegion">
     <xs:annotation>
@@ -17296,6 +17296,65 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="@+id/" />
             <xs:enumeration value="@+id/videoView1" />
+            <xs:enumeration value="@id/AdditionalInfo" />
+            <xs:enumeration value="@id/BasicInfo" />
+            <xs:enumeration value="@id/boxFemale" />
+            <xs:enumeration value="@id/boxMale" />
+            <xs:enumeration value="@id/btn_reg_back" />
+            <xs:enumeration value="@id/btn_reg_create" />
+            <xs:enumeration value="@id/btn_reg_logout" />
+            <xs:enumeration value="@id/btnContinue" />
+            <xs:enumeration value="@id/btnContinue2" />
+            <xs:enumeration value="@id/btnForgotPw" />
+            <xs:enumeration value="@id/btnLogin" />
+            <xs:enumeration value="@id/btnRegister" />
+            <xs:enumeration value="@id/btnReturn" />
+            <xs:enumeration value="@id/btnSample" />
+            <xs:enumeration value="@id/btnSend" />
+            <xs:enumeration value="@id/editEmail" />
+            <xs:enumeration value="@id/editPassword" />
+            <xs:enumeration value="@id/editText1" />
+            <xs:enumeration value="@id/getUserInfoButton" />
+            <xs:enumeration value="@id/getUserInfoTextView" />
+            <xs:enumeration value="@id/imgLogo" />
+            <xs:enumeration value="@id/item_subtitle" />
+            <xs:enumeration value="@id/item_title" />
+            <xs:enumeration value="@id/lblDashboard" />
+            <xs:enumeration value="@id/linearLayout1" />
+            <xs:enumeration value="@id/loginButton" />
+            <xs:enumeration value="@id/main_profile_layout" />
+            <xs:enumeration value="@id/menu" />
+            <xs:enumeration value="@id/mLlayoutBottomButtons" />
+            <xs:enumeration value="@id/sample_content_fragment" />
+            <xs:enumeration value="@id/sample_main_layout" />
+            <xs:enumeration value="@id/sayHelloWorldButton" />
+            <xs:enumeration value="@id/sayHelloWorldTextView" />
+            <xs:enumeration value="@id/scrollView1" />
+            <xs:enumeration value="@id/sliding_tabs" />
+            <xs:enumeration value="@id/slidingTabs" />
+            <xs:enumeration value="@id/spinner" />
+            <xs:enumeration value="@id/tableLayout1" />
+            <xs:enumeration value="@id/tableRow1" />
+            <xs:enumeration value="@id/txt_reg_email" />
+            <xs:enumeration value="@id/txt_reg_password" />
+            <xs:enumeration value="@id/txt_reg_username" />
+            <xs:enumeration value="@id/txtCaption" />
+            <xs:enumeration value="@id/txtCity" />
+            <xs:enumeration value="@id/txtConfirmPassword" />
+            <xs:enumeration value="@id/txtCountry" />
+            <xs:enumeration value="@id/txtEmail" />
+            <xs:enumeration value="@id/txtFirstName" />
+            <xs:enumeration value="@id/txtForgotPw" />
+            <xs:enumeration value="@id/txtLastName" />
+            <xs:enumeration value="@id/txtMiddleName" />
+            <xs:enumeration value="@id/txtMyProfile" />
+            <xs:enumeration value="@id/txtPassword" />
+            <xs:enumeration value="@id/txtPhoneNumber" />
+            <xs:enumeration value="@id/txtState" />
+            <xs:enumeration value="@id/txtStreetAddress" />
+            <xs:enumeration value="@id/txtUsername" />
+            <xs:enumeration value="@id/txtZipcode" />
+            <xs:enumeration value="@id/viewpager" />
             <xs:enumeration value="@android:id/accessibilityActionContextClick" />
             <xs:enumeration value="@android:id/accessibilityActionScrollDown" />
             <xs:enumeration value="@android:id/accessibilityActionScrollLeft" />
