@@ -5,7 +5,7 @@
   <xs:import schemaLocation="schemas.android.com.tools.xsd" namespace="http://schemas.android.com/tools" />
   <xs:annotation>
     <xs:documentation>v24</xs:documentation>
-    <xs:documentation>3/26/2017 2:56:01 PM</xs:documentation>
+    <xs:documentation>3/26/2017 7:36:20 PM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -92,6 +92,8 @@
       <xs:element ref="android.support.v4.view.PagerTitleStrip" />
       <xs:element ref="android.support.v4.view.PagerTabStrip" />
       <xs:element ref="android.support.v4.app.FragmentTabHost" />
+      <xs:element ref="MentorJ.Android.SlidingTabScrollView" />
+      <xs:element ref="MentorJ.Android.SlidingTabStrip" />
     </xs:choice>
   </xs:group>
   <xs:element name="VideoView" type="VideoView">
@@ -1508,6 +1510,26 @@
   <xs:complexType name="android.support.v4.app.FragmentTabHost">
     <xs:complexContent mixed="false">
       <xs:extension base="TabHost" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MentorJ.Android.SlidingTabScrollView" type="MentorJ.Android.SlidingTabScrollView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: MentorJ.Android.SlidingTabScrollView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="MentorJ.Android.SlidingTabScrollView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="HorizontalScrollView" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MentorJ.Android.SlidingTabStrip" type="MentorJ.Android.SlidingTabStrip">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: MentorJ.Android.SlidingTabStrip</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="MentorJ.Android.SlidingTabStrip">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LinearLayout" />
     </xs:complexContent>
   </xs:complexType>
 </xs:schema>

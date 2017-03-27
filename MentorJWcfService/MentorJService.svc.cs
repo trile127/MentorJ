@@ -96,7 +96,6 @@ namespace MentorJWcfService
         //    return newuser;
         //}
 
-
         public tblUserInfo ReadRecord_UserInfo(long ID)
         {
             try

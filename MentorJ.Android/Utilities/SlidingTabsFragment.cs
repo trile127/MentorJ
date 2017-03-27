@@ -19,7 +19,6 @@ namespace MentorJ.Android
     {
         private SlidingTabScrollView mSlidingTabScrollView;
         private ViewPager mViewPager;
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             //FragmentSample holds scrolling tab layout
@@ -32,8 +31,12 @@ namespace MentorJ.Android
             mViewPager = view.FindViewById<ViewPager>(Resource.Id.viewpager);
             mViewPager.Adapter = new SamplePagerAdapter();
 
+
             mSlidingTabScrollView.ViewPager = mViewPager;
+
         }
+
+      
 
         public class SamplePagerAdapter : PagerAdapter
         {
@@ -47,6 +50,7 @@ namespace MentorJ.Android
                 items.Add("Part");
                 items.Add("12");
                 items.Add("Hooray");
+
             }
 
             public override int Count
@@ -59,14 +63,27 @@ namespace MentorJ.Android
                 return view == obj;
             }
 
+
+
+            //Based on Position, make an if statement
             public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
             {
                 View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.PagerItem, container, false);
                 container.AddView(view);
 
-                TextView txtTitle = view.FindViewById<TextView>(Resource.Id.item_title);
-                int pos = position + 1;
-                txtTitle.Text = pos.ToString();
+                if ( position == 0 )
+                {
+                    TextView txtTitle = view.FindViewById<TextView>(Resource.Id.item_title);
+                    int pos = position + 1;
+                    txtTitle.Text = pos.ToString();
+
+                }
+
+                else if (position == 1)
+                {
+
+
+                }
 
                 return view;
             }
@@ -76,6 +93,7 @@ namespace MentorJ.Android
                 return items[position];
             }
 
+          
             public override void DestroyItem(ViewGroup container, int position, Java.Lang.Object obj)
             {
                 container.RemoveView((View)obj);

@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.View;
 using Android.Util;
-using Android.Support.V4.App;
 
 
 namespace MentorJ.Android
@@ -153,8 +152,8 @@ namespace MentorJ.Android
         private void PopulateTabStrip()
         {
             PagerAdapter adapter = mViewPager.Adapter;
-
-            for (int i = 0; i < adapter.Count; i++)
+            int count = adapter.Count;
+            for (int i = 0; i < count; i++)
             {
                 TextView tabView = CreateDefaultTabView(Context);
                 tabView.Text = ((SlidingTabsFragment.SamplePagerAdapter)adapter).GetHeaderTitle(i);

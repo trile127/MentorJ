@@ -119,6 +119,7 @@
     <Compile Include="SQL\SQLiteUtilities.cs" />
     <Compile Include="Utilities\AppPreferences.cs" />
     <Compile Include="Utilities\PageAdapter.cs" />
+    <Compile Include="Utilities\SlidingTabFragmentProfile.cs" />
     <Compile Include="Utilities\SlidingTabsFragment.cs" />
     <Compile Include="Utilities\SlidingTabScrollView.cs" />
     <Compile Include="Utilities\SlidingTabStrip.cs" />
