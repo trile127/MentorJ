@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.View;
 using Android.App;
+using MentorJWcfService;
+using Newtonsoft.Json;
 
 namespace MentorJ.Android
 {
@@ -19,9 +21,13 @@ namespace MentorJ.Android
     {
         private SlidingTabScrollView mSlidingTabScrollView;
         private ViewPager mViewPager;
+        private Bundle bundle;
+        private tblUserProfile userProfile;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             //FragmentSample holds scrolling tab layout
+            String stringData = Arguments.GetString("MyDataTag");
+            userProfile = JsonConvert.DeserializeObject<tblUserProfile>(stringData);
             return inflater.Inflate(Resource.Layout.FragmentSample, container, false);
         }
 
@@ -30,27 +36,25 @@ namespace MentorJ.Android
             mSlidingTabScrollView = view.FindViewById<SlidingTabScrollView>(Resource.Id.sliding_tabs);
             mViewPager = view.FindViewById<ViewPager>(Resource.Id.viewpager);
             mViewPager.Adapter = new SamplePagerAdapter();
-
-
             mSlidingTabScrollView.ViewPager = mViewPager;
 
         }
 
-      
+
 
         public class SamplePagerAdapter : PagerAdapter
         {
             List<string> items = new List<string>();
-
+            private Bundle bundle;
             public SamplePagerAdapter() : base()
             {
+
                 items.Add("Profile");
                 items.Add("Forum");
                 items.Add("Groups");
                 items.Add("Part");
                 items.Add("12");
                 items.Add("Hooray");
-
             }
 
             public override int Count
@@ -63,6 +67,10 @@ namespace MentorJ.Android
                 return view == obj;
             }
 
+            public void setArguments(Bundle savedInstanceState)
+            {
+                bundle = savedInstanceState;
+            }
 
 
             //Based on Position, make an if statement
