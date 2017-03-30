@@ -1,14 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="@drawable/backgroundgradient">
-  <Button
-        android:text="Sample Button"
+    android:id="@+id/scrollView1"
+    android:background="@drawable/backgroundgradient"
+    android:scrollbars="none">
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSample" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/tableLayout1"
+        android:orientation="vertical">
+        <TableRow
+            android:id="@+id/tableSearchBar"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <EditText
+                android:layout_column="0"
+                android:id="@+id/editText1"
+                android:hint="Search"
+                android:background="@drawable/EditTextStyle"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="282.3dp" />
+            <ImageButton
+                android:src="@drawable/imgSearch"
+                android:layout_column="1"
+                android:id="@+id/imageButton1" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="General"
+                android:layout_column="0"
+                android:id="@+id/button1"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#4d8c9a" />
+            <Button
+                android:text="School"
+                android:layout_column="1"
+                android:id="@+id/button3"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#569bab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="Sports"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                android:layout_weight="0.5"
+                android:background="#5EAABC"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Fitness"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#67a5b3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="Hobbies"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                android:layout_weight="0.5"
+                android:background="#77BFD1"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Music"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#96cdd8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="Travel"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                android:layout_weight="0.5"
+                android:background="#EBBCB3"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Movies"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#EB9F91"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="Technology"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#db9797" />
+            <Button
+                android:text="News"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#d07476"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:gravity="center"
+            android:weightSum="1">
+            <Button
+                android:text="Art"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#ce7171" />
+            <Button
+                android:text="Nature"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                android:layout_weight="0.5"
+                android:padding="35dp"
+                android:background="#c75e5e"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>
