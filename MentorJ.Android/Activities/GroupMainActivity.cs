@@ -11,17 +11,17 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 
-namespace MentorJ.Android.Activities
+namespace MentorJ.Android
 {
 
-    [Activity(Label = "MentorJ.Android", MainLauncher = false, Theme ="@style/Theme.AppCompat.Light.DarkActionBar")]
+    [Activity(Label = "GroupMainActivity", MainLauncher = false, Theme ="@style/Theme.AppCompat.Light.DarkActionBar")]
     class GroupMainActivity : Activity
     {
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         GroupList mGroupList;
         GroupListAdapter mAdapter;
-
+       
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);

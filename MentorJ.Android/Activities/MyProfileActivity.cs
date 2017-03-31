@@ -52,7 +52,7 @@ namespace MentorJ.Android
             fragment.Arguments = dataBundle;
             //SlidingTabsFragmentProfile fragment2 = new SlidingTabsFragmentProfile();
 
-            transaction.Replace(Resource.Id.sample_content_fragment, fragment);
+            //transaction.Replace(Resource.Id.sample_content_fragment, fragment);
             transaction.Commit();
 
         }

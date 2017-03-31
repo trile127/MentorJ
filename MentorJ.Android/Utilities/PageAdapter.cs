@@ -121,7 +121,7 @@ namespace MentorJ.Android
             container.AddView(view);
 
 
-            mButton = view.FindViewById<Button>(Resource.Id.btnSample);
+            //mButton = view.FindViewById<Button>(Resource.Id.btnSample);
             return view;
         }
 

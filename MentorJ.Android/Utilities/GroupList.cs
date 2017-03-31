@@ -1,19 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Support.v7.Widget;
-using Android.Support.v7.AppCompat;
-using Android.Support.v7.RecyclerView;
-using Anrdoid.Support.v7.CardView;
-
+using Android.Support.V7.Widget;
 
 namespace MentorJ.Android
 {
@@ -58,7 +46,7 @@ namespace MentorJ.Android
 
         public GroupViewHolder(View itemView, Action<int> listener) : base(itemView)
         {
-            Image = itemView.FindViewBydId<ImageView>(Resource.Id.imageView);
+            Image = itemView.FindViewById<ImageView>(Resource.Id.imageView);
             GroupName = itemView.FindViewById<TextView>(Resource.Id.textView);
             itemView.Click += (sender, e) => listener(base.Position);
         }
@@ -77,7 +65,7 @@ namespace MentorJ.Android
         {
             get
             {
-                return mPhotoAlbum.numGroups;
+                return mGroupList.numGroups;
             }
         }
         
