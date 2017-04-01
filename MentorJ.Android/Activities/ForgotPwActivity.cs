@@ -27,7 +27,7 @@ namespace MentorJ.Android
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource  
-            SetContentView(Resource.Layout.ForgotPw);
+            SetContentView(Resource.Layout.ForgotPassword);
             initialize();
 
         }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:weightSum="100"
+    android:background="@drawable/backgroundgradient">
+    <ImageView
+        android:src="@drawable/icon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:id="@+id/imageView1"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp" />
+    <TextView
+        android:text="Doug McFluffers"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:typeface="normal" />
+    <TextView
+        android:text="Washington, D.C., United States"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:id="@+id/textView5"
+        android:gravity="center"
+        android:textColor="@android:color/white" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="8"
+        android:background="#30FFFFFF"
+        android:gravity="center_horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Message"
+            android:id="@+id/enter"
+            android:layout_gravity="center"
+            android:background="@drawable/profilebuttonstyle" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Add as friend"
+            android:id="@+id/clear"
+            android:layout_gravity="bottom"
+            android:background="@drawable/profilebuttonstyle"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+        <Button
+            android:text="Block"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button1"
+            android:background="@drawable/profilebuttonstyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:id="@+id/linearLayout1"
+        android:background="#95FFFFFF"
+        android:layout_marginTop="10dp"
+        android:padding="15dp">
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <TextView
+                    android:text="Birthday:"
+                    android:layout_column="0"
+                    android:id="@+id/textView21"
+                    android:textColor="#1A1A1A" />
+                <TextView
+                    android:text="June 9"
+                    android:layout_column="1"
+                    android:id="@+id/textView24"
+                    android:textColor="#1A1A1A" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <TextView
+                    android:text="Last login:"
+                    android:layout_column="0"
+                    android:id="@+id/textView22"
+                    android:textColor="#1A1A1A" />
+                <TextView
+                    android:text="March 25, 2017"
+                    android:layout_column="1"
+                    android:id="@+id/textView25"
+                    android:textColor="#1A1A1A" />
+            </TableRow>
+        </TableLayout>
+        <TextView
+            android:text="About Me"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:textColor="#4d8c9a"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:text="Hi everyone! I want to learn English so I can go travel around the world and sniff, I mean, meet different people!"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:textColor="#1A1A1A" />
+    </LinearLayout>
+</LinearLayout>

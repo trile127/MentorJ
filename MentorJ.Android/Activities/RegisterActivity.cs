@@ -40,13 +40,12 @@ namespace MentorJ.Android
 
         tblUserInfo newUser;
         public static String userSessionPref = "userPrefs";
-        public static String User_Email = "userEmail";
-        public static String User_Password = "userPassword";
+        String SESSION_NAME, SESSION_EMAIL, SESSION_PASS;
+        public static long SESSION_USERID;
         ISharedPreferences session;
-        String SESSION_EMAIL, SESSION_PASS;
+        long getUserID = -1;
         bool isNameTaken, isEmailTaken;
         int checkUserName = -1, checkEmail = -1;
-        long getUserID = -1;
         public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.129:9608/MentorJService.svc");
 
 
@@ -186,10 +185,6 @@ namespace MentorJ.Android
                 string test = tblUserInfo.createDatabase(dpPath);
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<tblUserInfo>();
-                //if ( data == null )
-                //{
-                //db.CreateTable<tblUserInfo>();
-                
                 newUser.UserID = getUserID;
                 newUser.UserName = txtUsername.Text.Trim();
                 newUser.Email = txtEmail.Text;
@@ -227,13 +222,35 @@ namespace MentorJ.Android
                 if (!isNameTaken && !isEmailTaken)    //if name and email are unused, insert into web SQL Database
                 {
                     _client.InsertRecord_UserInfoAsync(newUser);
+                    string success = tblUserInfo.insertUpdateData(newUser, dpPath); //Insert userInfo into SQLITE on phone
+                    Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
+                    checkEmail = -1; // reset FLAGS, request done.
+                    checkUserName = -1;
+                    getUserID = -1;
+
+                    SESSION_NAME = newUser.UserName;
+                    SESSION_EMAIL = newUser.Email;
+                    SESSION_PASS = newUser.Password;
+                    SESSION_USERID = newUser.UserID;
+                    ISharedPreferencesEditor session_editor = session.Edit();
+                    session_editor.PutString("username", SESSION_NAME);
+                    session_editor.PutString("email", SESSION_EMAIL);
+                    session_editor.PutString("pass", SESSION_PASS);
+                    session_editor.PutLong("userid", SESSION_USERID);
+                    session_editor.PutString("UserInfo", Newtonsoft.Json.JsonConvert.SerializeObject(newUser));
+                    session_editor.Commit();
+                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                    n.PutExtra("UserInfo", Newtonsoft.Json.JsonConvert.SerializeObject(newUser));
+                    StartActivity(n);
+                    Finish();
                 }
                 else
                 {
+                    checkEmail = -1; // reset FLAGS, request done.
+                    checkUserName = -1;
+                    getUserID = -1;
                     Toast.MakeText(this, "The same user credentials have already been taken!,", ToastLength.Long).Show();
                 }
-                string success = tblUserInfo.insertUpdateData(newUser, dpPath); //Insert userInfo into SQLITE on phone
-                Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
 
                 //}
 
@@ -256,9 +273,6 @@ namespace MentorJ.Android
                 //    }
 
                 //}
-                checkEmail = -1; // reset FLAGS, request done.
-                checkUserName = -1;
-                getUserID = -1;
             }
             catch (Exception ex)
             {

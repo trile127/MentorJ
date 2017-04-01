@@ -10,9 +10,9 @@
         <EntityTypeShape EntityType="MentorJModel.tblFriend" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblGroup" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblGroupMember" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MentorJModel.tblPhoto" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MentorJModel.tblPhoto" Width="1.5" PointX="6.125" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblPhotoAlbum" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MentorJModel.tblPost" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MentorJModel.tblPost" Width="1.5" PointX="4.25" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserInfo" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserProfile" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserSetting" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />

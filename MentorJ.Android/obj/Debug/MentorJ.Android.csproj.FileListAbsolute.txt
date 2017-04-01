@@ -32,3 +32,9 @@ D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\uploadflags.txt
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\MentorJ.Android.dll.mdb
 D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\bin\Debug\MentorJ.Android.dll.mdb
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ-secondary\MentorJ.Android\obj\Debug\XbdMerge\Xamarin.Android.Support.v4.dll
