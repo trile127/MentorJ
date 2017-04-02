@@ -82,40 +82,84 @@ namespace MentorJ.Android
 
         private async void ProfileInfo()
         {
-            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
-            var db = new SQLiteConnection(dpPath);
 
-            //Check if database exists
-            if (tblUserProfile.TableExists<tblUserProfile>(db))
+            try
             {
-                loggedOnUser = await getUserProfile();
+                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
+                var db = new SQLiteConnection(dpPath);
+                //Check if database exists
+                if (tblUserProfile.TableExists<tblUserProfile>(db))
+                {
+
+                    var data = db.Table<tblUserProfile>(); //Call Table  
+                    var query = data.Where(x => (x.UserID == session.GetLong("userid", -1))).FirstOrDefault(); //Linq Query  
+                    if (query != null)
+                    {
+                        loggedOnUser = query;
+                        userProfile = await getUserProfile();
+                        if (userProfile.Equals(loggedOnUser))
+                        {
+                            Toast.MakeText(this,"User Profile Loaded!", ToastLength.Short).Show();
+
+                        }
+                        msg = null;
+                        Toast.MakeText(this, "User Profile MISMATCH!", ToastLength.Short).Show();
+                    }
+                    else
+                    {
+                        //User ID not found, so create user profile
+                        userProfile = await getUserProfile();
+                        string success = tblUserProfile.insertUpdateData(userProfile, dpPath);
+                        if (success == "Single data file inserted or updated")
+                        {
+                            loggedOnUser = userProfile;
+                            ISharedPreferencesEditor session_editor = session.Edit();
+                            session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
+                            session_editor.Commit();
+                            msg = null;
+                        }
+                    }
+                }
+                //Create database and userprofile
+                else
+                {
+                    createuserProfileDatabase();
+                    msg = null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                createuserProfileDatabase();
+                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
 
-        private void createuserProfileDatabase()
+        private async void createuserProfileDatabase()
         {
-            //Check if user profile created
-            if (session.GetString("UserProfile", "") == null)
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+            string test = tblUserProfile.createDatabase(dpPath);
+            var db = new SQLiteConnection(dpPath);
+            var data = db.Table<tblUserProfile>();
+            newProfile = new tblUserProfile();
+            newProfile.UserID = session.GetLong("userid", -1); ;
+            newProfile.About = null;
+            newProfile.PictureURL = null;
+            newProfile.PictureData = null;
+            newProfile.SmallPictureURL = null;
+            newProfile.BigPictureURL = null;
+            newProfile.WebProfileLink = null;
+            newProfile.WebPicturesOfLink = null;
+            newProfile.Modified = DateTime.Now;
+            _client.InsertRecord_UserProfileAsync(newProfile);
+            while (msg == null || msg != "Add Updated UserProfile Successful!")
             {
-                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-                string test = tblUserProfile.createDatabase(dpPath);
-                var db = new SQLiteConnection(dpPath);
-                var data = db.Table<tblUserInfo>();
-                newProfile = new tblUserProfile();
-                newProfile.UserID = session.GetLong("userid", -1); ;
-                newProfile.About = null;
-                newProfile.PictureURL = null;
-                newProfile.PictureData = null;
-                newProfile.SmallPictureURL = null;
-                newProfile.BigPictureURL = null;
-                newProfile.WebProfileLink = null;
-                newProfile.WebPicturesOfLink = null;
-                newProfile.Modified = DateTime.Now;
-                _client.InsertRecord_UserProfileAsync(newProfile);
+                await delayTask();
+                if (msg != null && msg != "Add Updated UserProfile Successful!")
+                {
+                    break;  //Error 
+                }
+            }
+            if (msg == "Add Updated UserProfile Successful!")
+            {
                 string success = tblUserProfile.insertUpdateData(newProfile, dpPath); //Insert userInfo into SQLITE on phone
                 ISharedPreferencesEditor session_editor = session.Edit();
                 session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
@@ -123,13 +167,11 @@ namespace MentorJ.Android
                 Toast.MakeText(this, "Create Database: " + test + "\nInsertUpdateData: " + success, ToastLength.Short).Show();
                 loggedOnUser = newProfile;
             }
-
-            //User profile created. Login
             else
             {
-                loggedOnUser = JsonConvert.DeserializeObject<tblUserProfile>(session.GetString("UserProfile", ""));
+                Toast.MakeText(this, "UserProfile Creation Failed", ToastLength.Long).Show();  //Add error message on UI code saying why it failed.
             }
-
+            //loggedOnUser = JsonConvert.DeserializeObject<tblUserProfile>(session.GetString("UserProfile", ""));
         }
 
 
@@ -149,10 +191,16 @@ namespace MentorJ.Android
                         break;  //Error
                     }
                 }
-                ISharedPreferencesEditor session_editor = session.Edit();
-                session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
-                session_editor.Commit();
-                return userProfile;
+
+                if (msg == "Read UserProfile Successful!")
+                {
+                    ISharedPreferencesEditor session_editor = session.Edit();
+                    session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
+                    session_editor.Commit();
+                    return userProfile;
+                }
+                else
+                    return null;
             }
             else
             {
@@ -170,11 +218,19 @@ namespace MentorJ.Android
                             break;  //Error
                         }
                     }
-                    ISharedPreferencesEditor session_editor = session.Edit();
-                    session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
-                    session_editor.Commit();
+                    if (msg == "Read UserProfile Successful!")
+                    {
+                        ISharedPreferencesEditor session_editor = session.Edit();
+                        session_editor.PutString("UserProfile", JsonConvert.SerializeObject(userProfile));
+                        session_editor.Commit();
+                        return userProfile;
+                    }
+                    else
+                        return null;
                 }
-                return userProfile;
+                else
+                    return null;
+
             }
         }
         private async Task delayTask()

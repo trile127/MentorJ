@@ -164,7 +164,6 @@ namespace MentorJ.Android
                                 if (msg != null && msg != "Login Successful!")
                                 {
                                     break;  //Error
-                                }
                             }
                             if (msg == "Login Successful!")
                             {
