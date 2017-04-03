@@ -13,7 +13,7 @@ using Android.App;
 using Android.Support.V4.View;
 using Java.Lang;
 
-namespace MentorJ.Android
+namespace AndroidApp
 {
     public class SamplePagerAdapter2 : PagerAdapter
     {

@@ -3,7 +3,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 
-namespace MentorJ.Android
+namespace AndroidApp
 {
     public class Group
     {

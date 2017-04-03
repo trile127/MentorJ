@@ -12,7 +12,7 @@ using Android.Widget;
 using Android.Support.V4.View;
 using Android.App;
 
-namespace MentorJ.Android
+namespace AndroidApp
 {
 
     public class SlidingTabsFragmentProfile : Fragment

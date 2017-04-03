@@ -13,7 +13,7 @@ using SQLite;
 
 
 
-namespace MentorJ.Android.Models
+namespace AndroidApp.Models
 {
     [Serializable]
     public partial class sqltblUserInfo

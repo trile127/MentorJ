@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MentorJ.Android;
+using AndroidApp;
 using MentorJWcfService;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 using SQLite;
 using System.IO;
 
-namespace MentorJ.Android
+namespace AndroidApp
 {
     [Activity(Label = "MyProfileActivity")]
     public class MyProfileActivity : Activity

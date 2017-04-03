@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5cd22d2a73f3455195c4b730e4ae6a61" Name="Diagram1">
+      <Diagram DiagramId="b9f1ee9d195d4db3b209da5faca9fafb" Name="Diagram1">
         <EntityTypeShape EntityType="MentorJModel.tblComment" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblForum" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblFriend" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblGroup" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblGroupMember" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MentorJModel.tblPhoto" Width="1.5" PointX="6.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MentorJModel.tblPhoto" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblPhotoAlbum" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MentorJModel.tblPost" Width="1.5" PointX="4.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MentorJModel.tblPost" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserInfo" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserProfile" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorJModel.tblUserSetting" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />

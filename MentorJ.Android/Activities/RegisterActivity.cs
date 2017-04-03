@@ -11,12 +11,12 @@ using Android.Views;
 using Android.Widget;
 using System.IO;
 using SQLite;
-using MentorJ.Android.Models;
+using AndroidApp.Models;
 using MentorJWcfService;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace MentorJ.Android
+namespace AndroidApp
 {
     [Activity(Label = "RegisterActivity")]
     public class RegisterActivity : Activity
