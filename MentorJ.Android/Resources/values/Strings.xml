@@ -3,6 +3,8 @@
     <string name="Hello">Hello World, Click Me!</string>
     <string name="say_hello_world">Say Hello World</string>
     <string name="get_hello_world_data">Get Hello World data</string>
+    <string name="app_name">PagerSlidingTabStrip.Net</string>
+    <string name="action_contact">Contact</string>
     <string name="get_UserInfo">Get UserInfo data</string>
     <string name="login">Login Here!</string>
     <string name="ApplicationName">MentorJ.Android</string>

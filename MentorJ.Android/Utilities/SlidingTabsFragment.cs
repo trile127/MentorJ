@@ -14,7 +14,7 @@ using Android.App;
 using MentorJWcfService;
 using Newtonsoft.Json;
 
-namespace MentorJ.Android
+namespace MentorJ_Android
 {
     
     public class SlidingTabsFragment : Fragment

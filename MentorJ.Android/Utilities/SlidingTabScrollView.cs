@@ -13,7 +13,7 @@ using Android.Support.V4.View;
 using Android.Util;
 
 
-namespace MentorJ.Android
+namespace MentorJ_Android
 {
     public class SlidingTabScrollView : HorizontalScrollView
     {

@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using SQLite;
-using MentorJ.Android.Models;
+using MentorJ_Android.Models;
 using MentorJWcfService;
-using MentorJ.Android.Utilities;
+
 
 namespace MentorJWcfService
 {
