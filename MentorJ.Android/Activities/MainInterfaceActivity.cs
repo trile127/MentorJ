@@ -15,10 +15,10 @@ using Android.Views;
 using Android.Widget;
 
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     [Activity(Label = "PagerSlidingTabStrip (.Net)", MainLauncher = false, Icon = "@drawable/icon")]
-    public class SlidingTabActivity : FragmentActivity
+    public class MainInterfaceActivity : FragmentActivity
     {
         public class MyPagerAdapter : FragmentPagerAdapter
         {
@@ -283,9 +283,9 @@ namespace AndroidApp
 
         private class DrawableCallback : Java.Lang.Object, Drawable.ICallback
         {
-            SlidingTabActivity _activity;
+            MainInterfaceActivity _activity;
 
-            public DrawableCallback(SlidingTabActivity activity)
+            public DrawableCallback(MainInterfaceActivity activity)
             {
                 _activity = activity;
             }
@@ -332,11 +332,11 @@ namespace AndroidApp
 
             int pageMargin = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, 4, Resources.DisplayMetrics);
             _pager.PageMargin = pageMargin;
-            //_pager.Adapter = _adapter;
+            _pager.Adapter = _adapter;
 
             InitAdapter();
 
-            //_tabs.SetViewPager(_pager);
+            _tabs.SetViewPager(_pager);
 
             ChangeColor(_currentColor);
         }

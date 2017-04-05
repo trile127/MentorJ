@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
 
     

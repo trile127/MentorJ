@@ -10,7 +10,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AndroidApp</RootNamespace>
+    <RootNamespace>MentorJ_Android</RootNamespace>
     <AssemblyName>MentorJ.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>True</AndroidApplication>
@@ -164,13 +164,8 @@
     <Compile Include="SQL\SQLiteUtilities.cs" />
     <Compile Include="Utilities\AppPreferences.cs" />
     <Compile Include="Utilities\GroupList.cs" />
-    <Compile Include="Utilities\PageAdapter.cs" />
     <Compile Include="Utilities\QuickContactFragment.cs" />
     <Compile Include="Utilities\SharedState.cs" />
-    <Compile Include="Utilities\SlidingTabFragmentProfile.cs" />
-    <Compile Include="Utilities\SlidingTabScrollView.cs" />
-    <Compile Include="Utilities\SlidingTabsFragment.cs" />
-    <Compile Include="Utilities\SlidingTabStrip.cs" />
     <Compile Include="Utilities\SuperAwesomeCardFragment.cs" />
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
@@ -184,18 +179,12 @@
     <AndroidResource Include="Resources\layout\ForgotPassword.axml" />
     <AndroidResource Include="Resources\layout\Forum.axml" />
     <AndroidResource Include="Resources\layout\fragment_quick_contact.axml" />
-    <AndroidResource Include="Resources\layout\FragmentSample.axml" />
     <AndroidResource Include="Resources\layout\GroupCard.axml" />
     <AndroidResource Include="Resources\layout\GroupsPage.axml" />
     <AndroidResource Include="Resources\layout\Login.axml" />
-    <AndroidResource Include="Resources\layout\MainScrollLayout.axml" />
-    <AndroidResource Include="Resources\layout\PagerItem.axml" />
-    <AndroidResource Include="Resources\layout\PagerUserProfileItem.axml" />
     <AndroidResource Include="Resources\layout\ProfilePage.axml" />
-    <AndroidResource Include="Resources\layout\Register.axml" />
     <AndroidResource Include="Resources\layout\RegisterAdditionalInfo.axml" />
     <AndroidResource Include="Resources\layout\RegisterBasicInfo.axml" />
-    <AndroidResource Include="Resources\layout\Storyboard.axml" />
     <AndroidResource Include="Resources\layout\SuperAwesomeCardFragment.axml" />
   </ItemGroup>
   <ItemGroup>

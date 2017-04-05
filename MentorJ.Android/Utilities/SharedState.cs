@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
 	/// <summary>
 	/// Use this as the container for the inprogress flag for each tab in MainActivity

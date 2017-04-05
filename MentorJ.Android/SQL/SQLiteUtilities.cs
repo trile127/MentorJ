@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using SQLite;
-using AndroidApp.Models;
+using MentorJ_Android.Models;
 using MentorJWcfService;
 
 

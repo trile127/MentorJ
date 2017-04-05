@@ -12,7 +12,7 @@ using Android.Widget;
 using Android.Graphics;
 using Android.Util;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     public class SlidingTabStrip : LinearLayout
     {

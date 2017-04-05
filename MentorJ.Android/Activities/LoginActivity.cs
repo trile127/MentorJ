@@ -11,14 +11,14 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using System.IO;
-using AndroidApp;
+using MentorJ_Android;
 using MentorJWcfService;
 using System.ServiceModel;
 
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     [Activity(Label = "LoginActivity")]
     public class LoginActivity : Activity
@@ -148,7 +148,7 @@ namespace AndroidApp
                             session_editor.PutString("pass", SESSION_PASS);
                             session_editor.PutLong("userid", SESSION_USERID);
                             session_editor.Commit();
-                            Intent n = new Intent(this, typeof(MyProfileActivity));
+                            Intent n = new Intent(this, typeof(MainInterfaceActivity));
                             n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
                             StartActivity(n);
                             Finish();
@@ -182,7 +182,7 @@ namespace AndroidApp
                                     session_editor.PutLong("userid", SESSION_USERID);
                                     session_editor.PutString("UserInfo", JsonConvert.SerializeObject(user));
                                     session_editor.Commit();
-                                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                                    Intent n = new Intent(this, typeof(MainInterfaceActivity));
                                     n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
                                     StartActivity(n);
                                     Finish();
@@ -231,7 +231,7 @@ namespace AndroidApp
                             session_editor.PutLong("userid", SESSION_USERID);
                             session_editor.PutString("UserInfo", JsonConvert.SerializeObject(user));
                             session_editor.Commit();
-                            Intent n = new Intent(this, typeof(MyProfileActivity));
+                            Intent n = new Intent(this, typeof(MainInterfaceActivity));
                             n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
                             StartActivity(n);
                             Finish();
@@ -278,10 +278,8 @@ namespace AndroidApp
                 {
                     //Set user preferences
                     msg = null;
-                    Intent intent = new Intent(this, typeof(MyProfileActivity));
-                    intent.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
                     RunOnUiThread(() => Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show() );
-                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                    Intent n = new Intent(this, typeof(MainInterfaceActivity));
                     n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
                     StartActivity(n);
                     Finish();

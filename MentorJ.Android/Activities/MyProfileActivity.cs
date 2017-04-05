@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using AndroidApp;
+
 using MentorJWcfService;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 using SQLite;
 using System.IO;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     [Activity(Label = "MyProfileActivity")]
     public class MyProfileActivity : Activity
@@ -47,13 +47,13 @@ namespace AndroidApp
 
             loggedOnUser = JsonConvert.DeserializeObject<tblUserProfile>(dataBundle.GetString("UserProfile"));
 
-            FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            SlidingTabsFragment fragment = new SlidingTabsFragment();
-            fragment.Arguments = dataBundle;
-            //SlidingTabsFragmentProfile fragment2 = new SlidingTabsFragmentProfile();
+            //FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            //SlidingTabsFragment fragment = new SlidingTabsFragment();
+            //fragment.Arguments = dataBundle;
+            ////SlidingTabsFragmentProfile fragment2 = new SlidingTabsFragmentProfile();
 
-            //transaction.Replace(Resource.Id.sample_content_fragment, fragment);
-            transaction.Commit();
+            ////transaction.Replace(Resource.Id.sample_content_fragment, fragment);
+            //transaction.Commit();
 
         }
 

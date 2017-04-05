@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
 
     [Activity(Label = "GroupMainActivity", MainLauncher = false, Theme ="@style/Theme.AppCompat.Light.DarkActionBar")]

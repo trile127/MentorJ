@@ -11,10 +11,10 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using System.IO;
-using AndroidApp;
+using MentorJ_Android;
 using MentorJWcfService;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     [Activity(Label = "ForgotPwActivity")]
     public class ForgotPwActivity : Activity

@@ -13,7 +13,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
 	public class QuickContactFragment : Android.Support.V4.App.DialogFragment
 	{

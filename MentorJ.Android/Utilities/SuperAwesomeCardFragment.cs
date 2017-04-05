@@ -12,7 +12,7 @@ using Android.Views;
 using Android.Widget;
 using PagerSlidingTabStrip;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
 	public class SuperAwesomeCardFragment : Android.Support.V4.App.Fragment
 	{

@@ -7,12 +7,12 @@ using MentorJ;
 using Android;
 using System.Xml;
 using Android.Content;
-using AndroidApp;
+using MentorJ_Android;
 
 
 using MentorJWcfService;
 
-namespace AndroidApp
+namespace MentorJ_Android
 {
     [Activity(Label = "AndroidApp", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
