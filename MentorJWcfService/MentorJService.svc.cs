@@ -13,9 +13,9 @@ using System.Collections;
 
 namespace MentorJWcfService
 {
-   
 
-        public partial class MentorJService : IMentorJInfoService
+
+    public partial class MentorJService : IMentorJInfoService
     {
 
         //private tblUserInfo TranslatetblUserInfoTotblUserInfo(tblUserInfo user)
@@ -180,7 +180,7 @@ namespace MentorJWcfService
             }
         }
 
-   
+
 
         public bool DeleteRecord_UserInfo(long ID)
         {
@@ -205,7 +205,7 @@ namespace MentorJWcfService
             }
         }
 
-      
+
 
         public bool UpdateRecord_UserInfo(tblUserInfo rec)
         {
@@ -215,7 +215,7 @@ namespace MentorJWcfService
                 tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
                 if (existingRec != null)
                 {
-                    
+
                     rec.LastUpdatedDate = DateTime.Now;
                     Serializer.Clone<tblUserInfo>(rec, existingRec);
                     context.SaveChangesAsync();
@@ -477,8 +477,219 @@ namespace MentorJWcfService
             }
         }
 
-
-
     }
 
+        public partial class MentorJService : IMentorJFriendService
+        {
+            public tblFriend ReadRecord_Friend(long userID, long friendID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    var query = from n in context.tblFriends
+                                where n.UserID == userID
+                                where n.FriendID == friendID
+                                select n;
+                    if (query != null && query.Count() > 0)
+                    {
+                        return query.First();
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+            public bool AddUpdateRecord_Friend(long userID, long friendID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    tblFriend existingRec = ReadRecord_Friend(userID, friendID);
+                    if (existingRec == null) //new record
+                    {
+                        return InsertRecord_Friend(userID, friendID);
+                    }
+                    return false;
+                    //else //found existing, update
+                    //{
+                    //    return UpdateRecord_Friend(userID, friendID);
+                    //}
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+
+            public bool InsertRecord_Friend(long userID, long friendID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    tblFriend existingRec = ReadRecord_Friend(userID, friendID);
+
+                    if (existingRec == null)
+                    {
+                        context.tblFriends.Add(existingRec);
+                        context.SaveChangesAsync();
+
+                        return true;
+                    }
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+
+            public bool DeleteRecord_Friend(long userID, long friendID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    tblFriend existingRec = ReadRecord_Friend(userID, friendID);
+                    if (existingRec != null) //there is a record
+                    {
+                        context.tblFriends.Remove(existingRec);
+                        context.SaveChangesAsync();
+                        return true;
+                    }
+                    return false;
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+
+            //public bool UpdateRecord_Friend(long userID, long friendID)
+            //{
+            //    try
+            //    {
+            //        MentorJEntities context = new MentorJEntities();
+            //        tblFriend existingRec = ReadRecord_Friend(userID, friendID);
+            //        if (existingRec != null)
+            //        {
+            //            //Serializer.Clone<tblUserProfile>(rec, existingRec);
+            //            //context.SaveChangesAsync();
+            //            return true;
+            //        }
+            //        return false;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw ex;
+            //    }
+            //}
+
+            public ArrayList getFriends(long userID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    var query = from n in context.tblFriends
+                                where n.UserID == userID
+                                select n.FriendID;
+                    ArrayList list = new ArrayList();
+                    int count = 0;
+                    foreach (var id in query)
+                    {
+                        count++;
+                        list.Add(id);
+                        if (count > 1000)
+                            break;
+                    }
+                    return list;
+                    //return query;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+            public tblUserProfile getFriendProfile(long friendID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    var query = from n in context.tblUserProfiles
+                                where n.UserID == friendID
+                                select n;
+                    if (query != null && query.Count() > 0)
+                    {
+                        return query.First();
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+            public ArrayList getFriendsProfile(long userID)
+            {
+                try
+                {
+                    MentorJEntities context = new MentorJEntities();
+                    var query = from n in context.tblFriends
+                                where n.UserID == userID
+                                select n.FriendID;
+                    if (query != null && query.Count() > 0)
+                    {
+                        ArrayList IDlist = new ArrayList();
+                        int count = 0;
+                        foreach (var id in query)
+                        {
+                            count++;
+                            IDlist.Add(id);
+                            if (count > 1000)
+                                break;
+                        }
+
+                        var query2 = from n in context.tblUserProfiles
+                                     where IDlist.Contains(n.UserID)
+                                     select n;
+                        if (query != null && query.Count() > 0)
+                        {
+                            ArrayList profileList = new ArrayList();
+                            count = 0;
+                            foreach (var profile in query2)
+                            {
+                                count++;
+                                profileList.Add(profile);
+                                if (count > 1000)
+                                    break;
+                            }
+                            return profileList;
+                        }
+                        return null;
+                    }
+
+                    return null;
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+        }
+
+
+    
 }

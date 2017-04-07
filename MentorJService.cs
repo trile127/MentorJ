@@ -554,6 +554,43 @@ namespace MentorJWcfService
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblFriend", Namespace="http://schemas.datacontract.org/2004/07/MentorJWcfService")]
+    public partial class tblFriend : object
+    {
+        
+        private long FriendIDField;
+        
+        private long UserIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long FriendID
+        {
+            get
+            {
+                return this.FriendIDField;
+            }
+            set
+            {
+                this.FriendIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+    }
 }
 
 
@@ -1746,6 +1783,7 @@ public interface IMentorJProfileService
     [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJProfileService/getUserProfiles", ReplyAction="http://tempuri.org/IMentorJProfileService/getUserProfilesResponse")]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserProfile))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblFriend))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
     System.IAsyncResult BegingetUserProfiles(string username, System.AsyncCallback callback, object asyncState);
     
@@ -2543,6 +2581,858 @@ public partial class MentorJProfileServiceClient : System.ServiceModel.ClientBas
         {
             object[] _args = new object[0];
             object[] _result = ((object[])(base.EndInvoke("getUserProfiles", _args, result)));
+            return _result;
+        }
+    }
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IMentorJFriendService")]
+public interface IMentorJFriendService
+{
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/ReadRecord_Friend", ReplyAction="http://tempuri.org/IMentorJFriendService/ReadRecord_FriendResponse")]
+    System.IAsyncResult BeginReadRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState);
+    
+    MentorJWcfService.tblFriend EndReadRecord_Friend(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/AddUpdateRecord_Friend", ReplyAction="http://tempuri.org/IMentorJFriendService/AddUpdateRecord_FriendResponse")]
+    System.IAsyncResult BeginAddUpdateRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState);
+    
+    bool EndAddUpdateRecord_Friend(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/InsertRecord_Friend", ReplyAction="http://tempuri.org/IMentorJFriendService/InsertRecord_FriendResponse")]
+    System.IAsyncResult BeginInsertRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState);
+    
+    bool EndInsertRecord_Friend(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/DeleteRecord_Friend", ReplyAction="http://tempuri.org/IMentorJFriendService/DeleteRecord_FriendResponse")]
+    System.IAsyncResult BeginDeleteRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState);
+    
+    bool EndDeleteRecord_Friend(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/getFriends", ReplyAction="http://tempuri.org/IMentorJFriendService/getFriendsResponse")]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserProfile))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblFriend))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+    System.IAsyncResult BegingetFriends(long userID, System.AsyncCallback callback, object asyncState);
+    
+    object[] EndgetFriends(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJFriendService/getFriendsProfile", ReplyAction="http://tempuri.org/IMentorJFriendService/getFriendsProfileResponse")]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblUserProfile))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MentorJWcfService.tblFriend))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+    System.IAsyncResult BegingetFriendsProfile(long userID, System.AsyncCallback callback, object asyncState);
+    
+    object[] EndgetFriendsProfile(System.IAsyncResult result);
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public interface IMentorJFriendServiceChannel : IMentorJFriendService, System.ServiceModel.IClientChannel
+{
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class ReadRecord_FriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public ReadRecord_FriendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public MentorJWcfService.tblFriend Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((MentorJWcfService.tblFriend)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class AddUpdateRecord_FriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public AddUpdateRecord_FriendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class InsertRecord_FriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public InsertRecord_FriendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class DeleteRecord_FriendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public DeleteRecord_FriendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class getFriendsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public getFriendsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public object[] Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((object[])(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class getFriendsProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public getFriendsProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public object[] Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((object[])(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class MentorJFriendServiceClient : System.ServiceModel.ClientBase<IMentorJFriendService>, IMentorJFriendService
+{
+    
+    private BeginOperationDelegate onBeginReadRecord_FriendDelegate;
+    
+    private EndOperationDelegate onEndReadRecord_FriendDelegate;
+    
+    private System.Threading.SendOrPostCallback onReadRecord_FriendCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginAddUpdateRecord_FriendDelegate;
+    
+    private EndOperationDelegate onEndAddUpdateRecord_FriendDelegate;
+    
+    private System.Threading.SendOrPostCallback onAddUpdateRecord_FriendCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginInsertRecord_FriendDelegate;
+    
+    private EndOperationDelegate onEndInsertRecord_FriendDelegate;
+    
+    private System.Threading.SendOrPostCallback onInsertRecord_FriendCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginDeleteRecord_FriendDelegate;
+    
+    private EndOperationDelegate onEndDeleteRecord_FriendDelegate;
+    
+    private System.Threading.SendOrPostCallback onDeleteRecord_FriendCompletedDelegate;
+    
+    private BeginOperationDelegate onBegingetFriendsDelegate;
+    
+    private EndOperationDelegate onEndgetFriendsDelegate;
+    
+    private System.Threading.SendOrPostCallback ongetFriendsCompletedDelegate;
+    
+    private BeginOperationDelegate onBegingetFriendsProfileDelegate;
+    
+    private EndOperationDelegate onEndgetFriendsProfileDelegate;
+    
+    private System.Threading.SendOrPostCallback ongetFriendsProfileCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginOpenDelegate;
+    
+    private EndOperationDelegate onEndOpenDelegate;
+    
+    private System.Threading.SendOrPostCallback onOpenCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginCloseDelegate;
+    
+    private EndOperationDelegate onEndCloseDelegate;
+    
+    private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
+    
+    public MentorJFriendServiceClient()
+    {
+    }
+    
+    public MentorJFriendServiceClient(string endpointConfigurationName) : 
+            base(endpointConfigurationName)
+    {
+    }
+    
+    public MentorJFriendServiceClient(string endpointConfigurationName, string remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public MentorJFriendServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public MentorJFriendServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(binding, remoteAddress)
+    {
+    }
+    
+    public System.Net.CookieContainer CookieContainer
+    {
+        get
+        {
+            System.ServiceModel.Channels.IHttpCookieContainerManager httpCookieContainerManager = this.InnerChannel.GetProperty<System.ServiceModel.Channels.IHttpCookieContainerManager>();
+            if ((httpCookieContainerManager != null))
+            {
+                return httpCookieContainerManager.CookieContainer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        set
+        {
+            System.ServiceModel.Channels.IHttpCookieContainerManager httpCookieContainerManager = this.InnerChannel.GetProperty<System.ServiceModel.Channels.IHttpCookieContainerManager>();
+            if ((httpCookieContainerManager != null))
+            {
+                httpCookieContainerManager.CookieContainer = value;
+            }
+            else
+            {
+                throw new System.InvalidOperationException("Unable to set the CookieContainer. Please make sure the binding contains an HttpC" +
+                        "ookieContainerBindingElement.");
+            }
+        }
+    }
+    
+    public event System.EventHandler<ReadRecord_FriendCompletedEventArgs> ReadRecord_FriendCompleted;
+    
+    public event System.EventHandler<AddUpdateRecord_FriendCompletedEventArgs> AddUpdateRecord_FriendCompleted;
+    
+    public event System.EventHandler<InsertRecord_FriendCompletedEventArgs> InsertRecord_FriendCompleted;
+    
+    public event System.EventHandler<DeleteRecord_FriendCompletedEventArgs> DeleteRecord_FriendCompleted;
+    
+    public event System.EventHandler<getFriendsCompletedEventArgs> getFriendsCompleted;
+    
+    public event System.EventHandler<getFriendsProfileCompletedEventArgs> getFriendsProfileCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BeginReadRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginReadRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    MentorJWcfService.tblFriend IMentorJFriendService.EndReadRecord_Friend(System.IAsyncResult result)
+    {
+        return base.Channel.EndReadRecord_Friend(result);
+    }
+    
+    private System.IAsyncResult OnBeginReadRecord_Friend(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        long friendID = ((long)(inValues[1]));
+        return ((IMentorJFriendService)(this)).BeginReadRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    private object[] OnEndReadRecord_Friend(System.IAsyncResult result)
+    {
+        MentorJWcfService.tblFriend retVal = ((IMentorJFriendService)(this)).EndReadRecord_Friend(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnReadRecord_FriendCompleted(object state)
+    {
+        if ((this.ReadRecord_FriendCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.ReadRecord_FriendCompleted(this, new ReadRecord_FriendCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void ReadRecord_FriendAsync(long userID, long friendID)
+    {
+        this.ReadRecord_FriendAsync(userID, friendID, null);
+    }
+    
+    public void ReadRecord_FriendAsync(long userID, long friendID, object userState)
+    {
+        if ((this.onBeginReadRecord_FriendDelegate == null))
+        {
+            this.onBeginReadRecord_FriendDelegate = new BeginOperationDelegate(this.OnBeginReadRecord_Friend);
+        }
+        if ((this.onEndReadRecord_FriendDelegate == null))
+        {
+            this.onEndReadRecord_FriendDelegate = new EndOperationDelegate(this.OnEndReadRecord_Friend);
+        }
+        if ((this.onReadRecord_FriendCompletedDelegate == null))
+        {
+            this.onReadRecord_FriendCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadRecord_FriendCompleted);
+        }
+        base.InvokeAsync(this.onBeginReadRecord_FriendDelegate, new object[] {
+                    userID,
+                    friendID}, this.onEndReadRecord_FriendDelegate, this.onReadRecord_FriendCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BeginAddUpdateRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginAddUpdateRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJFriendService.EndAddUpdateRecord_Friend(System.IAsyncResult result)
+    {
+        return base.Channel.EndAddUpdateRecord_Friend(result);
+    }
+    
+    private System.IAsyncResult OnBeginAddUpdateRecord_Friend(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        long friendID = ((long)(inValues[1]));
+        return ((IMentorJFriendService)(this)).BeginAddUpdateRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    private object[] OnEndAddUpdateRecord_Friend(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJFriendService)(this)).EndAddUpdateRecord_Friend(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnAddUpdateRecord_FriendCompleted(object state)
+    {
+        if ((this.AddUpdateRecord_FriendCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.AddUpdateRecord_FriendCompleted(this, new AddUpdateRecord_FriendCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void AddUpdateRecord_FriendAsync(long userID, long friendID)
+    {
+        this.AddUpdateRecord_FriendAsync(userID, friendID, null);
+    }
+    
+    public void AddUpdateRecord_FriendAsync(long userID, long friendID, object userState)
+    {
+        if ((this.onBeginAddUpdateRecord_FriendDelegate == null))
+        {
+            this.onBeginAddUpdateRecord_FriendDelegate = new BeginOperationDelegate(this.OnBeginAddUpdateRecord_Friend);
+        }
+        if ((this.onEndAddUpdateRecord_FriendDelegate == null))
+        {
+            this.onEndAddUpdateRecord_FriendDelegate = new EndOperationDelegate(this.OnEndAddUpdateRecord_Friend);
+        }
+        if ((this.onAddUpdateRecord_FriendCompletedDelegate == null))
+        {
+            this.onAddUpdateRecord_FriendCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddUpdateRecord_FriendCompleted);
+        }
+        base.InvokeAsync(this.onBeginAddUpdateRecord_FriendDelegate, new object[] {
+                    userID,
+                    friendID}, this.onEndAddUpdateRecord_FriendDelegate, this.onAddUpdateRecord_FriendCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BeginInsertRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginInsertRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJFriendService.EndInsertRecord_Friend(System.IAsyncResult result)
+    {
+        return base.Channel.EndInsertRecord_Friend(result);
+    }
+    
+    private System.IAsyncResult OnBeginInsertRecord_Friend(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        long friendID = ((long)(inValues[1]));
+        return ((IMentorJFriendService)(this)).BeginInsertRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    private object[] OnEndInsertRecord_Friend(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJFriendService)(this)).EndInsertRecord_Friend(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnInsertRecord_FriendCompleted(object state)
+    {
+        if ((this.InsertRecord_FriendCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.InsertRecord_FriendCompleted(this, new InsertRecord_FriendCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void InsertRecord_FriendAsync(long userID, long friendID)
+    {
+        this.InsertRecord_FriendAsync(userID, friendID, null);
+    }
+    
+    public void InsertRecord_FriendAsync(long userID, long friendID, object userState)
+    {
+        if ((this.onBeginInsertRecord_FriendDelegate == null))
+        {
+            this.onBeginInsertRecord_FriendDelegate = new BeginOperationDelegate(this.OnBeginInsertRecord_Friend);
+        }
+        if ((this.onEndInsertRecord_FriendDelegate == null))
+        {
+            this.onEndInsertRecord_FriendDelegate = new EndOperationDelegate(this.OnEndInsertRecord_Friend);
+        }
+        if ((this.onInsertRecord_FriendCompletedDelegate == null))
+        {
+            this.onInsertRecord_FriendCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertRecord_FriendCompleted);
+        }
+        base.InvokeAsync(this.onBeginInsertRecord_FriendDelegate, new object[] {
+                    userID,
+                    friendID}, this.onEndInsertRecord_FriendDelegate, this.onInsertRecord_FriendCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BeginDeleteRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginDeleteRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    bool IMentorJFriendService.EndDeleteRecord_Friend(System.IAsyncResult result)
+    {
+        return base.Channel.EndDeleteRecord_Friend(result);
+    }
+    
+    private System.IAsyncResult OnBeginDeleteRecord_Friend(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        long friendID = ((long)(inValues[1]));
+        return ((IMentorJFriendService)(this)).BeginDeleteRecord_Friend(userID, friendID, callback, asyncState);
+    }
+    
+    private object[] OnEndDeleteRecord_Friend(System.IAsyncResult result)
+    {
+        bool retVal = ((IMentorJFriendService)(this)).EndDeleteRecord_Friend(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnDeleteRecord_FriendCompleted(object state)
+    {
+        if ((this.DeleteRecord_FriendCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.DeleteRecord_FriendCompleted(this, new DeleteRecord_FriendCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void DeleteRecord_FriendAsync(long userID, long friendID)
+    {
+        this.DeleteRecord_FriendAsync(userID, friendID, null);
+    }
+    
+    public void DeleteRecord_FriendAsync(long userID, long friendID, object userState)
+    {
+        if ((this.onBeginDeleteRecord_FriendDelegate == null))
+        {
+            this.onBeginDeleteRecord_FriendDelegate = new BeginOperationDelegate(this.OnBeginDeleteRecord_Friend);
+        }
+        if ((this.onEndDeleteRecord_FriendDelegate == null))
+        {
+            this.onEndDeleteRecord_FriendDelegate = new EndOperationDelegate(this.OnEndDeleteRecord_Friend);
+        }
+        if ((this.onDeleteRecord_FriendCompletedDelegate == null))
+        {
+            this.onDeleteRecord_FriendCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteRecord_FriendCompleted);
+        }
+        base.InvokeAsync(this.onBeginDeleteRecord_FriendDelegate, new object[] {
+                    userID,
+                    friendID}, this.onEndDeleteRecord_FriendDelegate, this.onDeleteRecord_FriendCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BegingetFriends(long userID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BegingetFriends(userID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    object[] IMentorJFriendService.EndgetFriends(System.IAsyncResult result)
+    {
+        return base.Channel.EndgetFriends(result);
+    }
+    
+    private System.IAsyncResult OnBegingetFriends(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        return ((IMentorJFriendService)(this)).BegingetFriends(userID, callback, asyncState);
+    }
+    
+    private object[] OnEndgetFriends(System.IAsyncResult result)
+    {
+        object[] retVal = ((IMentorJFriendService)(this)).EndgetFriends(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OngetFriendsCompleted(object state)
+    {
+        if ((this.getFriendsCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.getFriendsCompleted(this, new getFriendsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void getFriendsAsync(long userID)
+    {
+        this.getFriendsAsync(userID, null);
+    }
+    
+    public void getFriendsAsync(long userID, object userState)
+    {
+        if ((this.onBegingetFriendsDelegate == null))
+        {
+            this.onBegingetFriendsDelegate = new BeginOperationDelegate(this.OnBegingetFriends);
+        }
+        if ((this.onEndgetFriendsDelegate == null))
+        {
+            this.onEndgetFriendsDelegate = new EndOperationDelegate(this.OnEndgetFriends);
+        }
+        if ((this.ongetFriendsCompletedDelegate == null))
+        {
+            this.ongetFriendsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OngetFriendsCompleted);
+        }
+        base.InvokeAsync(this.onBegingetFriendsDelegate, new object[] {
+                    userID}, this.onEndgetFriendsDelegate, this.ongetFriendsCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IMentorJFriendService.BegingetFriendsProfile(long userID, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BegingetFriendsProfile(userID, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    object[] IMentorJFriendService.EndgetFriendsProfile(System.IAsyncResult result)
+    {
+        return base.Channel.EndgetFriendsProfile(result);
+    }
+    
+    private System.IAsyncResult OnBegingetFriendsProfile(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        long userID = ((long)(inValues[0]));
+        return ((IMentorJFriendService)(this)).BegingetFriendsProfile(userID, callback, asyncState);
+    }
+    
+    private object[] OnEndgetFriendsProfile(System.IAsyncResult result)
+    {
+        object[] retVal = ((IMentorJFriendService)(this)).EndgetFriendsProfile(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OngetFriendsProfileCompleted(object state)
+    {
+        if ((this.getFriendsProfileCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.getFriendsProfileCompleted(this, new getFriendsProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void getFriendsProfileAsync(long userID)
+    {
+        this.getFriendsProfileAsync(userID, null);
+    }
+    
+    public void getFriendsProfileAsync(long userID, object userState)
+    {
+        if ((this.onBegingetFriendsProfileDelegate == null))
+        {
+            this.onBegingetFriendsProfileDelegate = new BeginOperationDelegate(this.OnBegingetFriendsProfile);
+        }
+        if ((this.onEndgetFriendsProfileDelegate == null))
+        {
+            this.onEndgetFriendsProfileDelegate = new EndOperationDelegate(this.OnEndgetFriendsProfile);
+        }
+        if ((this.ongetFriendsProfileCompletedDelegate == null))
+        {
+            this.ongetFriendsProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OngetFriendsProfileCompleted);
+        }
+        base.InvokeAsync(this.onBegingetFriendsProfileDelegate, new object[] {
+                    userID}, this.onEndgetFriendsProfileDelegate, this.ongetFriendsProfileCompletedDelegate, userState);
+    }
+    
+    private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
+    }
+    
+    private object[] OnEndOpen(System.IAsyncResult result)
+    {
+        ((System.ServiceModel.ICommunicationObject)(this)).EndOpen(result);
+        return null;
+    }
+    
+    private void OnOpenCompleted(object state)
+    {
+        if ((this.OpenCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.OpenCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void OpenAsync()
+    {
+        this.OpenAsync(null);
+    }
+    
+    public void OpenAsync(object userState)
+    {
+        if ((this.onBeginOpenDelegate == null))
+        {
+            this.onBeginOpenDelegate = new BeginOperationDelegate(this.OnBeginOpen);
+        }
+        if ((this.onEndOpenDelegate == null))
+        {
+            this.onEndOpenDelegate = new EndOperationDelegate(this.OnEndOpen);
+        }
+        if ((this.onOpenCompletedDelegate == null))
+        {
+            this.onOpenCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnOpenCompleted);
+        }
+        base.InvokeAsync(this.onBeginOpenDelegate, null, this.onEndOpenDelegate, this.onOpenCompletedDelegate, userState);
+    }
+    
+    private System.IAsyncResult OnBeginClose(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((System.ServiceModel.ICommunicationObject)(this)).BeginClose(callback, asyncState);
+    }
+    
+    private object[] OnEndClose(System.IAsyncResult result)
+    {
+        ((System.ServiceModel.ICommunicationObject)(this)).EndClose(result);
+        return null;
+    }
+    
+    private void OnCloseCompleted(object state)
+    {
+        if ((this.CloseCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.CloseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void CloseAsync()
+    {
+        this.CloseAsync(null);
+    }
+    
+    public void CloseAsync(object userState)
+    {
+        if ((this.onBeginCloseDelegate == null))
+        {
+            this.onBeginCloseDelegate = new BeginOperationDelegate(this.OnBeginClose);
+        }
+        if ((this.onEndCloseDelegate == null))
+        {
+            this.onEndCloseDelegate = new EndOperationDelegate(this.OnEndClose);
+        }
+        if ((this.onCloseCompletedDelegate == null))
+        {
+            this.onCloseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCloseCompleted);
+        }
+        base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
+    }
+    
+    protected override IMentorJFriendService CreateChannel()
+    {
+        return new MentorJFriendServiceClientChannel(this);
+    }
+    
+    private class MentorJFriendServiceClientChannel : ChannelBase<IMentorJFriendService>, IMentorJFriendService
+    {
+        
+        public MentorJFriendServiceClientChannel(System.ServiceModel.ClientBase<IMentorJFriendService> client) : 
+                base(client)
+        {
+        }
+        
+        public System.IAsyncResult BeginReadRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[2];
+            _args[0] = userID;
+            _args[1] = friendID;
+            System.IAsyncResult _result = base.BeginInvoke("ReadRecord_Friend", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public MentorJWcfService.tblFriend EndReadRecord_Friend(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            MentorJWcfService.tblFriend _result = ((MentorJWcfService.tblFriend)(base.EndInvoke("ReadRecord_Friend", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginAddUpdateRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[2];
+            _args[0] = userID;
+            _args[1] = friendID;
+            System.IAsyncResult _result = base.BeginInvoke("AddUpdateRecord_Friend", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndAddUpdateRecord_Friend(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("AddUpdateRecord_Friend", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginInsertRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[2];
+            _args[0] = userID;
+            _args[1] = friendID;
+            System.IAsyncResult _result = base.BeginInvoke("InsertRecord_Friend", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndInsertRecord_Friend(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("InsertRecord_Friend", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginDeleteRecord_Friend(long userID, long friendID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[2];
+            _args[0] = userID;
+            _args[1] = friendID;
+            System.IAsyncResult _result = base.BeginInvoke("DeleteRecord_Friend", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public bool EndDeleteRecord_Friend(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            bool _result = ((bool)(base.EndInvoke("DeleteRecord_Friend", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BegingetFriends(long userID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = userID;
+            System.IAsyncResult _result = base.BeginInvoke("getFriends", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public object[] EndgetFriends(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            object[] _result = ((object[])(base.EndInvoke("getFriends", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BegingetFriendsProfile(long userID, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = userID;
+            System.IAsyncResult _result = base.BeginInvoke("getFriendsProfile", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public object[] EndgetFriendsProfile(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            object[] _result = ((object[])(base.EndInvoke("getFriendsProfile", _args, result)));
             return _result;
         }
     }

@@ -54,4 +54,25 @@ namespace MentorJWcfService
         [OperationContract]
         ArrayList getUserProfiles(string username);
     }
+
+    [ServiceContract]
+    public interface IMentorJFriendService
+    {
+        [OperationContract]
+        tblFriend ReadRecord_Friend(long userID, long friendID);
+        [OperationContract]
+        bool AddUpdateRecord_Friend(long userID, long friendID);
+        [OperationContract]
+        bool InsertRecord_Friend(long userID, long friendID);
+        [OperationContract]
+        bool DeleteRecord_Friend(long userID, long friendID);
+        //[OperationContract]
+        //bool UpdateRecord_Friend(long userID, long friendID);
+        [OperationContract]
+        ArrayList getFriends(long userID);
+        [OperationContract]
+        ArrayList getFriendsProfile(long userID);
+
+
+    }
 }

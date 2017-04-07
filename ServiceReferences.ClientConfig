@@ -11,6 +11,10 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IMentorJFriendService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
             </basicHttpBinding>
         </bindings>
         <client>
@@ -20,6 +24,9 @@
             <endpoint address="http://localhost:9607/MentorJService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMentorJProfileService"
                 contract="IMentorJProfileService" name="BasicHttpBinding_IMentorJProfileService" />
+            <endpoint address="http://localhost:9607/MentorJService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMentorJFriendService"
+                contract="IMentorJFriendService" name="BasicHttpBinding_IMentorJFriendService" />
         </client>
         <extensions />
     </system.serviceModel>
