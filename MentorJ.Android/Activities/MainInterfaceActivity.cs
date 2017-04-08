@@ -14,7 +14,6 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-
 namespace MentorJ_Android
 {
     [Activity(Label = "PagerSlidingTabStrip (.Net)", MainLauncher = false, Icon = "@drawable/icon")]
@@ -462,18 +461,14 @@ namespace MentorJ_Android
                     {
                         ActionBar.SetBackgroundDrawable(td);
                     }
-
                     td.StartTransition(200);
-
                 }
-
                 _oldBackground = ld;
 
                 // http://stackoverflow.com/questions/11002691/actionbar-setbackgrounddrawable-nulling-background-from-thread-handler
                 ActionBar.SetDisplayShowTitleEnabled(false);
                 ActionBar.SetDisplayShowTitleEnabled(true);
             }
-
             _currentColor = newColor;
         }
 

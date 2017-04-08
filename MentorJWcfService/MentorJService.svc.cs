@@ -106,7 +106,6 @@ namespace MentorJWcfService
                             select n;
                 if (query != null && query.Count() > 0)
                 {
-                    //return TranslatetblUserInfoTotblUserInfo(query.First());
                     return query.First();
                 }
                 return null;
@@ -116,11 +115,6 @@ namespace MentorJWcfService
                 throw ex;
             }
         }
-
-
-
-
-
 
         public bool AddUpdateRecord_UserInfo(tblUserInfo rec)
         {
@@ -166,7 +160,6 @@ namespace MentorJWcfService
                     rec.LastUpdatedDate = DateTime.Now;
                     rec.FailedLoginAttempts = 0;
                     rec.LastFailedLoginDate = DateTime.Now;
-
                     context.tblUserInfoes.Add(rec);
                     context.SaveChangesAsync();
 
@@ -180,8 +173,6 @@ namespace MentorJWcfService
             }
         }
 
-
-
         public bool DeleteRecord_UserInfo(long ID)
         {
             try
@@ -190,22 +181,17 @@ namespace MentorJWcfService
                 tblUserInfo existingRec = ReadRecord_UserInfo(ID);
                 if (existingRec != null) //there is a record
                 {
-
-
                     context.tblUserInfoes.Remove(existingRec);
                     context.SaveChangesAsync();
                     return true;
                 }
                 return false;
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-
 
         public bool UpdateRecord_UserInfo(tblUserInfo rec)
         {
@@ -215,7 +201,6 @@ namespace MentorJWcfService
                 tblUserInfo existingRec = ReadRecord_UserInfo(rec.UserID);
                 if (existingRec != null)
                 {
-
                     rec.LastUpdatedDate = DateTime.Now;
                     Serializer.Clone<tblUserInfo>(rec, existingRec);
                     context.SaveChangesAsync();
@@ -240,7 +225,6 @@ namespace MentorJWcfService
                             select n;
                 if (query != null && query.Count() > 0)
                 {
-                    //return TranslatetblUserInfoTotblUserInfo(query.First());
                     return query.First();
                 }
                 return null;
@@ -315,9 +299,6 @@ namespace MentorJWcfService
                 throw ex;
             }
         }
-
-
-
     }
 }
 
@@ -335,7 +316,6 @@ namespace MentorJWcfService
                             select n;
                 if (query != null && query.Count() > 0)
                 {
-                    //return TranslatetblUserInfoTotblUserInfo(query.First());
                     return query.First();
                 }
                 return null;
@@ -403,8 +383,6 @@ namespace MentorJWcfService
             }
         }
 
-
-
         public bool DeleteRecord_UserProfile(long ID)
         {
             try
@@ -425,8 +403,6 @@ namespace MentorJWcfService
                 throw ex;
             }
         }
-
-
 
         public bool UpdateRecord_UserProfile(tblUserProfile rec)
         {
@@ -502,7 +478,6 @@ namespace MentorJWcfService
                 }
             }
 
-
             public bool AddUpdateRecord_Friend(long userID, long friendID)
             {
                 try
@@ -514,10 +489,6 @@ namespace MentorJWcfService
                         return InsertRecord_Friend(userID, friendID);
                     }
                     return false;
-                    //else //found existing, update
-                    //{
-                    //    return UpdateRecord_Friend(userID, friendID);
-                    //}
 
                 }
                 catch (Exception ex)
@@ -663,7 +634,7 @@ namespace MentorJWcfService
                         var query2 = from n in context.tblUserProfiles
                                      where IDlist.Contains(n.UserID)
                                      select n;
-                        if (query != null && query.Count() > 0)
+                        if (query2 != null && query2.Count() > 0)
                         {
                             ArrayList profileList = new ArrayList();
                             count = 0;

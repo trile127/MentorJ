@@ -146,7 +146,7 @@ namespace MentorJ_Android
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<tblUserProfile>();
                 newProfile = new tblUserProfile();
-                newProfile.UserID = session.GetLong("userid", -1); ;
+                newProfile.UserID = session.GetLong("userid", -1);
                 newProfile.About = null;
                 newProfile.PictureURL = null;
                 newProfile.PictureData = null;

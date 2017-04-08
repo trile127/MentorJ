@@ -153,12 +153,11 @@ namespace MentorJ_Android
                     newUser.UserName = txtUsername.Text.Trim();
                     
                 }
-
                 newUser.Email = txtEmail.Text;
                 newUser.Password = txtPassword.Text;
-                newUser.First_Name = "Tri";
-                newUser.Middle_Name = "Xuan";
-                newUser.Last_Name = "Le";
+                newUser.First_Name = txtFirstName.Text.Trim();
+                newUser.Middle_Name = txtMiddleName.Text.Trim();
+                newUser.Last_Name = txtLastName.Text.Trim();
 
                 //All good?
                 SetContentView(Resource.Layout.RegisterBasicInfo);
@@ -168,7 +167,6 @@ namespace MentorJ_Android
                 Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
-
 
         private async void btnContinue2_Click(object sender, EventArgs e)
         {
@@ -210,7 +208,6 @@ namespace MentorJ_Android
                 newUser.FailedLoginAttempts = 0;
                 newUser.LastFailedLoginDate = DateTime.Now;
                 newUser.AccountLocked = false;
-                
                 _client.isUserNameTaken_UserInfoAsync(newUser);  //check if username in use
                 
                 _client.isEmailTaken_UserInfoAsync(newUser); //check if email is in use
@@ -238,7 +235,7 @@ namespace MentorJ_Android
                     session_editor.PutLong("userid", SESSION_USERID);
                     session_editor.PutString("UserInfo", Newtonsoft.Json.JsonConvert.SerializeObject(newUser));
                     session_editor.Commit();
-                    Intent n = new Intent(this, typeof(MyProfileActivity));
+                    Intent n = new Intent(this, typeof(MainActivity));
                     n.PutExtra("UserInfo", Newtonsoft.Json.JsonConvert.SerializeObject(newUser));
                     StartActivity(n);
                     Finish();
@@ -251,27 +248,6 @@ namespace MentorJ_Android
                     Toast.MakeText(this, "The same user credentials have already been taken!,", ToastLength.Long).Show();
                 }
 
-                //}
-
-                //else
-                //{
-                //    var data1 = data.Where(x => (x.UserName == txtUsername.Text || x.Email == txtEmail.Text) && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query 
-                //    if ( data1 == null)
-                //    {
-                //        tblUserInfo newUser = new tblUserInfo();
-
-                //        newUser.UserName = txtUsername.Text;
-                //        newUser.Email = txtEmail.Text;
-                //        newUser.Password = txtPassword.Text;
-                //        db.Insert(newUser);
-                //        Toast.MakeText(this, "Record Added Successfully...,", ToastLength.Short).Show();
-                //    } 
-                //    else
-                //    {
-                //        Toast.MakeText(this, "The same user credentials have already been taken!,", ToastLength.Long).Show();
-                //    }
-
-                //}
             }
             catch (Exception ex)
             {
@@ -351,7 +327,6 @@ namespace MentorJ_Android
             {
                 getUserID = isassignUserIDCompletedEventArgs.Result;
                 msg = "Generated new UserID: " + getUserID;
-
             }
 
             RunOnUiThread(() => Toast.MakeText(this, msg, ToastLength.Long).Show());
