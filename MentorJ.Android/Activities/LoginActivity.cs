@@ -17,6 +17,7 @@ using System.ServiceModel;
 
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MentorJ_Android
 {
@@ -148,8 +149,10 @@ namespace MentorJ_Android
                             session_editor.PutString("pass", SESSION_PASS);
                             session_editor.PutLong("userid", SESSION_USERID);
                             session_editor.Commit();
+                            Bundle bundle = new Bundle();
+                            bundle.PutString("UserInfo", JsonConvert.SerializeObject(user));
                             Intent n = new Intent(this, typeof(MainInterfaceActivity));
-                            n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
+                            n.PutExtras(bundle);
                             StartActivity(n);
                             Finish();
                         }
@@ -182,8 +185,10 @@ namespace MentorJ_Android
                                     session_editor.PutLong("userid", SESSION_USERID);
                                     session_editor.PutString("UserInfo", JsonConvert.SerializeObject(user));
                                     session_editor.Commit();
+                                    Bundle bundle = new Bundle();
+                                    bundle.PutString("UserInfo", JsonConvert.SerializeObject(user));
                                     Intent n = new Intent(this, typeof(MainInterfaceActivity));
-                                    n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
+                                    n.PutExtras(bundle);
                                     StartActivity(n);
                                     Finish();
                                 }
@@ -231,8 +236,10 @@ namespace MentorJ_Android
                             session_editor.PutLong("userid", SESSION_USERID);
                             session_editor.PutString("UserInfo", JsonConvert.SerializeObject(user));
                             session_editor.Commit();
+                            Bundle bundle = new Bundle();
+                            bundle.PutString("UserInfo", JsonConvert.SerializeObject(user));
                             Intent n = new Intent(this, typeof(MainInterfaceActivity));
-                            n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
+                            n.PutExtras(bundle);
                             StartActivity(n);
                             Finish();
                         }
@@ -279,8 +286,12 @@ namespace MentorJ_Android
                     //Set user preferences
                     msg = null;
                     RunOnUiThread(() => Toast.MakeText(this, "Successful Login!!,", ToastLength.Short).Show() );
+                    Bundle bundle = new Bundle();
+                    bundle.PutString("UserInfo", JsonConvert.SerializeObject(user));
                     Intent n = new Intent(this, typeof(MainInterfaceActivity));
-                    n.PutExtra("UserInfo", JsonConvert.SerializeObject(user));
+                    n.PutExtras(bundle);
+
+                    //dynamic receivedObject = JObject.Parse(n.GetStringExtra("UserProfile"));
                     StartActivity(n);
                     Finish();
                 }

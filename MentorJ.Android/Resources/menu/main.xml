@@ -1,24 +1,14 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-    <item
-        android:id="@+id/action_contact"
-        android:icon="@drawable/ic_action_user"
-        android:showAsAction="ifRoom"
-        android:title="@string/action_contact"/>
-	<item android:id="@+id/action_changeadapter"
-				android:showAsAction="never"
-				android:title="Switch Adapter" />
-	<item android:id="@+id/action_settabsone"
-				android:showAsAction="never"
-				android:title="One tab" />
-	<item android:id="@+id/action_settabstwo"
-				android:showAsAction="never"
-				android:title="Two tabs" />
-	<item android:id="@+id/action_settabsthree"
-				android:showAsAction="never"
-				android:title="Three tabs" />
-	<item android:id="@+id/action_settabsfull"
-				android:showAsAction="never"
-				android:title="All tabs" />
-	
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item android:id="@+id/action_icons" android:icon="@drawable/ic_people_white_48dp" android:showAsAction="ifRoom" />
+
+  <item
+    android:id="@+id/action_contact"
+    android:icon="@drawable/ic_action_user"
+    android:showAsAction="always"
+    android:title="@string/action_contact" />
+
 </menu>

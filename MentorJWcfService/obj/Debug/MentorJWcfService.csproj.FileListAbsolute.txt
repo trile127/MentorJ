@@ -1,0 +1,29 @@
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll.config
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.pdb
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\EntityFramework.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\EntityFramework.xml
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.xml
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.dll
+D:\Tri Le`\Desktop\MentorJ-secondary\MentorJ_Secondary\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.pdb
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll.config
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\MentorJWcfService.pdb
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\EntityFramework.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\EntityFramework.xml
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.xml
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ_secondary\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.pdb
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll.config
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\MentorJWcfService.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\MentorJWcfService.pdb
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\EntityFramework.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\EntityFramework.xml
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\bin\EntityFramework.SqlServer.xml
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.csprojResolveAssemblyReference.cache
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.dll
+D:\Tri Le`\Documents\Visual Studio 2015\Projects\MentorJ\MentorJWcfService\obj\Debug\MentorJWcfService.pdb

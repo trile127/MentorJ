@@ -29,7 +29,7 @@ namespace MentorJWcfService
         [OperationContract]
         bool UpdateRecord_UserInfo(tblUserInfo rec);
         [OperationContract]
-        tblUserInfo ValidateLogin_UserInfo(string username, string password);
+        tblUserInfo ValidateLogin_UserInfo(string email, string password);
         [OperationContract]
         bool isUserNameTaken_UserInfo(tblUserInfo rec);
         [OperationContract]

@@ -625,7 +625,7 @@ public interface IMentorJInfoService
     bool EndUpdateRecord_UserInfo(System.IAsyncResult result);
     
     [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMentorJInfoService/ValidateLogin_UserInfo", ReplyAction="http://tempuri.org/IMentorJInfoService/ValidateLogin_UserInfoResponse")]
-    System.IAsyncResult BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState);
+    System.IAsyncResult BeginValidateLogin_UserInfo(string email, string password, System.AsyncCallback callback, object asyncState);
     
     MentorJWcfService.tblUserInfo EndValidateLogin_UserInfo(System.IAsyncResult result);
     
@@ -1289,9 +1289,9 @@ public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<I
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IMentorJInfoService.BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IMentorJInfoService.BeginValidateLogin_UserInfo(string email, string password, System.AsyncCallback callback, object asyncState)
     {
-        return base.Channel.BeginValidateLogin_UserInfo(username, password, callback, asyncState);
+        return base.Channel.BeginValidateLogin_UserInfo(email, password, callback, asyncState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1302,9 +1302,9 @@ public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<I
     
     private System.IAsyncResult OnBeginValidateLogin_UserInfo(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
-        string username = ((string)(inValues[0]));
+        string email = ((string)(inValues[0]));
         string password = ((string)(inValues[1]));
-        return ((IMentorJInfoService)(this)).BeginValidateLogin_UserInfo(username, password, callback, asyncState);
+        return ((IMentorJInfoService)(this)).BeginValidateLogin_UserInfo(email, password, callback, asyncState);
     }
     
     private object[] OnEndValidateLogin_UserInfo(System.IAsyncResult result)
@@ -1323,12 +1323,12 @@ public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<I
         }
     }
     
-    public void ValidateLogin_UserInfoAsync(string username, string password)
+    public void ValidateLogin_UserInfoAsync(string email, string password)
     {
-        this.ValidateLogin_UserInfoAsync(username, password, null);
+        this.ValidateLogin_UserInfoAsync(email, password, null);
     }
     
-    public void ValidateLogin_UserInfoAsync(string username, string password, object userState)
+    public void ValidateLogin_UserInfoAsync(string email, string password, object userState)
     {
         if ((this.onBeginValidateLogin_UserInfoDelegate == null))
         {
@@ -1343,7 +1343,7 @@ public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<I
             this.onValidateLogin_UserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnValidateLogin_UserInfoCompleted);
         }
         base.InvokeAsync(this.onBeginValidateLogin_UserInfoDelegate, new object[] {
-                    username,
+                    email,
                     password}, this.onEndValidateLogin_UserInfoDelegate, this.onValidateLogin_UserInfoCompletedDelegate, userState);
     }
     
@@ -1688,10 +1688,10 @@ public partial class MentorJInfoServiceClient : System.ServiceModel.ClientBase<I
             return _result;
         }
         
-        public System.IAsyncResult BeginValidateLogin_UserInfo(string username, string password, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginValidateLogin_UserInfo(string email, string password, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[2];
-            _args[0] = username;
+            _args[0] = email;
             _args[1] = password;
             System.IAsyncResult _result = base.BeginInvoke("ValidateLogin_UserInfo", _args, callback, asyncState);
             return _result;

@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SQLite;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace MentorJ_Android
 {
@@ -46,7 +47,7 @@ namespace MentorJ_Android
             dataBundle.PutString("UserProfile", JsonConvert.SerializeObject(loggedOnUser));
 
             loggedOnUser = JsonConvert.DeserializeObject<tblUserProfile>(dataBundle.GetString("UserProfile"));
-
+            dynamic receivedObject = JObject.Parse(dataBundle.GetString("UserProfile"));
             //FragmentTransaction transaction = FragmentManager.BeginTransaction();
             //SlidingTabsFragment fragment = new SlidingTabsFragment();
             //fragment.Arguments = dataBundle;
