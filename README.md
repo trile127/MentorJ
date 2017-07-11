@@ -1,5 +1,9 @@
 # MentorJ
 
+
+![Preview](https://github.com/cableman127/MentorJ/blob/master/MentorJ_Login.png)
+![Preview](https://github.com/cableman127/MentorJ/blob/master/Groups.png)
+![Preview](https://github.com/cableman127/MentorJ/blob/master/MentorJ.png)
 Features:
 Facebook Profiles and Group Pages
 	Make Posts, comments, video, images.
